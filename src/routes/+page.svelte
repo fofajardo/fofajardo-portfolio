@@ -1,2 +1,24 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+    import Icon from "@iconify/svelte";
+    import Header from "$lib/header.svelte";
+
+    let { data } = $props();
+</script>
+
+<div class="full center-v">
+    <Header {data} />
+    <section class="bg" id="about">
+        <div id="section-about" class="content-layout">
+            <h1 class="visually-hidden">About Me</h1>
+            <div class="card">
+                <div>
+                    <p style="text-align: justify; margin: 0;">
+                        I'm a Computer Science student at the <a target="_blank" href="https://uplb.edu.ph/"><Icon icon="tabler:school" /> University of the Philippines Los Baños</a>.<br/><br/> I've been fascinated with technology since I first used our old family computer as a kid. I am also a fan of Filipino writing and poetry, RPGs, strategy and simulation games, and retro gaming. I occasionally post about some of those topics in my blog, <a href="http://saligsig.wordpress.com/"><Icon icon="tabler:brand-wordpress" /> Saligsig</a>.
+                        <br/><br/>
+                        Take a closer look at my <a target="_blank" href="https://drive.google.com/file/d/1FkoQdk_GV_Ad2Lb7VSxhBX6uddumziwo/view?usp=drive_link"><Icon icon="tabler:file-type-pdf" /> résumé</a> to explore my qualifications and experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
