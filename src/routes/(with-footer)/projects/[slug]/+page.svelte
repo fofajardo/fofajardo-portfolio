@@ -1,9 +1,13 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import Glide from "@glidejs/glide";
     import SvelteMarkdown from "@humanspeak/svelte-markdown";
     import Icon from "@iconify/svelte";
+
+    import Glide from "@glidejs/glide";
     import "@glidejs/glide/dist/css/glide.core.min.css";
+
+    import Viewer from "viewerjs";
+    import "viewerjs/dist/viewer.css";
 
     let { data } = $props();
     let project = $derived(data.project);
@@ -42,6 +46,13 @@
                     }
                 }
             }).mount();
+            new Viewer(
+                document.getElementById("viewer-target")!,
+                {
+                    inline: false,
+                    title: false,
+                }
+            );
         }
     });
 </script>
@@ -75,12 +86,13 @@
 {#if project.previewset}
 <div id="details-glide" class="glide">
     <div class="glide__track" data-glide-el="track">
-        <ul class="glide__slides">
-            {#each Object.keys(imageModules()) as preview}
+        <ul id="viewer-target" class="glide__slides">
+            {#each Object.keys(imageModules()) as preview, index}
             <li>
                 <enhanced:img
                     class="glide__slide"
                     src={imageModules()[preview].default}
+                    alt={`Preview image ${index + 1} of project ${project.title}`}
                 />
             </li>
             {/each}
