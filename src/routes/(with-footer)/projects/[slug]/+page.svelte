@@ -47,7 +47,7 @@
 </script>
 
 <svelte:head>
-    <title>Francis Dominic Fajardo - Project - {project.title}</title>
+    <title>Francis Dominic Fajardo - Projects - {project.title}</title>
     <meta name="description" content={project.subtitle} />
 </svelte:head>
 

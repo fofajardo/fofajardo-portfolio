@@ -66,6 +66,11 @@
     }
 </script>
 
+<svelte:head>
+    <title>Francis Dominic Fajardo - Projects</title>
+    <meta name="description" content="A collection of personal and academic projects showcasing my skills and experience." />
+</svelte:head>
+
 <Header {data} />
 <section class="bg" id="projects">
     <div id="section-projects" class="content-layout">

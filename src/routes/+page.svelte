@@ -5,6 +5,11 @@
     let { data } = $props();
 </script>
 
+<svelte:head>
+    <title>Francis Dominic Fajardo - Software Developer</title>
+    <meta name="description" content="Francis Dominic Fajardo's Portfolio">
+</svelte:head>
+
 <div class="full center-v">
     <Header {data} />
     <section class="bg" id="about">

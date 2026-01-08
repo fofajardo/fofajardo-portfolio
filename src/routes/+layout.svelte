@@ -30,9 +30,7 @@
 	<link rel="manifest" href={siteWebmanifest} />
 	<!-- OpenGraph -->
 	<meta property="og:title" content="Francis Dominic Fajardo - Software Developer">
-	<meta property="og:description" content="Francis Dominic Fajardo's Portfolio, User Page on GitHub">
-	<meta property="og:image" content="assets/cover.png">
-	<meta name="description" content="Francis Dominic Fajardo's Portfolio, User Page on GitHub">
+	<meta property="og:description" content="Francis Dominic Fajardo's Portfolio">
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-CB1CL6K9LN"></script>
 	<script>

@@ -5,6 +5,11 @@
     let { data } = $props();
 </script>
 
+<svelte:head>
+    <title>Francis Dominic Fajardo - Experience</title>
+    <meta name="description" content="A collection of my professional experience, volunteering, and invited talks." />
+</svelte:head>
+
 <Header {data} />
 <main>
     <section class="bg" id="experience">
