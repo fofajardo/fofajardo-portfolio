@@ -452,6 +452,14 @@ th {
 #details-actions {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5em;
+  gap: 1em;
+}
+
+#details-actions > .button-container {
+  display: flex;
+  align-items: center;
   gap: 1em;
 }
 
@@ -539,6 +547,7 @@ body[data-loaded="true"] .cardset-loader {
 
 .card.phs {
   height: 200px;
+  border-radius: 24px;
 }
 
 @keyframes phs-position {

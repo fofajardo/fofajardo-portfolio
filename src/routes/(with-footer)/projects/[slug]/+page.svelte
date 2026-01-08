@@ -64,16 +64,21 @@
     <meta name="description" content={project.subtitle} />
 </svelte:head>
 
-<div id="details-actions">
-    <button id="action-back" class="button" onclick={(e) => history.back()}>
-        <Icon icon="tabler:arrow-left"></Icon>
-    </button>
-    {#if project.url}
-    <a id="action-visit-url" href={project.url} target="_blank">
-        <Icon icon="tabler:external-link"></Icon> Visit Project Site
-    </a>
-    {/if}
-</div>
+<header id="details-actions">
+    <nav class="button-container">
+        <button id="action-back" class="button" onclick={(e) => history.back()}>
+            <Icon icon="tabler:arrow-left"></Icon>
+        </button>
+        {#if project.url}
+        <a id="action-visit-url" href={project.url} target="_blank">
+            <Icon icon="tabler:external-link"></Icon> Visit Project Site
+        </a>
+        {/if}
+    </nav>
+    <span class="subtitle">
+    Francis Dominic Fajardo
+    </span>
+</header>
 
 <h1 id="details-title">{project.title}</h1>
 
