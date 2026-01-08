@@ -3,7 +3,7 @@
     let { data } = $props();
 
     const imageModules = import.meta.glob(
-        '$lib/assets/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}',
+        "$lib/assets/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
         {
             eager: true,
             query: {
@@ -43,14 +43,14 @@
 
     let projectSections: ProjectSection[] = $derived([
         { 
-            title: 'Personal', 
+            title: "Personal", 
             type: TYPE_PERSONAL, 
             projects: data.projects
                 .filter((e: Project) => e.type === TYPE_PERSONAL)
                 .map(mapProjectWithImage)
         },
         { 
-            title: 'Academic', 
+            title: "Academic", 
             type: TYPE_ACADEMIC, 
             projects: data.projects
                 .filter((e: Project) => e.type === TYPE_ACADEMIC)
@@ -60,9 +60,9 @@
 
     function getProjectLink(project: Project) {
         if (project.isDirect) {
-            return { href: project.url, target: '_blank' };
+            return { href: project.url, target: "_blank" };
         }
-        return { href: `/projects/${project.id}`, target: '_self' };
+        return { href: `/projects/${project.id}`, target: "_self" };
     }
 </script>
 
@@ -71,7 +71,7 @@
     <div id="section-projects" class="content-layout">
         <h1>Projects</h1>
         {#each projectSections as section, index}
-            <h2 style={index > 0 ? 'margin-top: 2em;' : ''}>{section.title}</h2>
+            <h2 style={index > 0 ? "margin-top: 2em;" : ""}>{section.title}</h2>
             {#if section.projects.length === 0}
                 <div class="cardset-loader">
                     <div class="card phs"></div>
@@ -100,8 +100,8 @@
                                 </div>
                                 <div class="card-subtitle fw-bold">{project.subtitle}</div>
                                 <span>
-                                    {project.dateStart || ''}
-                                    {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : '') : ' – Present'}
+                                    {project.dateStart || ""}
+                                    {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
                                 </span>
                             </div>
                         </div>

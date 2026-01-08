@@ -22,8 +22,8 @@
                                     {exp.title}
                                 </span>
                                <span>
-                                    {exp.dateStart || ''}
-                                    {exp.dateEnd !== undefined ? (exp.dateEnd ? ` – ${exp.dateEnd}` : '') : ' – Present'}
+                                    {exp.dateStart || ""}
+                                    {exp.dateEnd !== undefined ? (exp.dateEnd ? ` – ${exp.dateEnd}` : "") : " – Present"}
                                 </span>
                              </div>
                             <span>{exp.organization}</span>
@@ -60,8 +60,8 @@
                                     {vol.title}
                                 </span>
                                 <span>
-                                    {vol.dateStart || ''}
-                                    {vol.dateEnd !== undefined ? (vol.dateEnd ? ` – ${vol.dateEnd}` : '') : ' – Present'}
+                                    {vol.dateStart || ""}
+                                    {vol.dateEnd !== undefined ? (vol.dateEnd ? ` – ${vol.dateEnd}` : "") : " – Present"}
                                 </span>
                             </div>
                             <span>{vol.organization}</span>
@@ -92,8 +92,8 @@
                                     {talk.title}
                                 </span>
                                 <span>
-                                    {talk.dateStart || ''}
-                                    {talk.dateEnd !== undefined ? (talk.dateEnd ? ` – ${talk.dateEnd}` : '') : ' – Present'}
+                                    {talk.dateStart || ""}
+                                    {talk.dateEnd !== undefined ? (talk.dateEnd ? ` – ${talk.dateEnd}` : "") : " – Present"}
                                 </span>
                             </div>
                             <span>{talk.organization}</span>

@@ -1,6 +1,6 @@
 import {
-	experience, nav, talks, volunteering
-} from '$lib/data.json';
+  experience, nav, talks, volunteering
+} from "$lib/data.json";
 
 export function load() {
 	return {

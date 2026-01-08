@@ -1,6 +1,6 @@
 import {
-	nav, projects
-} from '$lib/data.json';
+  nav, projects
+} from "$lib/data.json";
 
 export function load() {
 	return {

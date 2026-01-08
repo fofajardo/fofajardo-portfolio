@@ -1,15 +1,14 @@
 <script lang="ts">
-	import faviconIco from '$lib/assets/favicon.ico';
-	import faviconSvg from '$lib/assets/favicon.svg';
-	import favicon96x96Png from '$lib/assets/favicon-96x96.png';
-	import appleTouchIconPng from '$lib/assets/apple-touch-icon.png';
-	import siteWebmanifest from '$lib/assets/site.webmanifest';
-	import '$lib/assets/common.css';
+	import faviconIco from "$lib/assets/favicon.ico";
+	import faviconSvg from "$lib/assets/favicon.svg";
+	import favicon96x96Png from "$lib/assets/favicon-96x96.png";
+	import appleTouchIconPng from "$lib/assets/apple-touch-icon.png";
+	import siteWebmanifest from "$lib/assets/site.webmanifest";
+	import "$lib/assets/common.css";
 
 	let { children } = $props();
 
-	import { onNavigate } from '$app/navigation';
-
+	import { onNavigate } from "$app/navigation";
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
 
@@ -39,8 +38,8 @@
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-CB1CL6K9LN');
+		gtag("js", new Date());
+		gtag("config", "G-CB1CL6K9LN");
 	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
