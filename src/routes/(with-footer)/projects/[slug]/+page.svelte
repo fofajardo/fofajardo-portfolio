@@ -33,6 +33,7 @@
         return {};
     });
 
+    let previewLoaded = $state(false);
     onMount(() => {
         if (project.previewset) {
             new Glide(".glide", {
@@ -53,6 +54,7 @@
                     title: false,
                 }
             );
+            previewLoaded = true;
         }
     });
 </script>
@@ -84,7 +86,13 @@
 </div>
 
 {#if project.previewset}
-<div id="details-glide" class="glide">
+{#if !previewLoaded}
+<div class="cardset-loader">
+    <div class="card phs">
+    </div>
+</div>
+{/if}
+<div id="details-glide" class="glide" style="visibility: {previewLoaded ? 'visible' : 'collapse'}; height: {previewLoaded ? 'auto' : '0'};">
     <div class="glide__track" data-glide-el="track">
         <ul id="viewer-target" class="glide__slides">
             {#each Object.keys(imageModules()) as preview, index}
