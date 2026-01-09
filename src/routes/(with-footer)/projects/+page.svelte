@@ -61,7 +61,7 @@
         if (project.isDirect) {
             return { href: project.url, target: "_blank" };
         }
-        return { href: `/projects/${project.id}`, target: "_self" };
+        return { href: `/projects/${project.id}` };
     }
 </script>
 
