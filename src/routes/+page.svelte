@@ -15,7 +15,7 @@
 
 <div class="full center-v">
     <Header {data} />
-    <section class="bg" id="about">
+    <section id="about">
         <div id="section-about" class="content-layout">
             <h1 class="visually-hidden">About Me</h1>
             <div class="card">

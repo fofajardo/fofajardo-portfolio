@@ -72,7 +72,7 @@
 </svelte:head>
 
 <Header {data} />
-<section class="bg" id="projects">
+<section id="projects">
     <div id="section-projects" class="content-layout">
         <h1>Projects</h1>
         {#each projectSections as section, index}

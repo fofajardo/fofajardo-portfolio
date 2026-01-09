@@ -12,7 +12,7 @@
 
 <Header {data} />
 <main>
-    <section class="bg" id="experience">
+    <section id="experience">
         <div id="section-experience" class="content-layout">
             <h1>Experience</h1>
             <div id="cardset-experience-extracurricular" class="cardset">
@@ -50,7 +50,7 @@
         </div>
     </section>
 
-    <section class="bg" id="volunteering">
+    <section id="volunteering">
         <div id="section-volunteering" class="content-layout">
             <h2>Volunteering</h2>
             <div id="cardset-experience-extracurricular" class="cardset">
@@ -82,7 +82,7 @@
         </div>
     </section>
 
-    <section class="bg" id="talks">
+    <section id="talks">
         <div id="section-talks" class="content-layout">
             <h2>Invited Talks and Presentations</h2>
             <div id="cardset-experience-extracurricular" class="cardset">
