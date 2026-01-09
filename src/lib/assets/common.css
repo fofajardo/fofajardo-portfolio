@@ -306,12 +306,9 @@ th, td {
   gap: 2em;
 }
 
-.cardset.grid .card {
-  flex-direction: column;
-}
-
 .card {
   display: flex;
+  flex-direction: column;
   color: var(--text-main);
 }
 
@@ -407,6 +404,7 @@ th, td {
 }
 
 .card-project-metadata {
+  flex-direction: row;
   font-size: 1.25em;
 }
 
