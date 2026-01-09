@@ -11,6 +11,7 @@
   --page-text-color: #ffffffff;
   --page-font: "Inter", "Helvetica", "Roboto", sans-serif;
   --hero-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='200' height='200' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(135)'%3E%3Crect width='100%25' height='100%25' fill='rgba(51, 255, 51,1)'/%3E%3Cpath d='M0 20l21-20v2L0 22z' fill='rgba(0, 230, 0,1)'/%3E%3Cpath d='M21 0L40 20v2L21 2zM-19 0L0 20v2L-19 2z ' fill='rgba(51, 255, 51,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
+  --hero-text-color: var(--page-background);
   --max-distance: 62.5rem;
 }
 
@@ -25,10 +26,7 @@
     --page-header-color: #000000ff;
     --page-text-color: #000000ff;
     --hero-background: #ffffff;
-  }
-
-  .bg.cl1.cl1o {
-    color: var(--page-text-color);
+    --hero-text-color: var(--page-text-color);
   }
 }
 
@@ -161,21 +159,6 @@ span.subtitle {
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
-
-.bg.cl {
-  margin: 1em;
-  border-radius: 24px;
-}
-
-.bg.cl1 {
-  background: var(--hero-background);
-  color: var(--page-background);
-  padding: 1em;
-}
-
-.bg.cl > .full {
-  height: calc(100vh - 40px);
 }
 
 .full {
@@ -580,6 +563,23 @@ body[data-loaded="true"] .cardset-loader {
 }
 
 /* ::::: view transitions ::::: */
+
+.primary-header {
+  margin: 1em;
+  border-radius: 24px;
+  background: var(--hero-background);
+  color: var(--hero-text-color);
+  padding: 1em;
+  view-transition-name: primary-header;
+}
+
+.primary-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  view-transition-name: primary-nav;
+}
 
 @keyframes fade-in {
   from {
