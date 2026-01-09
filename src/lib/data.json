@@ -1,6 +1,11 @@
 {
     "nav": [
         {
+            "href": "/",
+            "icon": "tabler:home",
+            "label": "Home"
+        },
+        {
             "href": "/experience",
             "icon": "tabler:briefcase",
             "label": "Experience"
