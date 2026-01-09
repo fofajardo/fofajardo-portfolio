@@ -70,47 +70,43 @@
     <meta name="description" content="A collection of personal and academic projects showcasing my skills and experience." />
 </svelte:head>
 
-<section id="projects">
-    <div id="section-projects" class="content-layout">
-        <h1>Projects</h1>
-        {#each projectSections as section, index}
-            <h2 style={index > 0 ? "margin-top: 2em;" : ""}>{section.title}</h2>
-            {#if section.projects.length === 0}
-                <div class="cardset-loader">
-                    <div class="card phs"></div>
-                </div>
-            {/if}
-            <div class="cardset grid">
-                {#each section.projects as project}
-                    <a class="card-anchor" {...getProjectLink(project)}>
-                        <div class="card" id="project-{project.id}">
-                            {#if project.previewImage}
-                                <div class="card-preview">
-                                    <div class="card-preview-placeholder">
-                                        <enhanced:img
-                                            src={project.previewImage}
-                                            alt="{project.title} preview image"
-                                            class="img-uiv"
-                                            width="200"
-                                            height="200"
-                                        />
-                                    </div>
-                                </div>
-                            {/if}
-                            <div class="card-detail">
-                                <div class="card-header">
-                                    <span class="header-link">{project.title}</span>
-                                </div>
-                                <div class="card-subtitle fw-bold">{project.subtitle}</div>
-                                <span>
-                                    {project.dateStart || ""}
-                                    {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
-                                </span>
+<h1>Projects</h1>
+{#each projectSections as section, index}
+    <h2 style={index > 0 ? "margin-top: 2em;" : ""}>{section.title}</h2>
+    {#if section.projects.length === 0}
+        <div class="cardset-loader">
+            <div class="card phs"></div>
+        </div>
+    {/if}
+    <div class="cardset grid">
+        {#each section.projects as project}
+            <a class="card-anchor" {...getProjectLink(project)}>
+                <div class="card" id="project-{project.id}">
+                    {#if project.previewImage}
+                        <div class="card-preview">
+                            <div class="card-preview-placeholder">
+                                <enhanced:img
+                                    src={project.previewImage}
+                                    alt="{project.title} preview image"
+                                    class="img-uiv"
+                                    width="200"
+                                    height="200"
+                                />
                             </div>
                         </div>
-                    </a>
-                {/each}
-            </div>
+                    {/if}
+                    <div class="card-detail">
+                        <div class="card-header">
+                            <span class="header-link">{project.title}</span>
+                        </div>
+                        <div class="card-subtitle fw-bold">{project.subtitle}</div>
+                        <span>
+                            {project.dateStart || ""}
+                            {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
+                        </span>
+                    </div>
+                </div>
+            </a>
         {/each}
     </div>
-</section>
+{/each}

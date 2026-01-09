@@ -337,11 +337,6 @@ th {
   justify-content: center;
 }
 
-/* FIXME: Preserve old card style for non-grid card parent */
-:is(#section-contact, #section-about) .card {
-  gap: 1em;
-}
-
 /* Fallback for browsers that don't support the gap property */
 @supports not (gap: 1em) {
   .card > .card-preview {
@@ -399,11 +394,6 @@ th {
   .cardset.grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  #section-about .card {
-    flex-direction: column;
-    align-items: center;
   }
 }
 
