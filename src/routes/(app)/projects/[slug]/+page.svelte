@@ -114,26 +114,28 @@
         </nav>
     </div>
 
+    {#if project.technologies}
     <div class="card">
-        <div class="card-detail">
-            {#if project.technologies}
-            <div class="card-tech">
-                <strong>Technologies: </strong>
-                <span>{projectTechList}</span>
-            </div>
-            {/if}
-
-            {#if project.points && project.points.length > 0}
-            <ul>
-                {#each project.points as point}
-                <li><SvelteMarkdown source={point} /></li>
-                {/each}
-            </ul>
-            {/if}
-
-            {#if project.content}
-            <SvelteMarkdown source={project.content} />
-            {/if}
+        <div>
+            <strong>Technologies: </strong>
+            <span>{projectTechList}</span>
         </div>
     </div>
+    {/if}
+
+    {#if project.points && project.points.length > 0}
+    <div class="card">
+        <ul>
+            {#each project.points as point}
+            <li><SvelteMarkdown source={point} isInline /></li>
+            {/each}
+        </ul>
+    </div>
+    {/if}
+
+    {#if project.content}
+    <div class="card">
+        <SvelteMarkdown source={project.content} />
+    </div>
+    {/if}
 </div>
