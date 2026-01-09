@@ -13,11 +13,9 @@
 
 <style>
     :root {
-        --page-background: #000000;
-        --page-text-color: #FFFFFF;
+        --bg-canvas: #000000;
+        --text-main: #33FF33;
         --hero-background: #000000;
-        --color-primary: #33FF33;
-        --color-accent: #33FF33;
     }
 </style>
 
