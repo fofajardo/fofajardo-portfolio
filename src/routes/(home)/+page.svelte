@@ -6,8 +6,6 @@
 </script>
 
 <svelte:head>
-    <title>Francis Dominic Fajardo - Software Developer</title>
-    <meta name="description" content="Francis Dominic Fajardo's Portfolio">
 	<!-- Mastodon -->
 	<link rel="me" href="https://fosstodon.org/@fajardo">
 	<link rel="me" href="https://social.up.edu.ph/@fofajardo">
