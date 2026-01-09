@@ -1,9 +1,9 @@
 import {
-  experience, nav, talks, volunteering
+  experience, talks, volunteering
 } from "$lib/data.json";
 
 export function load() {
 	return {
-		experience, volunteering, talks, nav
+		experience, volunteering, talks
 	};
 }

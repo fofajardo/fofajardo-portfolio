@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Header from "$lib/header.svelte";
-    let { data } = $props();
+	let { data } = $props();
 
     const imageModules = import.meta.glob(
         "$lib/assets/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
@@ -71,7 +70,6 @@
     <meta name="description" content="A collection of personal and academic projects showcasing my skills and experience." />
 </svelte:head>
 
-<Header {data} />
 <section id="projects">
     <div id="section-projects" class="content-layout">
         <h1>Projects</h1>

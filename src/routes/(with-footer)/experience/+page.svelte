@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Header from "$lib/header.svelte";
     import Icon from "@iconify/svelte";
 
     let { data } = $props();
@@ -10,7 +9,6 @@
     <meta name="description" content="A collection of my professional experience, volunteering, and invited talks." />
 </svelte:head>
 
-<Header {data} />
 <main>
     <section id="experience">
         <div id="section-experience" class="content-layout">
