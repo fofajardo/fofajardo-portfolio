@@ -80,31 +80,29 @@
     {/if}
     <div class="cardset grid">
         {#each section.projects as project}
-            <a class="card-anchor" {...getProjectLink(project)}>
-                <div class="card" id="project-{project.id}">
-                    {#if project.previewImage}
-                        <div class="card-preview">
-                            <div class="card-preview-placeholder">
-                                <enhanced:img
-                                    src={project.previewImage}
-                                    alt="{project.title} preview image"
-                                    class="img-uiv"
-                                    width="200"
-                                    height="200"
-                                />
-                            </div>
+            <a class="card card-anchor" {...getProjectLink(project)} id="project-{project.id}">
+                {#if project.previewImage}
+                    <div class="card-preview">
+                        <div class="card-preview-placeholder">
+                            <enhanced:img
+                                src={project.previewImage}
+                                alt="{project.title} preview image"
+                                class="img-uiv"
+                                width="200"
+                                height="200"
+                            />
                         </div>
-                    {/if}
-                    <div class="card-detail">
-                        <div class="card-header">
-                            <span class="header-link">{project.title}</span>
-                        </div>
-                        <div class="card-subtitle fw-bold">{project.subtitle}</div>
-                        <span>
-                            {project.dateStart || ""}
-                            {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
-                        </span>
                     </div>
+                {/if}
+                <div class="card-detail">
+                    <div class="card-header">
+                        <span class="card-title">{project.title}</span>
+                        <span class="card-subtitle">{project.subtitle}</span>
+                    </div>
+                    <span>
+                        {project.dateStart || ""}
+                        {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
+                    </span>
                 </div>
             </a>
         {/each}

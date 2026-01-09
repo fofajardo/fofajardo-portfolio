@@ -65,54 +65,56 @@
     <meta name="description" content={project.subtitle} />
 </svelte:head>
 
-<h1 id="details-title">{project.title}</h1>
+<h1>{project.title}</h1>
 
-<div class="details-subhead box-sb">
-    <div id="details-subtitle" class="fw-bold">{project.subtitle}</div>
-    <span id="details-duration">
-        {project.dateStart || ""}
-        {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
-    </span>
-</div>
+<div class="cardset">
+    <div class="card card-project-metadata">
+        <div>{project.subtitle}</div>
+        <span>
+            {project.dateStart || ""}
+            {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
+        </span>
+    </div>
 
-{#if project.previewset}
-{#if !previewLoaded}
-<div class="cardset-loader">
-    <div class="card phs">
+    {#if project.previewset}
+    {#if !previewLoaded}
+    <div class="cardset-loader">
+        <div class="card phs">
+        </div>
     </div>
-</div>
-{/if}
-<div id="details-glide" class="glide" style="visibility: {previewLoaded ? 'visible' : 'collapse'}; height: {previewLoaded ? 'auto' : '0'};">
-    <div class="glide__track" data-glide-el="track">
-        <ul id="viewer-target" class="glide__slides">
-            {#each Object.keys(imageModules()) as preview, index}
-            <li>
-                <enhanced:img
-                    class="glide__slide"
-                    src={imageModules()[preview].default}
-                    alt={`Preview image ${index + 1} of project ${project.title}`}
-                />
-            </li>
-            {/each}
-        </ul>
-    </div>
-    <div class="glide__arrows" data-glide-el="controls">
-        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><Icon icon="tabler:chevron-left"></Icon></button>
-        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><Icon icon="tabler:chevron-right"></Icon></button>
-    </div>
-</div>
-{/if}
-
-<nav class="details-actions">
-    {#if project.url}
-    <a class="button" href={project.url} target="_blank">
-        <Icon icon="tabler:external-link"></Icon> Visit Project Site
-    </a>
     {/if}
-</nav>
+    <div class="card glide" data-loaded={previewLoaded}>
+        <div class="glide__track" data-glide-el="track">
+            <ul id="viewer-target" class="glide__slides">
+                {#each Object.keys(imageModules()) as preview, index}
+                <li>
+                    <enhanced:img
+                        class="glide__slide"
+                        src={imageModules()[preview].default}
+                        alt={`Preview image ${index + 1} of project ${project.title}`}
+                    />
+                </li>
+                {/each}
+            </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><Icon icon="tabler:chevron-left"></Icon></button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><Icon icon="tabler:chevron-right"></Icon></button>
+        </div>
+    </div>
+    {/if}
 
-<div id="cardset-details" class="cardset">
-    <div class="card" id={project.id}>
+    <div class="card">
+        <nav class="card-actions">
+            {#if project.url}
+            <a class="button" href={project.url} target="_blank">
+                <Icon icon="tabler:external-link"></Icon> Visit Project Site
+            </a>
+            {/if}
+        </nav>
+    </div>
+
+    <div class="card">
         <div class="card-detail">
             {#if project.technologies}
             <div class="card-tech">
