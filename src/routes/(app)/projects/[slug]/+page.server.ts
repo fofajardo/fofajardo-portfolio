@@ -1,6 +1,6 @@
 import {
   projects, technologies
-} from "$lib/data.json";
+} from "$lib/content/data.json";
 
 import { error } from "@sveltejs/kit";
 

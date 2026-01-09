@@ -5,7 +5,7 @@
 	let { data } = $props();
 
     const imageModules = import.meta.glob(
-        "$lib/assets/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
+        "$lib/content/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
         {
             eager: true,
             query: {
@@ -37,7 +37,8 @@
     const mapProjectWithImage = (p: Project) => ({
         ...p,
         previewImage: p.preview 
-            ? imageModules[`/src/lib/assets/previews/${p.preview}.jpg`]?.default ?? imageModules[`/src/lib/assets/previews/${p.preview}.png`]?.default
+            ? imageModules[`/src/lib/content/previews/${p.preview}.jpg`]?.default
+                ?? imageModules[`/src/lib/content/previews/${p.preview}.png`]?.default
             : undefined
     });
 

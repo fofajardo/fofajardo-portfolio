@@ -5,7 +5,7 @@
 
     import Glide from "@glidejs/glide";
     import "@glidejs/glide/dist/css/glide.core.min.css";
-    import "$lib/assets/common.glide.css"
+    import "$lib/styles/common.glide.css"
 
     import Viewer from "viewerjs";
     import "viewerjs/dist/viewer.css";
@@ -16,7 +16,7 @@
     let projectTechList = $derived(data.projectTechList);
 
     const allImageModules = import.meta.glob(
-        `$lib/assets/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
+        `$lib/content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
         {
             eager: true,
             query: {
@@ -27,7 +27,7 @@
 
     const imageModules = $derived(() => {
         if (project.previewset) {
-            const projectPath = `/src/lib/assets/previewset/${project.id}/`;
+            const projectPath = `/src/lib/content/previewset/${project.id}/`;
             return Object.fromEntries(
                 Object.entries(allImageModules).filter(([path]) => path.includes(projectPath))
             );

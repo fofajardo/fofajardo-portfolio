@@ -1,6 +1,6 @@
 import {
   experience, talks, volunteering
-} from "$lib/data.json";
+} from "$lib/content/data.json";
 
 export function load() {
 	return {
