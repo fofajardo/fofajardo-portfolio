@@ -80,7 +80,7 @@ a[href]:not([class]):hover {
   background-size: 100% 2px;
 }
 
-a[href] > .iconify {
+a[href]:not([class]) > .iconify {
   position: relative;
   bottom: -2px;
 }
@@ -186,23 +186,29 @@ span.subtitle {
   font-size: inherit;
   border: 2px solid var(--text-link);
   color: var(--text-link);
-  background: none;
+  background: linear-gradient(to right, var(--bg-surface-hover) 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
   text-decoration: none;
   padding: 0.5em 1em;
   border-radius: 9999em;
-  transition: filter 200ms;
   align-items: center;
   justify-content: center;
+  gap: 5px;
+  position: relative;
+  transition: background-position 300ms ease, color 200ms ease, box-shadow 200ms ease-in-out;
 }
 
 .button:hover,
 .button:focus {
-  filter: brightness(1.2);
+  --text-link: var(--text-link-hover);
+  background-position: 0 0;
 }
 
 .button:focus {
-  border-color: var(--text-main);
+  box-shadow: 0 0 0 2px var(--text-link) inset;
 }
+
 
 /* ::::: action buttons ::::: */
 
