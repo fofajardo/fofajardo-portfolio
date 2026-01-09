@@ -15,7 +15,7 @@
   z-index: 2;
   color: var(--text-main);
   text-transform: uppercase;
-  padding: 10px 12px;
+  padding: 10px 13px;
   font-size: 2em;
   background-color: var(--bg-surface);
   border: none;
@@ -26,6 +26,11 @@
   transition: opacity 150ms ease, border 300ms ease-in-out;
   transform: translateY(-50%);
   line-height: 1;
+}
+
+.glide__arrow > .iconify {
+  position: relative;
+  bottom: -2px;
 }
 
 .glide__arrow:focus {
