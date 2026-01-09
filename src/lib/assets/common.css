@@ -51,20 +51,17 @@ a[href] {
   position: relative;
 }
 
-a[href]:not([class])::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 2px;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-primary);
-  transition: width 0.3s ease;
+a[href]:not([class]) {
+  background-image: linear-gradient(var(--color-primary), var(--color-primary));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease;
 }
 
-a[href]:not([class]):focus::after,
-a[href]:not([class]):hover::after {
-  width: 100%;
+a[href]:not([class]):focus,
+a[href]:not([class]):hover {
+  background-size: 100% 2px;
 }
 
 a[href] > .iconify {
