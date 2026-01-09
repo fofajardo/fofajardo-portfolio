@@ -5,6 +5,7 @@
 
     import Glide from "@glidejs/glide";
     import "@glidejs/glide/dist/css/glide.core.min.css";
+    import "$lib/assets/common.glide.css"
 
     import Viewer from "viewerjs";
     import "viewerjs/dist/viewer.css";
