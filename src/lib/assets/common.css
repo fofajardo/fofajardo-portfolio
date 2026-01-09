@@ -1,32 +1,32 @@
 /* ::::: primary ::::: */
 
 :root {
-  --color-primary: #33FF33;
-  --color-accent: #33FF33;
-  --card-background-normal: #231f20;
-  --card-background-hover: #33FF3338;
-  --page-background: #000000;
-  --page-background-alternate: #33FF33;
-  --page-header-color: #33FF33;
-  --page-text-color: #ffffffff;
+  --color-primary: #000000ff;
+  --color-accent: #000000ff;
+  --card-background-normal: #f0f0f0;
+  --card-background-hover: #86868638;
+  --page-background: #ffffff;
+  --page-background-alternate: #000000ff;
+  --page-header-color: #000000ff;
+  --page-text-color: #000000ff;
   --page-font: "Inter", "Helvetica", "Roboto", sans-serif;
-  --hero-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='200' height='200' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(135)'%3E%3Crect width='100%25' height='100%25' fill='rgba(51, 255, 51,1)'/%3E%3Cpath d='M0 20l21-20v2L0 22z' fill='rgba(0, 230, 0,1)'/%3E%3Cpath d='M21 0L40 20v2L21 2zM-19 0L0 20v2L-19 2z ' fill='rgba(51, 255, 51,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
-  --hero-text-color: var(--page-background);
+  --hero-background: #ffffff;
+  --hero-text-color: var(--page-text-color);
   --max-distance: 62.5rem;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: #000000ff;
-    --color-accent: #000000ff;
-    --card-background-normal: #f0f0f0;
-    --card-background-hover: #86868638;
-    --page-background: #ffffff;
-    --page-background-alternate: #000000ff;
-    --page-header-color: #000000ff;
-    --page-text-color: #000000ff;
-    --hero-background: #ffffff;
-    --hero-text-color: var(--page-text-color);
+    --color-primary: #33FF33;
+    --color-accent: #33FF33;
+    --card-background-normal: #231f20;
+    --card-background-hover: #33FF3338;
+    --page-background: #000000;
+    --page-background-alternate: #33FF33;
+    --page-header-color: #33FF33;
+    --page-text-color: #ffffffff;
+    --hero-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='200' height='200' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(135)'%3E%3Crect width='100%25' height='100%25' fill='rgba(51, 255, 51,1)'/%3E%3Cpath d='M0 20l21-20v2L0 22z' fill='rgba(0, 230, 0,1)'/%3E%3Cpath d='M21 0L40 20v2L21 2zM-19 0L0 20v2L-19 2z ' fill='rgba(51, 255, 51,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
+    --hero-text-color: var(--page-background);
   }
 }
 
