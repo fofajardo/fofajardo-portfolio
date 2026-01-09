@@ -104,7 +104,7 @@
 
 <nav class="details-actions">
     {#if project.url}
-    <a id="action-visit-url" href={project.url} target="_blank">
+    <a class="button" href={project.url} target="_blank">
         <Icon icon="tabler:external-link"></Icon> Visit Project Site
     </a>
     {/if}
