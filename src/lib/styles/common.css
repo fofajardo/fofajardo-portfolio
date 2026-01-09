@@ -269,14 +269,20 @@ span.subtitle {
   margin: 0;
   padding: 0;
   list-style: none;
+  gap: 0.5em;
 }
 
 .group-ab > li {
   font-size: 19.2px;
 }
 
-.group-ab > li:not(:last-child) {
-  margin-right: 0.5em;
+@media screen and (max-width: 425px) {
+  .group-ab {
+    gap: 0.5em 2em;
+  }
+  .primary-nav {
+    margin: 0 1.5em;
+  }
 }
 
 /* ::::: table ::::: */
@@ -497,7 +503,7 @@ th, td {
 
 .primary-nav {
   display: flex;
-  height: 36px;
+  min-height: 36px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
