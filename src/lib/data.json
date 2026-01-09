@@ -26,6 +26,12 @@
             "label": "Facebook"
         },
         {
+            "href": "https://twitter.com/fofajardo",
+            "icon": "tabler:brand-twitter",
+            "label": "Twitter",
+            "limitTo": "launcher"
+        },
+        {
             "href": "https://fosstodon.org/@fajardo",
             "icon": "tabler:brand-mastodon",
             "label": "Mastodon"
@@ -44,6 +50,12 @@
             "href": "https://gitlab.com/fofajardo",
             "icon": "tabler:brand-gitlab",
             "label": "GitLab"
+        },
+        {
+            "href": "https://steamcommunity.com/id/frankwilco/",
+            "icon": "tabler:brand-steam",
+            "label": "Steam",
+            "limitTo": "launcher"
         }
     ],
     "experience": [

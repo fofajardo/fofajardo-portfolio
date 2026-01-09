@@ -94,11 +94,6 @@ span.title {
   font-weight: 900;
 }
 
-span.title.term {
-  color: var(--color-primary);
-  font-style: normal;
-}
-
 span.subtitle {
   text-transform: uppercase;
   font-size: 1.3em;
@@ -571,6 +566,12 @@ body[data-loaded="true"] .cardset-loader {
   color: var(--hero-text-color);
   padding: 1em;
   view-transition-name: primary-header;
+}
+
+.primary-header.term {
+  color: var(--color-primary);
+  margin: 0;
+  padding: 0;
 }
 
 .primary-nav {

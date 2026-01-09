@@ -12,7 +12,7 @@
 </svelte:head>
 
 <div class="full center-v">
-    <Header {data} />
+    <Header {data} launcher={false} />
     <section id="about">
         <div id="section-about" class="content-layout">
             <h1 class="visually-hidden">About Me</h1>
