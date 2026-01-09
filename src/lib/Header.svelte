@@ -5,7 +5,7 @@
     let { data, launcher } = $props();
 </script>
 
-<header class="primary-header cl1o {launcher ? 'term' : ''}" aria-label="Site header">
+<header class="primary-header {launcher ? 'term' : ''}" aria-label="Site header">
     <div class="center">
         {#if launcher}
         <span class="title">λ</span>
