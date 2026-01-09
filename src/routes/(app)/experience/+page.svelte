@@ -1,4 +1,5 @@
 <script lang="ts">
+    import DateRangeSpan from "$lib/DateRangeSpan.svelte";
     import Icon from "@iconify/svelte";
 
     let { data } = $props();
@@ -22,11 +23,8 @@
                         <span style="font-size: 1.25em; font-weight: bold; max-width: 30em;">
                             {exp.title}
                         </span>
-                        <span>
-                            {exp.dateStart || ""}
-                            {exp.dateEnd !== undefined ? (exp.dateEnd ? ` – ${exp.dateEnd}` : "") : " – Present"}
-                        </span>
-                        </div>
+                        <DateRangeSpan entry={exp} />
+                    </div>
                     <span>{exp.organization}</span>
                     <ul>
                         {#each exp.points as point}
@@ -58,10 +56,7 @@
                         <span style="font-size: 1.25em; font-weight: bold;">
                             {vol.title}
                         </span>
-                        <span>
-                            {vol.dateStart || ""}
-                            {vol.dateEnd !== undefined ? (vol.dateEnd ? ` – ${vol.dateEnd}` : "") : " – Present"}
-                        </span>
+                        <DateRangeSpan entry={vol} />
                     </div>
                     <span>{vol.organization}</span>
                     <ul>
@@ -88,10 +83,7 @@
                         <span style="font-size: 1.25em; font-weight: bold;">
                             {talk.title}
                         </span>
-                        <span>
-                            {talk.dateStart || ""}
-                            {talk.dateEnd !== undefined ? (talk.dateEnd ? ` – ${talk.dateEnd}` : "") : " – Present"}
-                        </span>
+                        <DateRangeSpan entry={talk} />
                     </div>
                     <span>{talk.organization}</span>
                     <p style="text-align: justify;">{talk.description}</p>

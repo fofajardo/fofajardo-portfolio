@@ -9,6 +9,7 @@
 
     import Viewer from "viewerjs";
     import "viewerjs/dist/viewer.css";
+    import DateRangeSpan from "$lib/DateRangeSpan.svelte";
 
     let { data } = $props();
     let project = $derived(data.project);
@@ -70,10 +71,7 @@
 <div class="cardset">
     <div class="card card-project-metadata">
         <div>{project.subtitle}</div>
-        <span>
-            {project.dateStart || ""}
-            {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
-        </span>
+        <DateRangeSpan entry={project} />
     </div>
 
     {#if project.previewset}

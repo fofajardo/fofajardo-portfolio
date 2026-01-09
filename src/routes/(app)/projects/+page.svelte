@@ -1,4 +1,7 @@
 <script lang="ts">
+    import DateRangeSpan from "$lib/DateRangeSpan.svelte";
+    import type { EntryWithDateRangeSpan } from "$lib/DateRangeSpan.svelte";
+
 	let { data } = $props();
 
     const imageModules = import.meta.glob(
@@ -14,15 +17,13 @@
     const TYPE_ACADEMIC = 0;
     const TYPE_PERSONAL = 1;
 
-    interface Project {
+    interface Project extends EntryWithDateRangeSpan {
         id: string;
         type: number;
         title: string;
         subtitle: string;
         preview?: string;
         previewImage?: string;
-        dateStart?: string;
-        dateEnd?: string;
         isDirect?: boolean;
         url?: string;
     }
@@ -99,10 +100,7 @@
                         <span class="card-title">{project.title}</span>
                         <span class="card-subtitle">{project.subtitle}</span>
                     </div>
-                    <span>
-                        {project.dateStart || ""}
-                        {project.dateEnd !== undefined ? (project.dateEnd ? ` – ${project.dateEnd}` : "") : " – Present"}
-                    </span>
+                    <DateRangeSpan entry={project} />
                 </div>
             </a>
         {/each}
