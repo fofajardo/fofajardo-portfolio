@@ -64,25 +64,9 @@
     <meta name="description" content={project.subtitle} />
 </svelte:head>
 
-<header id="details-actions">
-    <nav class="button-container">
-        <button id="action-back" class="button" onclick={(e) => history.back()}>
-            <Icon icon="tabler:arrow-left"></Icon>
-        </button>
-        {#if project.url}
-        <a id="action-visit-url" href={project.url} target="_blank">
-            <Icon icon="tabler:external-link"></Icon> Visit Project Site
-        </a>
-        {/if}
-    </nav>
-    <span class="subtitle">
-    Francis Dominic Fajardo
-    </span>
-</header>
-
 <h1 id="details-title">{project.title}</h1>
 
-<div id="details-subhead" class="box-sb">
+<div class="details-subhead box-sb">
     <div id="details-subtitle" class="fw-bold">{project.subtitle}</div>
     <span id="details-duration">
         {project.dateStart || ""}
@@ -117,6 +101,14 @@
     </div>
 </div>
 {/if}
+
+<nav class="details-actions">
+    {#if project.url}
+    <a id="action-visit-url" href={project.url} target="_blank">
+        <Icon icon="tabler:external-link"></Icon> Visit Project Site
+    </a>
+    {/if}
+</nav>
 
 <div id="cardset-details" class="cardset">
     <div class="card" id={project.id}>

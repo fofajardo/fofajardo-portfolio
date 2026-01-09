@@ -419,20 +419,12 @@ th {
 
 /* ::::: content: project details ::::: */
 
-#details-subhead {
+.details-subhead {
   font-size: 1.25em;
   margin-bottom: 1em;
 }
 
-#details-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 0.5em;
-  gap: 1em;
-}
-
-#details-actions > .button-container {
+.details-actions {
   display: flex;
   align-items: center;
   gap: 1em;
