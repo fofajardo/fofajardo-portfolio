@@ -92,7 +92,7 @@ hr {
 h1, h2, h3, h4 {
   color: var(--text-main);
   text-transform: uppercase;
-  margin: 0.5em 0;
+  margin: 0 0 0.5em 0;
 }
 
 h1 {
@@ -116,6 +116,10 @@ span.subtitle {
   text-transform: uppercase;
   font-size: 1.3em;
   font-weight: 700;
+}
+
+.m-0 {
+  margin: 0;
 }
 
 .image {
