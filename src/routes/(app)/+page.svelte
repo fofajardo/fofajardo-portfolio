@@ -1,6 +1,6 @@
 <script lang="ts">
     import Icon from "@iconify/svelte";
-    import Header from "$lib/header.svelte";
+    import Header from "$lib/Header.svelte";
 
     let { data } = $props();
 </script>
