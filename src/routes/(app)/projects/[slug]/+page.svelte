@@ -111,6 +111,11 @@
                 <Icon icon="tabler:external-link"></Icon> Visit Project Site
             </a>
             {/if}
+            {#if project["url-video-demo"]}
+            <a class="button" href={project["url-video-demo"]} target="_blank">
+                <Icon icon="tabler:brand-youtube"></Icon> Watch Video Demo
+            </a>
+            {/if}
         </nav>
     </div>
 

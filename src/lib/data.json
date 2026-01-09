@@ -213,7 +213,8 @@
             ],
             "preview": "18",
             "previewset": true,
-            "content": "**Video Demonstration (courtesy of R. F. Ramos):** [https://youtu.be/MntXkmDEjrE](https://youtu.be/MntXkmDEjrE)"
+            "url-video-demo": "https://youtu.be/MntXkmDEjrE",
+            "content": "*Video demonstration courtesy of R. F. Ramos.*"
         },
         {
             "type": 0,
