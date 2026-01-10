@@ -1,9 +1,9 @@
 <script>
-    let year = new Date().getFullYear();
+  let year = new Date().getFullYear();
 </script>
 
 <footer class="content-layout center">
-    <span>
-        &copy; {year} Francis Dominic Fajardo
-    </span>
+  <span>
+    &copy; {year} Francis Dominic Fajardo
+  </span>
 </footer>

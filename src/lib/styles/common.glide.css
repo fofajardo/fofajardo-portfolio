@@ -23,7 +23,9 @@
   box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
   text-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: opacity 150ms ease, border 300ms ease-in-out;
+  transition:
+    opacity 150ms ease,
+    border 300ms ease-in-out;
   transform: translateY(-50%);
   line-height: 1;
 }
@@ -85,4 +87,3 @@
 .card.glide[data-mounted="false"] .glide__arrow {
   display: none;
 }
-

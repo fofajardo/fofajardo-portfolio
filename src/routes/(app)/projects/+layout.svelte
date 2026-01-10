@@ -1,9 +1,9 @@
 <script>
-	let { children } = $props();
+  let { children } = $props();
 </script>
 
 <main>
-    <section class="content-layout">
-		{@render children()}
-	</section>
+  <section class="content-layout">
+    {@render children()}
+  </section>
 </main>

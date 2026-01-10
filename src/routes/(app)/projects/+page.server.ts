@@ -1,9 +1,8 @@
-import {
-  projectCategories, projects
-} from "$lib/data";
+import { projects, projectCategories } from "$lib/data";
 
 export function load() {
-	return {
-		projectCategories, projects
-	};
+  return {
+    projects,
+    projectCategories
+  };
 }
