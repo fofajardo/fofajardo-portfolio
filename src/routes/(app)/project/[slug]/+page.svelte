@@ -11,6 +11,7 @@
   import "viewerjs/dist/viewer.css";
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
+  import Label from "$lib/Label.svelte";
 
   let { data } = $props();
   let project = $derived(data.project);
@@ -73,12 +74,8 @@
 
 <div class="cardset">
   <div class="card card-project-metadata">
-    <span class="label">
-      <Icon icon="tabler:info-circle" /> {project.subtitle}
-    </span>
-    <span class="label">
-      <Icon icon="tabler:calendar" /> <DateRangeSpan entry={project} />
-    </span>
+    <Label icon="tabler:info-circle">{project.subtitle}</Label>
+    <Label icon="tabler:calendar"><DateRangeSpan entry={project} /></Label>
   </div>
 
   {#if project.previewset}
@@ -111,10 +108,7 @@
   <div class="card">
     <nav class="card-actions">
       {#if project.directUrl}
-        <LinkAnchor
-          link={{ type: "external", url: project.directUrl }}
-          isButton
-        />
+        <LinkAnchor link={{ type: "external", url: project.directUrl }} isButton />
       {/if}
       {#each project.links as link}
         <LinkAnchor {link} isButton />
@@ -122,17 +116,16 @@
     </nav>
   </div>
 
-  {#if project.technologies}
-    <div class="card">
-      <div>
-        <strong>Technologies: </strong>
-        <span>{projectTechList}</span>
-      </div>
+  {#if project.content}
+    <div class="card card-content">
+      <Label icon="tabler:article" as="h3">Overview</Label>
+      <SvelteMarkdown source={project.content} />
     </div>
   {/if}
 
   {#if project.points && project.points.length > 0}
-    <div class="card">
+    <div class="card card-content">
+      <Label icon="tabler:list-details" as="h3">Contributions</Label>
       <ul>
         {#each project.points as point}
           <li><SvelteMarkdown source={point} isInline /></li>
@@ -141,9 +134,10 @@
     </div>
   {/if}
 
-  {#if project.content}
-    <div class="card">
-      <SvelteMarkdown source={project.content} />
+  {#if project.technologies}
+    <div class="card card-content">
+      <Label icon="tabler:tools" as="h3">Technologies</Label>
+      {projectTechList}
     </div>
   {/if}
 </div>

@@ -401,8 +401,12 @@ td {
   font-size: 1.25em;
 }
 
-.card > p {
+.card.card-content > :is(p, ul, ol, h1, h2, h3, h4, h5, h6) {
   margin: 0;
+}
+
+.card.card-content {
+  gap: 1em;
 }
 
 /* ::::: card anchor ::::: */
