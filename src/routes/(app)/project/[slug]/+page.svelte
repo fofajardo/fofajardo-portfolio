@@ -28,11 +28,15 @@
   ) as Record<string, { default: string }>;
 
   const imageModules = $derived(() => {
-    if (project.previewset) {
-      const projectPath = `/src/lib/content/previewset/${project.id}/`;
-      return Object.fromEntries(
-        Object.entries(allImageModules).filter(([path]) => path.includes(projectPath))
-      );
+    try {
+      if (project.previewset) {
+        const projectPath = `/src/lib/content/previewset/${project.id}/`;
+        return Object.fromEntries(
+          Object.entries(allImageModules).filter(([path]) => path.includes(projectPath))
+        );
+      }
+    } catch (e) {
+      console.error("Error loading preview set images for project:", project, e);
     }
     return {};
   });

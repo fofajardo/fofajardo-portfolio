@@ -15,11 +15,15 @@
   ) as Record<string, { default: string }>;
 
   function getPreviewImage(p: ProjectEntry): string {
-    if (p.preview) {
-      return (
-        imageModules[`/src/lib/content/previews/${p.preview}.jpg`]?.default ??
-        imageModules[`/src/lib/content/previews/${p.preview}.png`]?.default
-      );
+    try {
+      if (p.preview) {
+        return (
+          imageModules[`/src/lib/content/previews/${p.preview}.jpg`]?.default ??
+          imageModules[`/src/lib/content/previews/${p.preview}.png`]?.default
+        );
+      }
+    } catch (e) {
+      console.error("Error loading preview image for project:", p, e);
     }
     return "";
   }
