@@ -96,6 +96,7 @@
                             class="img-uiv phs"
                             width="200"
                             height="200"
+                            loading="lazy"
                             onload={onPreviewLoad}
                         />
                     </div>
