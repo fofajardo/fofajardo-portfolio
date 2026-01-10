@@ -2,7 +2,8 @@
   import type { Link } from "$lib/lib.types";
   import Label from "./Label.svelte";
 
-  let { link, isButton }: { link: Link; isButton?: boolean } = $props();
+  let { link, isButton, isInternal }: { link: Link; isButton?: boolean; isInternal?: boolean } =
+    $props();
 
   let linkTypeIconMap: Record<string, string> = {
     github: "tabler:brand-github",
@@ -25,6 +26,6 @@
   let anchorClass = $derived(isButton ? "button" : "");
 </script>
 
-<a class={anchorClass} href={link.url} target="_blank">
+<a class={anchorClass} href={link.url} target={isInternal ? undefined : "_blank"}>
   <Label {icon}>{label}</Label>
 </a>
