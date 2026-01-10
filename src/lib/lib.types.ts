@@ -13,9 +13,3 @@ export interface Project extends EntryWithDateRangeSpan {
     isDirect?: boolean;
     url?: string;
 }
-
-export interface ProjectSection {
-    title: string;
-    type: number;
-    projects: Project[];
-}

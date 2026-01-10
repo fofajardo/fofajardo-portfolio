@@ -5,8 +5,14 @@ import {
 import { error } from "@sveltejs/kit";
 
 export function load({ params }) {
-    const project = projects.find((project) => project.id === params.slug);
+	const { category, slug } = params;
 
+	const categoryProjects = projects[category as keyof typeof projects];
+	if (!categoryProjects) {
+		error(404);
+	}
+
+	const project = categoryProjects[slug as keyof typeof categoryProjects];
     if (!project) {
         error(404);
     }

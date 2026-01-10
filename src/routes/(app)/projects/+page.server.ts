@@ -1,7 +1,9 @@
-import { projects } from "$lib/content/data.json";
+import {
+  projectCategories, projects
+} from "$lib/content/data.json";
 
 export function load() {
 	return {
-		projects
+		projectCategories, projects
 	};
 }
