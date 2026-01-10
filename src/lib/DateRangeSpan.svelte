@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { EntryWithDateRangeSpan } from "$lib/lib.types";
+  import type { Entry } from "$lib/lib.types";
 
-  let { entry }: { entry: EntryWithDateRangeSpan } = $props();
+  let { entry }: { entry: Entry } = $props();
 </script>
 
 <span>
