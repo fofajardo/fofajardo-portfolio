@@ -3,8 +3,7 @@
     import Icon from "@iconify/svelte";
 
     let { data } = $props();
-    let { experience, experienceTypes } = $derived(data);
-    let experienceKeys = $derived(Object.keys(experienceTypes) as Array<keyof typeof experienceTypes>);
+    let { experience, experienceCategories } = $derived(data);
 </script>
 
 <svelte:head>
@@ -14,10 +13,10 @@
 
 <section class="content-layout">
     <h1>Experience</h1>
-    {#each experienceKeys as experienceKey}
-    <h2 id={experienceKey}>{experienceTypes[experienceKey]}</h2>
+    {#each experienceCategories as experienceCategory}
+    <h2>{experienceCategory.name}</h2>
     <div class="cardset">
-        {#each experience[experienceKey] as exp}
+        {#each experience[experienceCategory.id as keyof typeof experience] as exp}
         <div class="box-sb">
             <div class="card-icon">
                 <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>
