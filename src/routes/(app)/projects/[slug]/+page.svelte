@@ -75,13 +75,11 @@
     </div>
 
     {#if project.previewset}
-    {#if !previewLoaded}
-    <div class="cardset-loader">
+    <div class="card glide" data-loaded={previewLoaded}>
+        {#if !previewLoaded}
         <div class="card phs">
         </div>
-    </div>
-    {/if}
-    <div class="card glide" data-loaded={previewLoaded}>
+        {/if}
         <div class="glide__track" data-glide-el="track">
             <ul id="viewer-target" class="glide__slides">
                 {#each Object.keys(imageModules()) as preview, index}
