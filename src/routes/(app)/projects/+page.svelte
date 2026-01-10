@@ -26,8 +26,8 @@
   }
 
   function getProjectLink(categoryId: string, project: ProjectEntry) {
-    if (project.isDirect) {
-      return { href: project.url, target: "_blank" };
+    if (project.directUrl) {
+      return { href: project.directUrl, target: "_blank" };
     }
     return { href: `/project/${project.id}` };
   }

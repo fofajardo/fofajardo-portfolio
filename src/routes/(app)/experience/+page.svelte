@@ -1,5 +1,6 @@
 <script lang="ts">
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
+  import LinkAnchor from "$lib/LinkAnchor.svelte";
   import Icon from "@iconify/svelte";
 
   let { data } = $props();
@@ -37,13 +38,10 @@
                 <li>{point}</li>
               {/each}
             </ul>
-            {#if exp.link}
-              <a target="_blank" href={exp.link.url}>
-                <Icon icon="tabler:external-link"></Icon>
-                {exp.link.label}
-              </a>
+            {#each exp.links as link}
+              <LinkAnchor {link} />
               <br /><br />
-            {/if}
+            {/each}
           </div>
         </div>
       {/each}

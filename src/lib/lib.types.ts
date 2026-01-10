@@ -10,35 +10,35 @@ export interface Category {
   name: string;
 }
 
+export type Link = {
+  label?: string;
+  type: string;
+  url: string;
+  icon?: string;
+};
+
 export interface Entry {
   title: string;
   category: string;
   dateStart?: string;
   dateEnd?: string;
   points?: string[];
+  links?: Link[];
 }
 
 export type ProjectEntry = Entry & {
   id: string;
   subtitle: string;
-  url: string;
-  isDirect?: boolean;
+  directUrl: string;
   technologies?: string[];
   preview: string;
   previewset?: boolean;
-  "url-video-demo"?: string;
   content?: string;
-};
-
-export type Link = {
-  label: string;
-  url: string;
 };
 
 export type ExperienceEntry = Entry & {
   organization: string;
   description?: string;
-  link?: Link;
 };
 
 export type Technologies = {

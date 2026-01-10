@@ -10,6 +10,7 @@
   import Viewer from "viewerjs";
   import "viewerjs/dist/viewer.css";
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
+  import LinkAnchor from "$lib/LinkAnchor.svelte";
 
   let { data } = $props();
   let project = $derived(data.project);
@@ -105,16 +106,15 @@
 
   <div class="card">
     <nav class="card-actions">
-      {#if project.url}
-        <a class="button" href={project.url} target="_blank">
-          <Icon icon="tabler:external-link"></Icon> Visit Project Site
-        </a>
+      {#if project.directUrl}
+        <LinkAnchor
+          link={{ type: "external", url: project.directUrl }}
+          isButton
+        />
       {/if}
-      {#if project["url-video-demo"]}
-        <a class="button" href={project["url-video-demo"]} target="_blank">
-          <Icon icon="tabler:brand-youtube"></Icon> Watch Video Demo
-        </a>
-      {/if}
+      {#each project.links as link}
+        <LinkAnchor {link} isButton />
+      {/each}
     </nav>
   </div>
 
