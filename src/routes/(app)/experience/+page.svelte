@@ -16,7 +16,7 @@
     {#each experienceCategories as experienceCategory}
     <h2>{experienceCategory.name}</h2>
     <div class="cardset">
-        {#each experience[experienceCategory.id as keyof typeof experience] as exp}
+        {#each experience[experienceCategory.id] as exp}
         <div class="box-sb">
             <div class="card-icon">
                 <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>

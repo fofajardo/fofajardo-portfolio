@@ -1,4 +1,4 @@
-import { nav } from "$lib/content/data.json";
+import { nav } from "$lib/data";
 
 export function load() {
 	return {

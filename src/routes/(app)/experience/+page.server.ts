@@ -1,6 +1,6 @@
 import {
   experience, experienceCategories
-} from "$lib/content/data.json";
+} from "$lib/data";
 
 export function load() {
 	return {

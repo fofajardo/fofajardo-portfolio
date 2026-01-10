@@ -45,7 +45,7 @@
 {#each projectCategories as category}
     <h2>{category.name}</h2>
     <div class="cardset grid">
-        {#each Object.values(projects[category.id as keyof typeof projects] || {}) as project}
+        {#each Object.values(projects[category.id]) as project}
             <a class="card card-anchor" {...getProjectLink(category.id, project)} id="project-{project.id}">
                 {#if project.preview}
                     <div class="card-preview">

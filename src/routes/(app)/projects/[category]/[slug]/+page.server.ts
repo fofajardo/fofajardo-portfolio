@@ -1,18 +1,18 @@
 import {
   projects, technologies
-} from "$lib/content/data.json";
+} from "$lib/data";
 
 import { error } from "@sveltejs/kit";
 
 export function load({ params }) {
 	const { category, slug } = params;
 
-	const categoryProjects = projects[category as keyof typeof projects];
+	const categoryProjects = projects[category];
 	if (!categoryProjects) {
 		error(404);
 	}
 
-	const project = categoryProjects[slug as keyof typeof categoryProjects];
+	const project = categoryProjects[slug];
     if (!project) {
         error(404);
     }
@@ -23,7 +23,7 @@ export function load({ params }) {
 			let techName = project.technologies[i];
 			let techFriendlyName = techName;
 			if (techName in technologies) {
-				techFriendlyName = technologies[techName as keyof typeof technologies];
+				techFriendlyName = technologies[techName];
 			}
 			projectTechList += techFriendlyName;
 			if (i < project.technologies.length - 1) {
