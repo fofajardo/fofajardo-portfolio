@@ -20,12 +20,12 @@
     <h2>{experienceCategory.name}</h2>
     <div class="cardset">
       {#each experience[experienceCategory.id] as exp}
-        <div class="box-sb">
+        <div class="card card-2col">
           <div class="card-icon">
             <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>
           </div>
           <div class="card-detail" style="flex:1;">
-            <div class="box-sb">
+            <div class="card-2col">
               <span style="font-size: 1.25em; font-weight: bold; max-width: 30em;">
                 {exp.title}
               </span>

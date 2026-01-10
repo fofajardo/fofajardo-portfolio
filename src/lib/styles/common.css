@@ -349,16 +349,15 @@ td {
   width: calc(100% - (1em * 2));
 }
 
-.card-project-metadata,
-.box-sb {
+.card-2col {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 @media screen and (max-width: 425px) {
-  .card-project-metadata,
-  .box-sb {
+  .card-2col {
     flex-direction: column;
   }
 }
@@ -399,7 +398,6 @@ td {
 }
 
 .card-project-metadata {
-  flex-direction: row;
   font-size: 1.25em;
 }
 

@@ -71,7 +71,7 @@
 <h1 class="m-0">{project.title}</h1>
 
 <div class="cardset">
-  <div class="card card-project-metadata">
+  <div class="card card-2col card-project-metadata">
     <div>{project.subtitle}</div>
     <DateRangeSpan entry={project} />
   </div>
