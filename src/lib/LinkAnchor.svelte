@@ -20,11 +20,11 @@
     external: "Visit Link"
   };
 
-  let effectiveIcon = $derived(link.icon ?? linkTypeIconMap[link.type] ?? linkTypeIconMap["external"]);
-  let effectiveLabel = $derived(link.label ?? linkLabelMap[link.type] ?? linkLabelMap["external"]);
-  let effectiveClass = $derived(isButton ? "button" : "");
+  let icon = $derived(link.icon ?? linkTypeIconMap[link.type] ?? linkTypeIconMap["external"]);
+  let label = $derived(link.label ?? linkLabelMap[link.type] ?? linkLabelMap["external"]);
+  let anchorClass = $derived(isButton ? "button" : "");
 </script>
 
-<a class={effectiveClass} href={link.url} target="_blank">
-  <Label icon={effectiveIcon}>{effectiveLabel}</Label>
+<a class={anchorClass} href={link.url} target="_blank">
+  <Label {icon}>{label}</Label>
 </a>
