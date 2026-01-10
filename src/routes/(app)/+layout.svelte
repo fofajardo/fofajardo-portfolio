@@ -3,11 +3,12 @@
   import Header from "$lib/Header.svelte";
   import { page } from "$app/state";
 
-  let { data, children } = $props();
+  const { data, children } = $props();
+  const { nav } = $derived(data);
 </script>
 
 {#if page.url.pathname !== "/"}
-  <Header {data} launcher={false} />
+  <Header {nav} launcher={false} />
 {/if}
 
 {@render children()}

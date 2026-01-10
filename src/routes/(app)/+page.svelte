@@ -2,7 +2,8 @@
   import Icon from "@iconify/svelte";
   import Header from "$lib/Header.svelte";
 
-  let { data } = $props();
+  const { data } = $props();
+  const { nav } = $derived(data);
 </script>
 
 <svelte:head>
@@ -12,7 +13,7 @@
 </svelte:head>
 
 <div class="full center-v">
-  <Header {data} launcher={false} />
+  <Header {nav} launcher={false} />
   <main>
     <section class="content-layout">
       <div class="card">

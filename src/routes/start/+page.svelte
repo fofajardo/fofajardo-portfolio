@@ -1,7 +1,8 @@
 <script lang="ts">
   import Header from "$lib/Header.svelte";
 
-  let { data } = $props();
+  const { data } = $props();
+  const { nav } = $derived(data);
 </script>
 
 <svelte:head>
@@ -12,7 +13,7 @@
 </svelte:head>
 
 <div class="full center-v">
-  <Header {data} launcher={true} />
+  <Header {nav} launcher={true} />
 </div>
 
 <style>
