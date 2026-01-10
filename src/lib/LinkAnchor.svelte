@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { Link } from "$lib/lib.types";
-    import Icon from "@iconify/svelte";
+  import Label from "./Label.svelte";
 
-  let { link, isButton }: { link: Link, isButton?: boolean } = $props();
+  let { link, isButton }: { link: Link; isButton?: boolean } = $props();
 
   let linkTypeIconMap: Record<string, string> = {
     github: "tabler:brand-github",
@@ -26,5 +26,5 @@
 </script>
 
 <a class={effectiveClass} href={link.url} target="_blank">
-    <Icon icon={effectiveIcon}></Icon> {effectiveLabel}
+  <Label icon={effectiveIcon}>{effectiveLabel}</Label>
 </a>

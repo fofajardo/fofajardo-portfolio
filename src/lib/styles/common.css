@@ -255,14 +255,14 @@ span.subtitle {
   animation: 500ms pop 1 ease;
 }
 
-.action-button > .label {
+.action-button > .text {
   margin-left: 5px;
   font-weight: 700;
   color: var(--text-main);
 }
 
-.action-button:focus > .label,
-.action-button:hover > .label {
+.action-button:focus > .text,
+.action-button:hover > .text {
   color: var(--text-main);
 }
 
