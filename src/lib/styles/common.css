@@ -375,7 +375,7 @@ td {
   transition: opacity 1s ease-in;
   opacity: 1;
   object-position: center center;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 767px) {
