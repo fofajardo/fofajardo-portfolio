@@ -10,7 +10,8 @@
     figma: "tabler:brand-figma",
     site: "tabler:world-www",
     youtube: "tabler:brand-youtube",
-    external: "tabler:external-link"
+    external: "tabler:external-link",
+    researchPaperPdf: "tabler:file-type-pdf"
   };
 
   let linkLabelMap: Record<string, string> = {
@@ -18,7 +19,8 @@
     figma: "View on Figma",
     youtube: "Watch on YouTube",
     site: "Visit Site",
-    external: "Visit Link"
+    external: "Visit Link",
+    researchPaperPdf: "View Research Paper"
   };
 
   let icon = $derived(link.icon ?? linkTypeIconMap[link.type] ?? linkTypeIconMap["external"]);
