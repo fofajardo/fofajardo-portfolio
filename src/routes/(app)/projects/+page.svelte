@@ -39,12 +39,12 @@
 </script>
 
 <svelte:head>
-  <title>Francis Dominic Fajardo - Projects</title>
+  <title>Projects - Francis Dominic Fajardo</title>
   <meta
     name="description"
     content="A collection of personal and academic projects showcasing my skills and experience."
   />
-  <meta property="og:title" content="Francis Dominic Fajardo - Projects" />
+  <meta property="og:title" content="Projects - Francis Dominic Fajardo" />
   <meta
     property="og:description"
     content="A collection of personal and academic projects showcasing my skills and experience."

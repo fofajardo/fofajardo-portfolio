@@ -66,9 +66,9 @@
 </script>
 
 <svelte:head>
-  <title>Francis Dominic Fajardo - Projects - {project.title}</title>
+  <title>{project.title} - Projects - Francis Dominic Fajardo</title>
   <meta name="description" content={project.subtitle} />
-  <meta property="og:title" content="Francis Dominic Fajardo - Projects - {project.title}" />
+  <meta property="og:title" content="{project.title} - Projects - Francis Dominic Fajardo" />
   <meta property="og:description" content={project.subtitle} />
 </svelte:head>
 
