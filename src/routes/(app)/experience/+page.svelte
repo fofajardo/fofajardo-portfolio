@@ -3,6 +3,8 @@
     import Icon from "@iconify/svelte";
 
     let { data } = $props();
+    let { experience, experienceTypes } = $derived(data);
+    let experienceKeys = $derived(Object.keys(experienceTypes) as Array<keyof typeof experienceTypes>);
 </script>
 
 <svelte:head>
@@ -10,91 +12,38 @@
     <meta name="description" content="A collection of my professional experience, volunteering, and invited talks." />
 </svelte:head>
 
-<section id="experience" class="content-layout">
+<section class="content-layout">
     <h1>Experience</h1>
-    <div id="cardset-experience-extracurricular" class="cardset">
-        {#each data.experience as exp}
-            <div class="box-sb">
-                <div class="card-icon">
-                    <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>
-                </div>
-                <div class="card-detail" style="flex:1;">
-                    <div class="box-sb">
-                        <span style="font-size: 1.25em; font-weight: bold; max-width: 30em;">
-                            {exp.title}
-                        </span>
-                        <DateRangeSpan entry={exp} />
-                    </div>
-                    <span>{exp.organization}</span>
-                    <ul>
-                        {#each exp.points as point}
-                            <li>{point}</li>
-                        {/each}
-                    </ul>
-                    {#if exp.link}
-                        <a target="_blank" href={exp.link.url}>
-                            <Icon icon="tabler:external-link"></Icon> {exp.link.label}
-                        </a>
-                        <br/><br/>
-                    {/if}
-                </div>
+    {#each experienceKeys as experienceKey}
+    <h2 id={experienceKey}>{experienceTypes[experienceKey]}</h2>
+    <div class="cardset">
+        {#each experience[experienceKey] as exp}
+        <div class="box-sb">
+            <div class="card-icon">
+                <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>
             </div>
+            <div class="card-detail" style="flex:1;">
+                <div class="box-sb">
+                    <span style="font-size: 1.25em; font-weight: bold; max-width: 30em;">
+                        {exp.title}
+                    </span>
+                    <DateRangeSpan entry={exp} />
+                </div>
+                <span>{exp.organization}</span>
+                <ul>
+                    {#each exp.points as point}
+                        <li>{point}</li>
+                    {/each}
+                </ul>
+                {#if exp.link}
+                    <a target="_blank" href={exp.link.url}>
+                        <Icon icon="tabler:external-link"></Icon> {exp.link.label}
+                    </a>
+                    <br/><br/>
+                {/if}
+            </div>
+        </div>
         {/each}
     </div>
-</section>
-
-<section id="volunteering" class="content-layout">
-    <h2>Volunteering</h2>
-    <div id="cardset-experience-extracurricular" class="cardset">
-        {#each data.volunteering as vol}
-            <div class="box-sb">
-                <div class="card-icon">
-                    <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>
-                </div>
-                <div class="card-detail" style="flex:1;">
-                    <div class="box-sb">
-                        <span style="font-size: 1.25em; font-weight: bold;">
-                            {vol.title}
-                        </span>
-                        <DateRangeSpan entry={vol} />
-                    </div>
-                    <span>{vol.organization}</span>
-                    <ul>
-                        {#each vol.points as point}
-                            <li>{point}</li>
-                        {/each}
-                    </ul>
-                </div>
-            </div>
-        {/each}
-    </div>
-</section>
-
-<section id="talks" class="content-layout">
-    <h2>Invited Talks and Presentations</h2>
-    <div id="cardset-experience-extracurricular" class="cardset">
-        {#each data.talks as talk}
-            <div class="box-sb">
-                <div class="card-icon">
-                    <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>
-                </div>
-                <div class="card-detail" style="flex:1;">
-                    <div class="box-sb">
-                        <span style="font-size: 1.25em; font-weight: bold;">
-                            {talk.title}
-                        </span>
-                        <DateRangeSpan entry={talk} />
-                    </div>
-                    <span>{talk.organization}</span>
-                    <p style="text-align: justify;">{talk.description}</p>
-                    {#if talk.link}
-                        <a target="_blank" href={talk.link.url}>
-                            <Icon icon="tabler:external-link"></Icon> {talk.link.label}
-                        </a>
-                        <br/><br/>
-                    {/if}
-                </div>
-            </div>
-        {/each}
-    </div>
+    {/each}
 </section>
