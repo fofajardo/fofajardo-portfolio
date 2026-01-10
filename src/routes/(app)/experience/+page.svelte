@@ -13,6 +13,11 @@
     name="description"
     content="A collection of my professional experience, volunteering, and invited talks."
   />
+  <meta property="og:title" content="Francis Dominic Fajardo - Experience" />
+  <meta
+    property="og:description"
+    content="A collection of my professional experience, volunteering, and invited talks."
+  />
 </svelte:head>
 
 <section class="content-layout">

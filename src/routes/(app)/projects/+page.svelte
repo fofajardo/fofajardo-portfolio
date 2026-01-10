@@ -44,6 +44,11 @@
     name="description"
     content="A collection of personal and academic projects showcasing my skills and experience."
   />
+  <meta property="og:title" content="Francis Dominic Fajardo - Projects" />
+  <meta
+    property="og:description"
+    content="A collection of personal and academic projects showcasing my skills and experience."
+  />
 </svelte:head>
 
 <h1>Projects</h1>
