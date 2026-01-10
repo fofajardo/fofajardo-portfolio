@@ -70,7 +70,7 @@
   <meta name="description" content={project.subtitle} />
 </svelte:head>
 
-<h1 class="m-0">{project.title}</h1>
+<h1>{project.title}</h1>
 
 <div class="cardset">
   <div class="card card-project-metadata">
