@@ -3,7 +3,7 @@
   import Icon from "@iconify/svelte";
 
   let { data } = $props();
-  let { experience, experienceCategories } = $derived(data);
+  let { experiencesByCategoryMap, experienceCategories } = $derived(data);
 </script>
 
 <svelte:head>
@@ -19,7 +19,7 @@
   {#each experienceCategories as category}
     <h2 id={category.id}>{category.name}</h2>
     <div class="cardset">
-      {#each experience[category.id] as exp}
+      {#each experiencesByCategoryMap.get(category.id) ?? [] as exp}
         <div class="card card-2col">
           <div class="card-icon">
             <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>

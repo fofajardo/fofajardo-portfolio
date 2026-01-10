@@ -1,9 +1,9 @@
 <script lang="ts">
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
-  import type { Project } from "$lib/lib.types";
+  import type { ProjectEntry } from "$lib/lib.types";
 
   let { data } = $props();
-  const { projects, projectCategories } = $derived(data);
+  const { projectsByCategoryMap, projectCategories } = $derived(data);
 
   const imageModules = import.meta.glob(
     "$lib/content/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
@@ -15,7 +15,7 @@
     }
   ) as Record<string, { default: string }>;
 
-  function getPreviewImage(p: Project): string {
+  function getPreviewImage(p: ProjectEntry): string {
     if (p.preview) {
       return (
         imageModules[`/src/lib/content/previews/${p.preview}.jpg`]?.default ??
@@ -25,11 +25,11 @@
     return "";
   }
 
-  function getProjectLink(categoryId: string, project: Project) {
+  function getProjectLink(categoryId: string, project: ProjectEntry) {
     if (project.isDirect) {
       return { href: project.url, target: "_blank" };
     }
-    return { href: `/projects/${categoryId}/${project.id}` };
+    return { href: `/project/${project.id}` };
   }
 
   function onPreviewLoad(event: Event) {
@@ -50,7 +50,7 @@
 {#each projectCategories as category}
   <h2 id={category.id}>{category.name}</h2>
   <div class="cardset grid">
-    {#each Object.values(projects[category.id]) as project}
+    {#each projectsByCategoryMap.get(category.id) ?? [] as project}
       <a
         class="card card-anchor"
         {...getProjectLink(category.id, project)}

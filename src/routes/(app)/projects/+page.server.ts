@@ -1,8 +1,8 @@
-import { projects, projectCategories } from "$lib/data";
+import { projectCategories, projectsByCategoryMap } from "$lib/data";
 
 export function load() {
   return {
-    projects,
+    projectsByCategoryMap,
     projectCategories
   };
 }

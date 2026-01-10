@@ -12,12 +12,13 @@ export interface Category {
 
 export interface Entry {
   title: string;
+  category: string;
   dateStart?: string;
   dateEnd?: string;
   points?: string[];
 }
 
-export type Project = Entry & {
+export type ProjectEntry = Entry & {
   id: string;
   subtitle: string;
   url: string;
@@ -40,25 +41,15 @@ export type ExperienceEntry = Entry & {
   link?: Link;
 };
 
-export type Experience = {
-  [key: string]: ExperienceEntry[];
-};
-
 export type Technologies = {
   [key: string]: string;
-};
-
-export type Projects = {
-  [key: string]: {
-    [key: string]: Project;
-  };
 };
 
 export type Data = {
   nav: NavItem[];
   experienceCategories: Category[];
-  experience: Experience;
+  experiences: ExperienceEntry[];
   technologies: Technologies;
   projectCategories: Category[];
-  projects: Projects;
+  projects: ProjectEntry[];
 };

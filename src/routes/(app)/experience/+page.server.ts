@@ -1,8 +1,8 @@
-import { experience, experienceCategories } from "$lib/data";
+import { experiencesByCategoryMap, experienceCategories } from "$lib/data";
 
 export function load() {
   return {
-    experience,
+    experiencesByCategoryMap,
     experienceCategories
   };
 }

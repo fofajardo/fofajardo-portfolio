@@ -1,16 +1,11 @@
-import { projects, technologies } from "$lib/data";
+import { projectsMap, technologies } from "$lib/data";
 
 import { error } from "@sveltejs/kit";
 
 export function load({ params }) {
-  const { category, slug } = params;
+  const { slug } = params;
 
-  const categoryProjects = projects[category];
-  if (!categoryProjects) {
-    error(404);
-  }
-
-  const project = categoryProjects[slug];
+  const project = projectsMap.get(slug);
   if (!project) {
     error(404);
   }
