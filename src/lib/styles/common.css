@@ -453,8 +453,13 @@ td {
   animation-iteration-count: infinite;
   animation-name: phs-position;
   animation-timing-function: linear;
-  background: #eeeeee;
-  background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+  background: var(--bg-surface-hover);
+  background: linear-gradient(
+    to right,
+    var(--bg-surface-hover) 10%,
+    var(--bg-canvas) 18%,
+    var(--bg-surface-hover) 33%
+  );
   background-size: 800px 100px;
   font-size: 0;
 }
