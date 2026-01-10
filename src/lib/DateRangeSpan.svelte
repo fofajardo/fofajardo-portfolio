@@ -1,11 +1,6 @@
-<script lang="ts" module>
-    export interface EntryWithDateRangeSpan {
-        dateStart?: string;
-        dateEnd?: string;
-    }
-</script>
-
 <script lang="ts">
+    import type { EntryWithDateRangeSpan } from "$lib/lib.types";
+
     let { entry }: { entry: EntryWithDateRangeSpan } = $props();    
 </script>
 

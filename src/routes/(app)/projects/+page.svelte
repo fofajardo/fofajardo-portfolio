@@ -1,6 +1,6 @@
 <script lang="ts">
     import DateRangeSpan from "$lib/DateRangeSpan.svelte";
-    import type { EntryWithDateRangeSpan } from "$lib/DateRangeSpan.svelte";
+    import type { Project, ProjectSection } from "$lib/lib.types";
 
 	let { data } = $props();
 
@@ -16,23 +16,6 @@
 
     const TYPE_ACADEMIC = 0;
     const TYPE_PERSONAL = 1;
-
-    interface Project extends EntryWithDateRangeSpan {
-        id: string;
-        type: number;
-        title: string;
-        subtitle: string;
-        preview?: string;
-        previewImage?: string;
-        isDirect?: boolean;
-        url?: string;
-    }
-
-    interface ProjectSection {
-        title: string;
-        type: number;
-        projects: Project[];
-    }
 
     const mapProjectWithImage = (p: Project) => ({
         ...p,
