@@ -48,7 +48,7 @@
 
 <h1>Projects</h1>
 {#each projectCategories as category}
-  <h2>{category.name}</h2>
+  <h2 id={category.id}>{category.name}</h2>
   <div class="cardset grid">
     {#each Object.values(projects[category.id]) as project}
       <a

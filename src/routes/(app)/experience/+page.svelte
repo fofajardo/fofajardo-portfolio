@@ -16,10 +16,10 @@
 
 <section class="content-layout">
   <h1>Experience</h1>
-  {#each experienceCategories as experienceCategory}
-    <h2>{experienceCategory.name}</h2>
+  {#each experienceCategories as category}
+    <h2 id={category.id}>{category.name}</h2>
     <div class="cardset">
-      {#each experience[experienceCategory.id] as exp}
+      {#each experience[category.id] as exp}
         <div class="card card-2col">
           <div class="card-icon">
             <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>
