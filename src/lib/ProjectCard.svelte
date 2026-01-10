@@ -1,5 +1,6 @@
 <script lang="ts">
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
+  import Icon from "@iconify/svelte";
   import type { ProjectEntry } from "./lib.types";
 
   const { item } = $props();
@@ -53,6 +54,12 @@
         loading="lazy"
         onload={onPreviewLoad}
       />
+    </div>
+  {:else}
+    <div class="card-preview">
+      <div class="no-preview">
+        <Icon icon="streamline-freehand:app-window-layout" />
+      </div>
     </div>
   {/if}
   <div class="card-detail">

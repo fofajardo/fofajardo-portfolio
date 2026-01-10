@@ -365,19 +365,29 @@ td {
 }
 
 .card > .card-profile img,
-.card > .card-preview img {
+.card > .card-preview :is(img, div.no-preview) {
   width: 200px;
   height: 200px;
   border-radius: 24px;
 }
 
-.card > .card-preview img {
+.card > .card-preview :is(img, div.no-preview) {
   height: 200px;
   width: 100%;
   transition: opacity 1s ease-in;
   opacity: 1;
   object-position: center center;
   object-fit: cover;
+}
+
+.card .no-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface-hover);
+  color: var(--text-main);
+  font-size: 5em;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 767px) {
