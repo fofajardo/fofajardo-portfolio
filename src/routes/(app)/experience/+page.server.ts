@@ -1,4 +1,4 @@
-import { experiencesByCategoryMap, experienceCategories } from "$lib/data";
+import { experiencesByCategoryMap, experienceCategories } from "$lib/dataService";
 
 export function load() {
   return {

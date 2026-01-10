@@ -1,4 +1,4 @@
-import { projectsMap, technologies } from "$lib/data";
+import { projectsMap, technologies } from "$lib/dataService";
 
 import { error } from "@sveltejs/kit";
 

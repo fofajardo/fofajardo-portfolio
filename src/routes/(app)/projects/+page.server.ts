@@ -1,4 +1,4 @@
-import { projectCategories, projectsByCategoryMap } from "$lib/data";
+import { projectCategories, projectsByCategoryMap } from "$lib/dataService";
 
 export function load() {
   return {

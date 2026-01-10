@@ -1,4 +1,4 @@
-import { nav } from "$lib/data";
+import { nav } from "$lib/dataService";
 
 export function load() {
   return {
