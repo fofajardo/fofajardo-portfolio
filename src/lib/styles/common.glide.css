@@ -63,7 +63,7 @@
 
 .glide__slide {
   height: 200px;
-  border-radius: 1em;
+  border-radius: 24px;
   object-position: center center;
   object-fit: cover;
 }
@@ -77,3 +77,12 @@
 .glide__slides {
   list-style: none;
 }
+
+.card.glide[data-mounted="false"] > .glide__track > .glide__slides {
+  gap: 5px;
+}
+
+.card.glide[data-mounted="false"] .glide__arrow {
+  display: none;
+}
+

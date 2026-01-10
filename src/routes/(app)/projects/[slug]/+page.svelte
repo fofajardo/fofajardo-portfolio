@@ -35,7 +35,7 @@
         return {};
     });
 
-    let previewLoaded = $state(false);
+    let previewMounted = $state(false);
     onMount(() => {
         if (project.previewset) {
             new Glide(".glide", {
@@ -56,9 +56,14 @@
                     title: false,
                 }
             );
-            previewLoaded = true;
+            previewMounted = true;
         }
     });
+
+    function onPreviewLoad(event: Event) {
+        const img = event.target as HTMLImageElement;
+        img.classList.remove("phs");
+    }
 </script>
 
 <svelte:head>
@@ -75,19 +80,16 @@
     </div>
 
     {#if project.previewset}
-    <div class="card glide" data-loaded={previewLoaded}>
-        {#if !previewLoaded}
-        <div class="card phs">
-        </div>
-        {/if}
+    <div class="card glide" data-mounted={previewMounted}>
         <div class="glide__track" data-glide-el="track">
             <ul id="viewer-target" class="glide__slides">
                 {#each Object.keys(imageModules()) as preview, index}
                 <li>
                     <enhanced:img
-                        class="glide__slide"
+                        class="glide__slide phs"
                         src={imageModules()[preview].default}
                         alt={`Preview image ${index + 1} of project ${project.title}`}
+                        onload={onPreviewLoad}
                     />
                 </li>
                 {/each}

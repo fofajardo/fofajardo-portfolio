@@ -65,6 +65,11 @@
         }
         return { href: `/projects/${project.id}` };
     }
+
+    function onPreviewLoad(event: Event) {
+        const img = event.target as HTMLImageElement;
+        img.classList.remove("phs");
+    }
 </script>
 
 <svelte:head>
@@ -85,15 +90,14 @@
             <a class="card card-anchor" {...getProjectLink(project)} id="project-{project.id}">
                 {#if project.previewImage}
                     <div class="card-preview">
-                        <div class="card-preview-placeholder">
-                            <enhanced:img
-                                src={project.previewImage}
-                                alt="{project.title} preview image"
-                                class="img-uiv"
-                                width="200"
-                                height="200"
-                            />
-                        </div>
+                        <enhanced:img
+                            src={project.previewImage}
+                            alt="{project.title} preview image"
+                            class="img-uiv phs"
+                            width="200"
+                            height="200"
+                            onload={onPreviewLoad}
+                        />
                     </div>
                 {/if}
                 <div class="card-detail">
