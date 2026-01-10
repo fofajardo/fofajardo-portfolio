@@ -143,6 +143,11 @@ span.subtitle {
   border: 0;
 }
 
+.error-page-icon {
+  font-size: 5em;
+  margin-bottom: 10px;
+}
+
 /* ::::: Content: Box Layout ::::: */
 
 .content-layout {
