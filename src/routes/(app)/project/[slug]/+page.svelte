@@ -72,9 +72,13 @@
 <h1 class="m-0">{project.title}</h1>
 
 <div class="cardset">
-  <div class="card card-2col card-project-metadata">
-    <div>{project.subtitle}</div>
-    <DateRangeSpan entry={project} />
+  <div class="card card-project-metadata">
+    <span class="label">
+      <Icon icon="tabler:info-circle" /> {project.subtitle}
+    </span>
+    <span class="label">
+      <Icon icon="tabler:calendar" /> <DateRangeSpan entry={project} />
+    </span>
   </div>
 
   {#if project.previewset}

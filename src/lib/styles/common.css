@@ -82,6 +82,7 @@ a[href]:not([class]):hover {
   background-size: 100% 2px;
 }
 
+.label > .iconify,
 a[href]:not([class]) > .iconify {
   position: relative;
   bottom: -2px;
