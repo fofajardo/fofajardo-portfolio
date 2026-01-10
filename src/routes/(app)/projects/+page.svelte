@@ -1,9 +1,9 @@
 <script lang="ts">
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
-  import type { ProjectEntry } from "$lib/lib.types";
+  import { CategoryType, type ProjectEntry } from "$lib/lib.types";
 
   let { data } = $props();
-  const { projectsByCategoryMap, projectCategories } = $derived(data);
+  const { projectsByTagMap, tagsByCategoryMap } = $derived(data);
 
   const imageModules = import.meta.glob(
     "$lib/content/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
@@ -52,15 +52,11 @@
 </svelte:head>
 
 <h1>Projects</h1>
-{#each projectCategories as category}
-  <h2 id={category.id}>{category.name}</h2>
+{#each tagsByCategoryMap.get(CategoryType.Project) ?? [] as tag}
+  <h2 id={tag.id}>{tag.name}</h2>
   <div class="cardset grid">
-    {#each projectsByCategoryMap.get(category.id) ?? [] as project}
-      <a
-        class="card card-anchor"
-        {...getProjectLink(category.id, project)}
-        id="project-{project.id}"
-      >
+    {#each projectsByTagMap.get(tag.id) ?? [] as project}
+      <a class="card card-anchor" {...getProjectLink(tag.id, project)} id="project-{project.id}">
         {#if project.preview}
           <div class="card-preview">
             <enhanced:img

@@ -1,10 +1,11 @@
 <script lang="ts">
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
+  import { CategoryType } from "$lib/lib.types.js";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
   import Icon from "@iconify/svelte";
 
   let { data } = $props();
-  let { experiencesByCategoryMap, experienceCategories } = $derived(data);
+  let { experiencesByTagMap, tagsByCategoryMap } = $derived(data);
 </script>
 
 <svelte:head>
@@ -22,10 +23,10 @@
 
 <section class="content-layout">
   <h1>Experience</h1>
-  {#each experienceCategories as category}
-    <h2 id={category.id}>{category.name}</h2>
+  {#each tagsByCategoryMap.get(CategoryType.Experience) ?? [] as tag}
+    <h2 id={tag.id}>{tag.name}</h2>
     <div class="cardset">
-      {#each experiencesByCategoryMap.get(category.id) ?? [] as exp}
+      {#each experiencesByTagMap.get(tag.id) ?? [] as exp}
         <div class="card card-2col">
           <div class="card-icon">
             <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>

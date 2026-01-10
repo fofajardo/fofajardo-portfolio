@@ -5,8 +5,14 @@ export type NavItem = {
   limitTo?: string;
 };
 
-export interface Category {
+export enum CategoryType {
+  Project = "project",
+  Experience = "experience"
+}
+
+export interface Tag {
   id: string;
+  category: CategoryType;
   name: string;
 }
 
@@ -19,7 +25,7 @@ export type Link = {
 
 export interface Entry {
   title: string;
-  category: string;
+  tags: string[];
   dateStart?: string;
   dateEnd?: string;
   points?: string[];
@@ -49,9 +55,8 @@ export type NavData = {
   nav: NavItem[];
 };
 
-export type CategoriesData = {
-  experienceCategories: Category[];
-  projectCategories: Category[];
+export type TagsData = {
+  tags: Tag[];
 };
 
 export type ExperiencesData = {
