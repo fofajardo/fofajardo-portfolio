@@ -45,11 +45,23 @@ export type Technologies = {
   [key: string]: string;
 };
 
-export type Data = {
+export type NavData = {
   nav: NavItem[];
+};
+
+export type CategoriesData = {
   experienceCategories: Category[];
-  experiences: ExperienceEntry[];
-  technologies: Technologies;
   projectCategories: Category[];
+};
+
+export type ExperiencesData = {
+  experiences: ExperienceEntry[];
+};
+
+export type ProjectsData = {
   projects: ProjectEntry[];
+};
+
+export type TechnologiesData = {
+  technologies: Technologies;
 };
