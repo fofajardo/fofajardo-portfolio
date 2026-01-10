@@ -15,7 +15,7 @@
   let linkLabelMap: Record<string, string> = {
     github: "View on GitHub",
     figma: "View on Figma",
-    youtube: "View YouTube Demo",
+    youtube: "Watch on YouTube",
     site: "Visit Site",
     external: "Visit Link"
   };
