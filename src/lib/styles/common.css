@@ -291,6 +291,7 @@ span.subtitle {
   }
   .primary-nav {
     margin: 0 1.5em;
+    min-height: 80px;
   }
 }
 
