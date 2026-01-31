@@ -8,7 +8,10 @@ const config = {
   preprocess: [vitePreprocess(), mdsvex()],
 
   kit: {
-    adapter: adapter()
+    adapter: adapter(),
+    prerender: {
+      handleUnseenRoutes: "ignore"
+    }
   },
 
   extensions: [".svelte", ".svx"]
