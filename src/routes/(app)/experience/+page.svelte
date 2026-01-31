@@ -39,6 +39,9 @@
               <DateRangeSpan entry={exp} />
             </div>
             <span>{exp.organization}</span>
+            {#if exp.description}
+              <p>{exp.description}</p>
+            {/if}
             <ul>
               {#each exp.points as point}
                 <li>{point}</li>
