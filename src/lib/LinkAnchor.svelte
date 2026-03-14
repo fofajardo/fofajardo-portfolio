@@ -11,7 +11,8 @@
     site: "tabler:world-www",
     youtube: "tabler:brand-youtube",
     external: "tabler:external-link",
-    researchPaperPdf: "tabler:file-type-pdf"
+    researchPaperPdf: "tabler:file-type-pdf",
+    gameDemo: "tabler:device-gamepad"
   };
 
   let linkLabelMap: Record<string, string> = {
@@ -20,7 +21,8 @@
     youtube: "Watch on YouTube",
     site: "Visit Site",
     external: "Visit Link",
-    researchPaperPdf: "View Research Paper"
+    researchPaperPdf: "View Research Paper",
+    gameDemo: "Play Online Demo"
   };
 
   let icon = $derived(link.icon ?? linkTypeIconMap[link.type] ?? linkTypeIconMap["external"]);
