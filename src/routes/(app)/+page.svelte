@@ -17,9 +17,9 @@
   <Header {nav} launcher={false} />
   <main>
     <section class="content-layout">
-      <div class="card">
+      <div class="card" style="margin-top: 1em;">
         <p style="text-align: justify; margin: 0;">
-          I'm a Computer Science student at the <LinkAnchor
+          I studied Computer Science at the <LinkAnchor
             link={{
               icon: "tabler:school",
               label: "University of the Philippines Los Baños",
@@ -40,7 +40,7 @@
             }}
           />.
           <br /><br />
-          Take a closer look at my
+          Take a look at my
           <LinkAnchor
             link={{
               icon: "tabler:file-type-pdf",
