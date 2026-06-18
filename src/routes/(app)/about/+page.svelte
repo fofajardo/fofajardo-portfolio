@@ -9,12 +9,12 @@
 </script>
 
 <svelte:head>
-  <title>Experience - Francis Dominic Fajardo</title>
+  <title>About Me - Francis Dominic Fajardo</title>
   <meta
     name="description"
     content="A collection of my professional experience, volunteering, and invited talks."
   />
-  <meta property="og:title" content="Experience - Francis Dominic Fajardo" />
+  <meta property="og:title" content="About Me - Francis Dominic Fajardo" />
   <meta
     property="og:description"
     content="A collection of my professional experience, volunteering, and invited talks."
@@ -22,7 +22,7 @@
 </svelte:head>
 
 <section class="content-layout">
-  <h1>Experience</h1>
+  <h1>About Me</h1>
   {#each tagsByCategoryMap.get(CategoryType.Experience) ?? [] as tag}
     <h2 id={tag.id}>{tag.name}</h2>
     <div class="cardset">

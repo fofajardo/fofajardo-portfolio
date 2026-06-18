@@ -1,8 +1,5 @@
-import { experiencesByTagMap, tagsByCategoryMap } from "$lib/dataService";
+import { redirect } from "@sveltejs/kit";
 
 export function load() {
-  return {
-    experiencesByTagMap,
-    tagsByCategoryMap
-  };
+  redirect(308, "/about");
 }
