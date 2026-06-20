@@ -1,7 +1,7 @@
 <script lang="ts">
   import Footer from "$lib/Footer.svelte";
   import Header from "$lib/Header.svelte";
-  import { page } from "$app/state";
+  import { page, navigating } from "$app/state";
 
   const { data, children } = $props();
   const { nav } = $derived(data);
@@ -11,7 +11,9 @@
   <Header {nav} launcher={false} />
 {/if}
 
-{@render children()}
+<div class:is-navigating={!!navigating.to}>
+  {@render children()}
+</div>
 
 {#if page.url.pathname !== "/"}
   <Footer />
