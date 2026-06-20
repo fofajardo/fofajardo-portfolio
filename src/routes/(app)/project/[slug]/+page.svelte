@@ -76,74 +76,80 @@
   <meta property="og:description" content={project.subtitle} />
 </svelte:head>
 
-<h1>{project.title}</h1>
-
-<div class="cardset">
-  <div class="card card-project-metadata">
-    <Label icon="tabler:info-circle">{project.subtitle}</Label>
-    <Label icon="tabler:calendar"><DateRangeSpan entry={project} /></Label>
+<div class="heading-container">
+  <div class="heading-content">
+    <h1>{project.title}</h1>
   </div>
+</div>
 
-  {#if project.previewset}
-    <div class="card glide" data-mounted={previewMounted}>
-      <div class="glide__track" data-glide-el="track">
-        <ul id="viewer-target" class="glide__slides">
-          {#each Object.keys(imageModules()) as preview, index}
-            <li>
-              <enhanced:img
-                class="glide__slide phs"
-                src={imageModules()[preview].default}
-                alt={`Preview image ${index + 1} of project ${project.title}`}
-                onload={onPreviewLoad}
-              />
-            </li>
+<section class="content-layout">
+  <div class="cardset">
+    <div class="card card-project-metadata">
+      <Label icon="tabler:info-circle">{project.subtitle}</Label>
+      <Label icon="tabler:calendar"><DateRangeSpan entry={project} /></Label>
+    </div>
+
+    {#if project.previewset}
+      <div class="card glide" data-mounted={previewMounted}>
+        <div class="glide__track" data-glide-el="track">
+          <ul id="viewer-target" class="glide__slides">
+            {#each Object.keys(imageModules()) as preview, index}
+              <li>
+                <enhanced:img
+                  class="glide__slide phs"
+                  src={imageModules()[preview].default}
+                  alt={`Preview image ${index + 1} of project ${project.title}`}
+                  onload={onPreviewLoad}
+                />
+              </li>
+            {/each}
+          </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<"
+            ><Icon icon="tabler:chevron-left"></Icon></button
+          >
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">"
+            ><Icon icon="tabler:chevron-right"></Icon></button
+          >
+        </div>
+      </div>
+    {/if}
+
+    <div class="card">
+      <nav class="card-actions">
+        {#if project.directUrl}
+          <LinkAnchor link={{ type: "external", url: project.directUrl }} isButton />
+        {/if}
+        {#each project.links as link}
+          <LinkAnchor {link} isButton />
+        {/each}
+      </nav>
+    </div>
+
+    {#if project.content}
+      <div class="card card-content">
+        <Label icon="tabler:article" as="h3">Overview</Label>
+        <SvelteMarkdown source={project.content} />
+      </div>
+    {/if}
+
+    {#if project.points && project.points.length > 0}
+      <div class="card card-content">
+        <Label icon="tabler:list-details" as="h3">Contributions</Label>
+        <ul>
+          {#each project.points as point}
+            <li><SvelteMarkdown source={point} isInline /></li>
           {/each}
         </ul>
       </div>
-      <div class="glide__arrows" data-glide-el="controls">
-        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"
-          ><Icon icon="tabler:chevron-left"></Icon></button
-        >
-        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"
-          ><Icon icon="tabler:chevron-right"></Icon></button
-        >
+    {/if}
+
+    {#if project.technologies}
+      <div class="card card-content">
+        <Label icon="tabler:tools" as="h3">Technologies</Label>
+        {projectTechList}
       </div>
-    </div>
-  {/if}
-
-  <div class="card">
-    <nav class="card-actions">
-      {#if project.directUrl}
-        <LinkAnchor link={{ type: "external", url: project.directUrl }} isButton />
-      {/if}
-      {#each project.links as link}
-        <LinkAnchor {link} isButton />
-      {/each}
-    </nav>
+    {/if}
   </div>
-
-  {#if project.content}
-    <div class="card card-content">
-      <Label icon="tabler:article" as="h3">Overview</Label>
-      <SvelteMarkdown source={project.content} />
-    </div>
-  {/if}
-
-  {#if project.points && project.points.length > 0}
-    <div class="card card-content">
-      <Label icon="tabler:list-details" as="h3">Contributions</Label>
-      <ul>
-        {#each project.points as point}
-          <li><SvelteMarkdown source={point} isInline /></li>
-        {/each}
-      </ul>
-    </div>
-  {/if}
-
-  {#if project.technologies}
-    <div class="card card-content">
-      <Label icon="tabler:tools" as="h3">Technologies</Label>
-      {projectTechList}
-    </div>
-  {/if}
-</div>
+</section>

@@ -525,16 +525,22 @@ td {
 /* ::::: heading with view switcher ::::: */
 
 .heading-container {
+  margin-top: 10px;
+  border-top: 8px solid var(--text-main);
+  width: 100%;
+}
+
+.heading-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 8px solid var(--text-main);
-  padding-top: 0.25em;
-  margin-top: 0;
-  margin-bottom: 1em;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 10px;
+  padding-top: 0.6em;
 }
 
-.heading-container h1 {
+.heading-content h1 {
   border-top: none;
   padding-top: 0;
   margin: 0;
@@ -647,8 +653,6 @@ td {
 .primary-header {
   margin: 1em;
   border-radius: 24px;
-  background: var(--hero-background);
-  color: var(--hero-text-color);
   padding: 1em;
   view-transition-name: primary-header;
 }

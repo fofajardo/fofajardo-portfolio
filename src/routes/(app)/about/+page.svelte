@@ -21,8 +21,13 @@
   />
 </svelte:head>
 
+<div class="heading-container">
+  <div class="heading-content">
+    <h1>About Me</h1>
+  </div>
+</div>
+
 <section class="content-layout">
-  <h1>About Me</h1>
   {#each tagsByCategoryMap.get(CategoryType.Experience) ?? [] as tag}
     <h2 id={tag.id}>{tag.name}</h2>
     <div class="cardset">
