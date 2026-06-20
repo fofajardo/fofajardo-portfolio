@@ -23,7 +23,7 @@
         <li>
           <a {href} class="action-button" data-sveltekit-reload={launcher}>
             <Icon class="icon" {icon} />
-            <span class="text visually-hidden">{label}</span>
+            <span class="text">{label}</span>
           </a>
         </li>
       {/if}
