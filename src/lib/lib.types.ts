@@ -47,8 +47,13 @@ export type ExperienceEntry = Entry & {
   description?: string;
 };
 
+export interface TechnologyInfo {
+  name: string;
+  icon: string;
+}
+
 export type Technologies = {
-  [key: string]: string;
+  [key: string]: TechnologyInfo;
 };
 
 export type NavData = {
