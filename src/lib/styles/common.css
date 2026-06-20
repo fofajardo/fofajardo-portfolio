@@ -342,6 +342,12 @@ td {
   gap: 2em;
 }
 
+.cardset.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -369,6 +375,81 @@ td {
 .cardset.grid .card > .card-detail {
   margin: 1em;
   width: calc(100% - (1em * 2));
+}
+
+.cardset.list .card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5em;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.cardset.list .card > .card-preview {
+  flex-shrink: 0;
+  width: 128px;
+  height: 80px;
+  margin: 0;
+  display: block;
+}
+
+.cardset.list .card > .card-preview :is(img, div.no-preview) {
+  width: 128px;
+  height: 80px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin: 0;
+}
+
+.cardset.list .card > .card-preview div.no-preview {
+  font-size: 2.5em;
+  background: var(--bg-surface-hover);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardset.list .card > .card-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0;
+  width: 100%;
+  gap: 1.5em;
+}
+
+.cardset.list .card > .card-detail > .card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  text-align: left;
+}
+
+.cardset.list .card > .card-detail > :not(.card-header) {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+  .cardset.list .card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .cardset.list .card > .card-detail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    width: 100%;
+  }
+  .cardset.list .card > .card-detail > :not(.card-header) {
+    text-align: left;
+  }
 }
 
 .card-2col {
@@ -439,6 +520,56 @@ td {
 
 .card.card-content {
   gap: 1em;
+}
+
+/* ::::: heading with view switcher ::::: */
+
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 8px solid var(--text-main);
+  padding-top: 0.25em;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.heading-container h1 {
+  border-top: none;
+  padding-top: 0;
+  margin: 0;
+}
+
+.view-switcher {
+  display: flex;
+  gap: 0.25em;
+  background: var(--bg-surface);
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.view-switcher-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.view-switcher-button:hover {
+  background: var(--bg-surface-hover);
+}
+
+.view-switcher-button.active {
+  background: var(--text-main);
+  color: var(--bg-canvas);
 }
 
 /* ::::: card anchor ::::: */
