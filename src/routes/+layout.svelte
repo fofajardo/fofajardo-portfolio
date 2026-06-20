@@ -1,5 +1,6 @@
 <script lang="ts">
   import "$lib/styles/common.css";
+  import MatrixBackground from "$lib/MatrixBackground.svelte";
 
   let { children } = $props();
 
@@ -27,4 +28,5 @@
   <link rel="canonical" href={page.url.href} />
 </svelte:head>
 
+<MatrixBackground />
 {@render children()}

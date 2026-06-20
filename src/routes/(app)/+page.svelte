@@ -15,7 +15,7 @@
 
 <div class="full center-v">
   <Header {nav} launcher={false} />
-  <main>
+  <main class="transparent">
     <section class="content-layout">
       <div class="card" style="margin-top: 1em;">
         <p style="text-align: justify; margin: 0;">
