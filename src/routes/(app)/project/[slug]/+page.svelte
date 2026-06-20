@@ -13,9 +13,12 @@
   import LinkAnchor from "$lib/LinkAnchor.svelte";
   import Label from "$lib/Label.svelte";
 
+  import ProjectCard from "$lib/ProjectCard.svelte";
+
   let { data } = $props();
   let project = $derived(data.project);
-  let projectTechList = $derived(data.projectTechList);
+  let techList = $derived(data.techList);
+  let otherProjects = $derived(data.otherProjects);
 
   const allImageModules = import.meta.glob(
     `$lib/content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
@@ -78,7 +81,17 @@
 
 <div class="heading-container">
   <div class="heading-content">
-    <h1>{project.title}</h1>
+    <h1>
+      {project.title}
+      {#if project.directUrl}
+        <Icon
+          icon="line-md:external-link"
+          width="24"
+          height="24"
+          style="margin-left: 6px; display: inline-block; vertical-align: middle;"
+        />
+      {/if}
+    </h1>
   </div>
 </div>
 
@@ -93,7 +106,7 @@
       <div class="card glide" data-mounted={previewMounted}>
         <div class="glide__track" data-glide-el="track">
           <ul id="viewer-target" class="glide__slides">
-            {#each Object.keys(imageModules()) as preview, index}
+            {#each Object.keys(imageModules()) as preview, index (preview)}
               <li>
                 <enhanced:img
                   class="glide__slide phs"
@@ -121,7 +134,7 @@
         {#if project.directUrl}
           <LinkAnchor link={{ type: "external", url: project.directUrl }} isButton />
         {/if}
-        {#each project.links as link}
+        {#each project.links as link, i (link.url + i)}
           <LinkAnchor {link} isButton />
         {/each}
       </nav>
@@ -138,18 +151,71 @@
       <div class="card card-content">
         <Label icon="tabler:list-details" as="h3">Contributions</Label>
         <ul>
-          {#each project.points as point}
+          {#each project.points as point, i (point + i)}
             <li><SvelteMarkdown source={point} isInline /></li>
           {/each}
         </ul>
       </div>
     {/if}
 
-    {#if project.technologies}
+    {#if project.technologies && techList.length > 0}
       <div class="card card-content">
         <Label icon="tabler:tools" as="h3">Technologies</Label>
-        {projectTechList}
+        <div class="tech-badge-container">
+          {#each techList as tech (tech.id)}
+            <span class="tech-badge">
+              <Icon icon={tech.icon} width="16" height="16" />
+              {tech.name}
+            </span>
+          {/each}
+        </div>
       </div>
     {/if}
   </div>
+
+  {#if otherProjects && otherProjects.length > 0}
+    <div class="other-projects-section">
+      <h3 class="other-projects-heading">Check out my other projects</h3>
+      <div class="cardset list">
+        {#each otherProjects as otherItem (otherItem.id)}
+          <ProjectCard item={otherItem} />
+        {/each}
+      </div>
+    </div>
+  {/if}
 </section>
+
+<style>
+  .tech-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 0.5em;
+  }
+
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    background: var(--bg-surface);
+    color: var(--text-main);
+    padding: 0.4em 0.9em;
+    border-radius: 9999em;
+    font-size: 0.9em;
+    font-weight: 500;
+    border: 1px solid var(--bg-surface-hover);
+  }
+
+  .other-projects-section {
+    margin-top: 3em;
+    border-top: 2px solid var(--bg-surface-hover);
+    width: 100%;
+  }
+
+  .other-projects-heading {
+    font-size: 1.5em;
+    font-weight: 800;
+    margin-bottom: 1.25em;
+    color: var(--text-main);
+  }
+</style>

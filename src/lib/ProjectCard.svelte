@@ -64,7 +64,17 @@
   {/if}
   <div class="card-detail">
     <div class="card-header">
-      <span class="card-title">{item.title}</span>
+      <span class="card-title">
+        {item.title}
+        {#if item.directUrl}
+          <Icon
+            icon="line-md:external-link"
+            width="16"
+            height="16"
+            style="margin-left: 4px; display: inline-block; vertical-align: middle;"
+          />
+        {/if}
+      </span>
       <span class="card-subtitle">{item.subtitle}</span>
     </div>
     <DateRangeSpan entry={item} />

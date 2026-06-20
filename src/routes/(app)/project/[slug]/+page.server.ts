@@ -1,4 +1,4 @@
-import { projectsMap, technologies } from "$lib/dataService";
+import { projectsMap, technologies, projects } from "$lib/dataService";
 
 import { error } from "@sveltejs/kit";
 
@@ -10,23 +10,32 @@ export function load({ params }) {
     error(404);
   }
 
-  let projectTechList = "";
-  if (project.technologies) {
-    for (let i = 0; i < project.technologies.length; i++) {
-      let techName = project.technologies[i];
-      let techFriendlyName = techName;
-      if (techName in technologies) {
-        techFriendlyName = technologies[techName];
-      }
-      projectTechList += techFriendlyName;
-      if (i < project.technologies.length - 1) {
-        projectTechList += ", ";
-      }
+  const techList = (project.technologies || []).map((techName) => {
+    let techFriendlyName = techName;
+    let icon = "tabler:code";
+    if (techName in technologies) {
+      techFriendlyName = technologies[techName].name;
+      icon = technologies[techName].icon;
     }
-  }
+    return {
+      id: techName,
+      name: techFriendlyName,
+      icon
+    };
+  });
+
+  const otherProjects = projects
+    .filter((p) => {
+      return p.id !== slug;
+    })
+    .sort(() => {
+      return Math.random() - 0.5;
+    })
+    .slice(0, 4);
 
   return {
     project,
-    projectTechList
+    techList,
+    otherProjects
   };
 }
