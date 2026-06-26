@@ -45,7 +45,8 @@
   });
 
   let previewMounted = $state(false);
-  onMount(() => {
+  $effect(() => {
+    project;
     if (project.previewset) {
       new Glide(".glide", {
         type: "carousel",
@@ -103,30 +104,32 @@
     </div>
 
     {#if project.previewset}
-      <div class="card glide" data-mounted={previewMounted}>
-        <div class="glide__track" data-glide-el="track">
-          <ul id="viewer-target" class="glide__slides">
-            {#each Object.keys(imageModules()) as preview, index (preview)}
-              <li>
-                <enhanced:img
-                  class="glide__slide phs"
-                  src={imageModules()[preview].default}
-                  alt={`Preview image ${index + 1} of project ${project.title}`}
-                  onload={onPreviewLoad}
-                />
-              </li>
-            {/each}
-          </ul>
+      {#key project.id}
+        <div class="card glide" data-mounted={previewMounted}>
+          <div class="glide__track" data-glide-el="track">
+            <ul id="viewer-target" class="glide__slides">
+              {#each Object.keys(imageModules()) as preview, index (preview)}
+                <li>
+                  <enhanced:img
+                    class="glide__slide phs"
+                    src={imageModules()[preview].default}
+                    alt={`Preview image ${index + 1} of project ${project.title}`}
+                    onload={onPreviewLoad}
+                  />
+                </li>
+              {/each}
+            </ul>
+          </div>
+          <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"
+              ><Icon icon="tabler:chevron-left"></Icon></button
+            >
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"
+              ><Icon icon="tabler:chevron-right"></Icon></button
+            >
+          </div>
         </div>
-        <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<"
-            ><Icon icon="tabler:chevron-left"></Icon></button
-          >
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">"
-            ><Icon icon="tabler:chevron-right"></Icon></button
-          >
-        </div>
-      </div>
+      {/key}
     {/if}
 
     <div class="card">
