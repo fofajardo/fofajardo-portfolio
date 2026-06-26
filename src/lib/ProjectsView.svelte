@@ -8,16 +8,16 @@
 
 {#if showAll}
   <div class="cardset {viewMode}">
-    {#each projects as project}
+    {#each projects as project (project.id)}
       <ProjectCard item={project} />
     {/each}
   </div>
 {:else}
-  {#each tagsByCategoryMap.get(CategoryType.Project) ?? [] as tag}
+  {#each tagsByCategoryMap.get(CategoryType.Project) ?? [] as tag (tag.id)}
     {#if filter.includes(tag.id)}
       <h2 id={tag.id}>{tag.name}</h2>
       <div class="cardset {viewMode}">
-        {#each projectsByTagMap.get(tag.id) ?? [] as project}
+        {#each projectsByTagMap.get(tag.id) ?? [] as project (project.id)}
           <ProjectCard item={project} />
         {/each}
       </div>

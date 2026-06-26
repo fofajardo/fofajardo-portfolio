@@ -18,7 +18,7 @@
 
 <nav class="primary-nav" aria-label="Primary navigation">
   <ul class="group-ab">
-    {#each nav as { href, icon, label, limitTo }}
+    {#each nav as { href, icon, label, limitTo } (href)}
       {#if page.url.pathname != href && (!limitTo || (limitTo === "launcher" && launcher))}
         <li>
           <a {href} class="action-button" data-sveltekit-reload={launcher}>
