@@ -1,8 +1,11 @@
+import type { Pathname } from "$app/types";
+
 export type NavItem = {
-  href: string;
+  href: Pathname | string;
   icon: string;
   label: string;
   limitTo?: string;
+  rel?: string;
 };
 
 export enum CategoryType {
@@ -19,7 +22,7 @@ export interface Tag {
 export type Link = {
   label?: string;
   type: string;
-  url: string;
+  url: Pathname | string;
   icon?: string;
 };
 

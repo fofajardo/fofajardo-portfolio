@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { Link } from "$lib/lib.types";
   import Label from "./Label.svelte";
+  import { resolve } from "$app/paths";
+  import type { Pathname } from "$app/types";
 
   let { link, isButton, isInternal }: { link: Link; isButton?: boolean; isInternal?: boolean } =
     $props();
@@ -30,6 +32,16 @@
   let anchorClass = $derived(isButton ? "button" : "");
 </script>
 
-<a class={anchorClass} href={link.url} target={isInternal ? undefined : "_blank"}>
+{#snippet labelWithIcon(icon: string, label: string)}
   <Label {icon}>{label}</Label>
-</a>
+{/snippet}
+
+{#if isInternal}
+  <a class={anchorClass} href={resolve(link.url as Pathname)}>
+    {@render labelWithIcon(icon, label)}
+  </a>
+{:else}
+  <a class={anchorClass} href={link.url} target="_blank" rel="external">
+    {@render labelWithIcon(icon, label)}
+  </a>
+{/if}
