@@ -78,3 +78,16 @@ export type ProjectsData = {
 export type TechnologiesData = {
   technologies: Technologies;
 };
+
+export type BlogPostMetadata = {
+  title: string;
+  date: string;
+  description?: string;
+  tags?: string[];
+  preview?: string;
+  author?: string;
+};
+
+export type BlogPost = BlogPostMetadata & {
+  slug: string;
+};

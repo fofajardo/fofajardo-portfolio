@@ -26,6 +26,12 @@
   <meta property="og:title" content="Francis Dominic Fajardo - Software Developer" />
   <meta property="og:description" content="Francis Dominic Fajardo's Portfolio" />
   <link rel="canonical" href={page.url.href} />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Francis Dominic Fajardo's Blog RSS Feed"
+    href="/feed.xml"
+  />
 </svelte:head>
 
 <MatrixBackground />
