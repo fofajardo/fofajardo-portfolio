@@ -26,19 +26,19 @@
               url: "https://uplb.edu.ph/",
               type: "custom"
             }}
-          />.
-          <br /><br /> I've been fascinated with technology since I first used our old family
-          computer as a kid. I am also a fan of Filipino writing and poetry, RPGs, strategy and
-          simulation games, and retro gaming. I occasionally post about some of those topics in my
-          blog,
-          <LinkAnchor
+          /> and was a member of the <LinkAnchor
             link={{
-              icon: "tabler:brand-wordpress",
-              label: "Saligsig",
-              url: "https://saligsig.wordpress.com/",
+              icon: "tabler:flask",
+              label: "Systems Research Group",
+              url: "https://srg-ics-uplb.github.io",
               type: "custom"
             }}
           />.
+
+          <br /><br />I've contributed to a number of free and open source software (FOSS) projects.
+          My research interests include web browser development, information security, reverse
+          engineering, and game development. Outside of code, I am also a fan of Filipino writing
+          and poetry, RPGs, strategy and simulation games, and retro gaming.
           <br /><br />
           Take a look at my
           <LinkAnchor
