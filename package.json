@@ -39,6 +39,7 @@
     "vite": "^8.1.0"
   },
   "dependencies": {
+    "@giscus/svelte": "^3.1.0",
     "@glidejs/glide": "^3.7.1",
     "@humanspeak/svelte-markdown": "^1.6.0",
     "viewerjs": "^1.11.7"

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
+  import Giscus from "@giscus/svelte";
 
   const { data } = $props();
   const { meta, content: Content } = $derived(data);
@@ -41,6 +42,23 @@
       </div>
     {/if}
   </article>
+
+  <Giscus
+    id="comments"
+    repo="fofajardo/fofajardo-portfolio-content"
+    repoId="R_kgDOQ20DmQ"
+    category="Announcements"
+    categoryId="DIC_kwDOQ20Dmc4DAoxT"
+    mapping="pathname"
+    strict="0"
+    reactionsEnabled="1"
+    emitMetadata="0"
+    inputPosition="top"
+    theme="preferred_color_scheme"
+    lang="en"
+    term=""
+    loading="lazy"
+  />
 </section>
 
 <style>
