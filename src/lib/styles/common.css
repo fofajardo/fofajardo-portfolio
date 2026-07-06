@@ -20,7 +20,7 @@
   --hero-background: var(--bg-canvas);
   --hero-text-color: var(--text-main);
 
-  --font-body: "Inter", "Helvetica", "Roboto", sans-serif;
+  --font-body: "Bricolage Grotesque", "Helvetica", "Roboto", sans-serif;
   --layout-max-width: 62.5rem;
 }
 
