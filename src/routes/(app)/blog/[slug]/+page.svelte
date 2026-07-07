@@ -1,9 +1,19 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
   import Giscus from "@giscus/svelte";
+  import { resetFigureCounter } from "$lib/Figure.svelte";
+  import { resetTableCounter } from "$lib/Table.svelte";
 
   const { data } = $props();
   const { meta, content: Content } = $derived(data);
+
+  // Reset counters synchronously before Svelte renders the children
+  const _ = $derived.by(() => {
+    meta;
+    resetFigureCounter();
+    resetTableCounter();
+    return null;
+  });
 </script>
 
 <svelte:head>
