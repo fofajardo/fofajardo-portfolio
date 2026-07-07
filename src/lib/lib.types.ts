@@ -85,6 +85,7 @@ export type BlogPostMetadata = {
   description?: string;
   tags?: string[];
   preview?: string;
+  ogImage?: string;
   author?: string;
 };
 

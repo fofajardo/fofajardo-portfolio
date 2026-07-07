@@ -15,6 +15,8 @@
 
   import ProjectCard from "$lib/ProjectCard.svelte";
 
+  import { page } from "$app/state";
+
   let { data } = $props();
   let project = $derived(data.project);
   let techList = $derived(data.techList);
@@ -76,8 +78,13 @@
 <svelte:head>
   <title>{project.title} - Projects - Francis Dominic Fajardo</title>
   <meta name="description" content={project.subtitle} />
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="{project.title} - Projects - Francis Dominic Fajardo" />
   <meta property="og:description" content={project.subtitle} />
+  <meta property="og:url" content={page.url.href} />
+  {#if project.preview}
+    <meta property="og:image" content={new URL(project.preview, page.url.origin).href} />
+  {/if}
 </svelte:head>
 
 <div class="heading-container">
