@@ -32,6 +32,7 @@
     title="Francis Dominic Fajardo's Blog RSS Feed"
     href="/feed.xml"
   />
+  <meta name="fediverse:creator" content="@fajardo@fosstodon.org" />
 </svelte:head>
 
 <MatrixBackground />
