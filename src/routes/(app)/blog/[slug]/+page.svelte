@@ -102,13 +102,11 @@
     line-height: 1.6;
   }
   .blog-preview-container {
-    width: 100%;
-    max-height: 400px;
-    overflow: hidden;
-    border-radius: 16px;
     margin: 1em 0;
   }
-  .blog-preview-img {
+  .blog-preview-img,
+  .markdown-body :global(p > img) {
+    border-radius: 24px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -129,11 +127,118 @@
   .markdown-body :global(li) {
     margin-bottom: 0.5em;
   }
-  .markdown-body :global(h2),
-  .markdown-body :global(h3) {
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    border-bottom: 1px solid var(--palette-gray-transparent);
-    padding-bottom: 0.25em;
+  .markdown-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.85em;
+  }
+  .markdown-body :global(th),
+  .markdown-body :global(td) {
+    padding: 0.45em 0.75em;
+    border-bottom: 1px solid var(--bg-surface-hover);
+    width: auto;
+  }
+  .markdown-body :global(th) {
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    text-align: left;
+    border-bottom: 2px solid var(--text-main);
+  }
+  .markdown-body :global(.table-overflow) {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5em 0;
+  }
+  .markdown-body :global(.table-overflow table) {
+    display: table;
+    width: 100%;
+    min-width: max-content;
+    margin: 0;
+  }
+  .markdown-body :global(.table-overflow th),
+  .markdown-body :global(.table-overflow td) {
+    white-space: nowrap;
+  }
+  .markdown-body :global(tr:last-child td) {
+    border-bottom: none;
+  }
+  .markdown-body :global(tr:nth-child(even)) {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  @media (prefers-color-scheme: dark) {
+    .markdown-body :global(tr:nth-child(even)) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+  }
+  .markdown-body :global(tr:hover) {
+    background-color: var(--bg-surface-hover);
+  }
+  .markdown-body :global(:not(pre) > code) {
+    background-color: rgba(175, 184, 193, 0.2);
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    font-family:
+      "Fantasque Sans Mono",
+      ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
+    font-size: 85%;
+    margin: 0;
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+  @media (prefers-color-scheme: dark) {
+    .markdown-body :global(:not(pre) > code) {
+      background-color: rgba(110, 118, 129, 0.4);
+    }
+  }
+  .markdown-body :global(pre) {
+    background-color: #f6f8fa;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    border: 1px solid var(--bg-surface-hover);
+  }
+  @media (prefers-color-scheme: dark) {
+    .markdown-body :global(pre) {
+      background-color: #161b22;
+    }
+  }
+  .markdown-body :global(pre code) {
+    font-family:
+      "Fantasque Sans Mono",
+      ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
+    font-size: 85%;
+    line-height: 1.45;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    color: inherit;
+  }
+  .markdown-body :global(blockquote) {
+    margin: 0 0 1em 0;
+    padding: 0 1.5em;
+    color: var(--text-main);
+    opacity: 0.7;
+    border-left: 0.25em solid var(--bg-surface-hover);
+  }
+  .markdown-body :global(blockquote p) {
+    margin: 0;
   }
 </style>
