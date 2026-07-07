@@ -82,7 +82,7 @@
   <meta property="og:title" content="{project.title} - Projects - Francis Dominic Fajardo" />
   <meta property="og:description" content={project.subtitle} />
   <meta property="og:url" content={page.url.href} />
-  {#if project.preview}
+  {#if project.preview && (project.preview.startsWith("/") || project.preview.startsWith("http"))}
     <meta property="og:image" content={new URL(project.preview, page.url.origin).href} />
   {/if}
 </svelte:head>
