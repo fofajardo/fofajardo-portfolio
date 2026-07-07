@@ -15,6 +15,7 @@ const config = {
   kit: {
     adapter: adapter(),
     prerender: {
+      origin: "https://fofajardo.is-a.dev",
       handleUnseenRoutes: "ignore"
     }
   },
