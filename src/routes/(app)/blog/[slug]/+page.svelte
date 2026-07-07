@@ -18,16 +18,27 @@
 
 <svelte:head>
   <title>{meta.title} - Francis Dominic Fajardo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
 </svelte:head>
 
 <div class="heading-container">
   <div class="heading-content">
-    <div class="blog-header-wrapper">
+    <div class="compact-header-wrapper">
       <h1>{meta.title}</h1>
-      <span class="blog-date">{formatDate(meta.date)}</span>
-      {#if meta.author}
-        <span class="blog-author">By {meta.author}</span>
+      {#if meta.description}
+        <p class="blog-subtitle">{meta.description}</p>
       {/if}
+      <div class="blog-meta-row">
+        {#if meta.author}
+          <span class="blog-author">{meta.author}</span>
+        {/if}
+        <span class="blog-date">{formatDate(meta.date)}</span>
+      </div>
     </div>
   </div>
 </div>
@@ -45,7 +56,7 @@
     {#if meta.tags && meta.tags.length > 0}
       <div class="blog-tags">
         {#each meta.tags as tag (tag)}
-          <a href="/blog/tag/{tag}" class="blog-tag">
+          <a href="/blog/tag/{tag}" class="link">
             #{tag}
           </a>
         {/each}
@@ -72,10 +83,57 @@
 </section>
 
 <style>
-  .blog-header-wrapper {
+  .compact-header-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     width: 100%;
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+  }
+  .compact-header-wrapper h1 {
+    font-family: "Instrument Serif", Georgia, Garamond, serif;
+    font-size: 5em;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0.1em 0 0.25em 0;
+    color: var(--text-main);
+    letter-spacing: -0.04em;
+    text-transform: none;
+  }
+  .blog-subtitle {
+    font-family: "Instrument Serif", Georgia, Garamond, serif;
+    font-size: 1.55em;
+    line-height: 1.35;
+    margin: 0 0 1.25em 0;
+    max-width: 700px;
+    color: var(--text-main);
+    opacity: 0.9;
+  }
+  @media screen and (max-width: 625px) {
+    .compact-header-wrapper h1 {
+      font-size: 3em;
+    }
+    .blog-subtitle {
+      font-size: 1.25em;
+    }
+  }
+  .blog-meta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25em;
+  }
+  .blog-author {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-main);
+  }
+  .blog-date {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   .blog-tags {
     display: flex;
@@ -85,18 +143,7 @@
     border-top: 2px solid var(--bg-surface-hover);
     padding-top: 1em;
   }
-  .blog-tag {
-    font-size: 0.75em;
-    padding: 2px 6px;
-    border: 1px solid var(--text-main);
-    border-radius: 4px;
-    color: inherit;
-    text-decoration: none;
-  }
-  .blog-tag:hover {
-    background-color: var(--text-main);
-    color: var(--bg-canvas);
-  }
+
   .blog-article {
     color: var(--text-main);
     line-height: 1.6;
