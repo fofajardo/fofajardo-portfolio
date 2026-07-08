@@ -19,21 +19,6 @@
 </script>
 
 <svelte:head>
-  <title>{meta.title} - Francis Dominic Fajardo</title>
-  <meta name="description" content={meta.description} />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="{meta.title} - Francis Dominic Fajardo" />
-  <meta property="og:description" content={meta.description} />
-  <meta property="og:url" content={page.url.href} />
-  {#if meta.ogImage && (meta.ogImage.startsWith("/") || meta.ogImage.startsWith("http"))}
-    <meta property="og:image" content={new URL(meta.ogImage, page.url.origin).href} />
-  {:else if meta.preview && (meta.preview.startsWith("/") || meta.preview.startsWith("http"))}
-    <meta property="og:image" content={new URL(meta.preview, page.url.origin).href} />
-  {/if}
-  {#if meta.author}
-    <meta property="og:article:author" content={meta.author} />
-  {/if}
-  <meta property="og:article:published_time" content={meta.date} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
