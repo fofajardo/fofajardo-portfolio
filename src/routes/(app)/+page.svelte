@@ -40,14 +40,15 @@
           engineering, and game development. Outside of code, I am also a fan of Filipino writing
           and poetry, RPGs, strategy and simulation games, and retro gaming.
           <br /><br />
-          Take a look at my
+          I'm open to work. Take a look at my
           <LinkAnchor
             link={{
               icon: "tabler:file-type-pdf",
-              url: "https://drive.google.com/file/d/1FkoQdk_GV_Ad2Lb7VSxhBX6uddumziwo/view?usp=drive_link",
+              url: "/resume",
               label: "résumé",
               type: "custom"
             }}
+            isInternal
           />
           to explore my qualifications and experiences.
         </p>
