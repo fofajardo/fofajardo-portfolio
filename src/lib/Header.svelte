@@ -8,14 +8,9 @@
 
   let { nav, launcher }: { nav: NavItem[]; launcher: boolean } = $props();
 
-  const isCompactHeaderPage = $derived(
-    page.url.pathname.startsWith("/project/") ||
-      (page.url.pathname.startsWith("/blog/") &&
-        page.url.pathname.split("/").filter(Boolean).length > 1 &&
-        page.url.pathname.split("/").filter(Boolean)[1] !== "tag")
-  );
+  const isCompactHeaderPage = $derived(page.url.pathname !== "/" && page.url.pathname !== "/start");
 
-  const logoHref = $derived(page.url.pathname.startsWith("/blog/") ? "/blog" : "/projects");
+  const logoHref = "/";
 </script>
 
 {#if isCompactHeaderPage}
