@@ -2,6 +2,7 @@
   import { formatDate } from "$lib/utils";
   import { page } from "$app/state";
   import { goto } from "$app/navigation";
+  import LinkAnchor from "$lib/LinkAnchor.svelte";
 
   const { children } = $props();
   const posts = $derived(page.data.posts ?? []);
@@ -23,6 +24,15 @@
 <div class="heading-container">
   <div class="heading-content">
     <h1>{tag ? `Posts tagged #${tag}` : "Blog"}</h1>
+    <LinkAnchor
+      link={{
+        type: "external",
+        url: "/feed.xml",
+        label: "RSS",
+        icon: "tabler:rss"
+      }}
+      isButton
+    />
   </div>
 </div>
 
