@@ -4,6 +4,7 @@
   import { resolve } from "$app/paths";
   import type { NavItem } from "./lib.types";
   import type { Pathname } from "$app/types";
+  import { goto } from "$app/navigation";
 
   let { logoHref, nav }: { logoHref: string; nav: NavItem[] } = $props();
 
@@ -13,6 +14,18 @@
 
   function toggleSidebar() {
     sidebarOpen = !sidebarOpen;
+  }
+
+  function handleLinkClick(e: MouseEvent, href: string, rel?: string) {
+    if (rel === "external") {
+      sidebarOpen = false;
+      return;
+    }
+    e.preventDefault();
+    sidebarOpen = false;
+    setTimeout(() => {
+      goto(resolve(href as Pathname));
+    }, 300);
   }
 </script>
 
@@ -45,14 +58,14 @@
       {#each sidebarNavItems as { href, icon, label, rel } (href)}
         <li>
           {#if rel === "external"}
-            <a {href} onclick={toggleSidebar} rel="external" class="sidebar-link">
+            <a {href} onclick={(e) => handleLinkClick(e, href, rel)} rel="external" class="sidebar-link">
               <Icon {icon} class="sidebar-icon" />
               <span>{label}</span>
             </a>
           {:else}
             <a
               href={resolve(href as Pathname)}
-              onclick={toggleSidebar}
+              onclick={(e) => handleLinkClick(e, href)}
               class="sidebar-link"
               class:active={page.url.pathname === href}
             >
