@@ -27,6 +27,17 @@
       goto(resolve(href as Pathname));
     }, 300);
   }
+
+  $effect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  });
 </script>
 
 <header class="compact-header" aria-label="Compact header">
