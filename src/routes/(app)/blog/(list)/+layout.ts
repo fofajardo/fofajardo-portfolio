@@ -17,9 +17,10 @@ export const load: LayoutLoad = async () => {
     })
   );
 
-  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const visiblePosts = allPosts.filter((post) => !post.unlisted);
+  visiblePosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return {
-    allPosts
+    allPosts: visiblePosts
   };
 };

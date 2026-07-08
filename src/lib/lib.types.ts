@@ -87,6 +87,7 @@ export type BlogPostMetadata = {
   preview?: string;
   ogImage?: string;
   author?: string;
+  unlisted?: boolean;
 };
 
 export type BlogPost = BlogPostMetadata & {

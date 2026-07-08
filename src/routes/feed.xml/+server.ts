@@ -18,7 +18,8 @@ export async function GET() {
     })
   );
 
-  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const visiblePosts = allPosts.filter((post) => !post.unlisted);
+  visiblePosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   const siteUrl = "https://fofajardo.is-a.dev";
   const feed = `<?xml version="1.0" encoding="UTF-8" ?>
@@ -28,7 +29,7 @@ export async function GET() {
   <link>${siteUrl}/blog</link>
   <description>Francis Dominic Fajardo's Blog</description>
   <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
-  ${allPosts
+  ${visiblePosts
     .map(
       (post) => `
   <item>
