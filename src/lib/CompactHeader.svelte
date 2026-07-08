@@ -58,7 +58,12 @@
       {#each sidebarNavItems as { href, icon, label, rel } (href)}
         <li>
           {#if rel === "external"}
-            <a {href} onclick={(e) => handleLinkClick(e, href, rel)} rel="external" class="sidebar-link">
+            <a
+              {href}
+              onclick={(e) => handleLinkClick(e, href, rel)}
+              rel="external"
+              class="sidebar-link"
+            >
               <Icon {icon} class="sidebar-icon" />
               <span>{label}</span>
             </a>
