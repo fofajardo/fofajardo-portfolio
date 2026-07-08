@@ -50,10 +50,12 @@
 <svelte:head>
   <title>{title}</title>
   <meta name="description" content={description} />
+  <meta property="og:site_name" content="Francis Dominic Fajardo" />
   <meta property="og:type" content={ogType} />
   <meta property="og:url" content={page.url.href} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  <meta name="twitter:card" content="summary_large_image" />
   {#if ogImage}
     <meta property="og:image" content={ogImage} />
   {/if}
