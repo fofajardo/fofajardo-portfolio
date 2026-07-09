@@ -21,6 +21,9 @@ export function load({ params }) {
     showAll,
     projects,
     tagsByCategoryMap,
-    projectsByTagMap
+    projectsByTagMap,
+    title: `${tag.name} - Projects`,
+    description:
+      "A collection of personal and academic projects showcasing my skills and experience."
   };
 }

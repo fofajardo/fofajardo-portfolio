@@ -2,10 +2,6 @@
   import LinkAnchor from "$lib/LinkAnchor.svelte";
 </script>
 
-<svelte:head>
-  <title>Résumé - Francis Dominic Fajardo</title>
-</svelte:head>
-
 <div class="heading-container">
   <div class="heading-content">
     <h1>Résumé</h1>

@@ -21,6 +21,9 @@ export const load: LayoutLoad = async () => {
   visiblePosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return {
-    allPosts: visiblePosts
+    allPosts: visiblePosts,
+    title: "Blog",
+    description: "Francis Dominic Fajardo's Blog",
+    ogType: "website"
   };
 };

@@ -36,6 +36,10 @@ export function load({ params }) {
   return {
     project,
     techList,
-    otherProjects
+    otherProjects,
+    title: `${project.title} - Projects`,
+    description: project.subtitle,
+    ogType: "website",
+    ogImage: project.preview || ""
   };
 }

@@ -16,34 +16,20 @@
       });
     });
   });
+  const baseTitle = "Francis Dominic Fajardo";
   const title = $derived(
-    page.data.meta?.title
-      ? `${page.data.meta.title} - Francis Dominic Fajardo`
-      : page.data.project?.title
-        ? `${page.data.project.title} - Projects - Francis Dominic Fajardo`
-        : "Francis Dominic Fajardo - Software Developer"
+    page.data.absoluteTitle
+      ? page.data.title
+      : page.data.title
+        ? `${page.data.title} - ${baseTitle}`
+        : `${baseTitle} - Software Developer`
   );
-
-  const description = $derived(
-    page.data.meta?.description ??
-      page.data.project?.subtitle ??
-      "Francis Dominic Fajardo's Portfolio"
-  );
-
-  const ogType = $derived(page.data.meta ? "article" : "website");
-
+  const description = $derived(page.data.description ?? "Francis Dominic Fajardo's Portfolio");
+  const ogType = $derived(page.data.ogType ?? "website");
   const ogImage = $derived(
-    page.data.meta?.ogImage &&
-      (page.data.meta.ogImage.startsWith("/") || page.data.meta.ogImage.startsWith("http"))
-      ? new URL(page.data.meta.ogImage, page.url.origin).href
-      : page.data.meta?.preview &&
-          (page.data.meta.preview.startsWith("/") || page.data.meta.preview.startsWith("http"))
-        ? new URL(page.data.meta.preview, page.url.origin).href
-        : page.data.project?.preview &&
-            (page.data.project.preview.startsWith("/") ||
-              page.data.project.preview.startsWith("http"))
-          ? new URL(page.data.project.preview, page.url.origin).href
-          : ""
+    page.data.ogImage && (page.data.ogImage.startsWith("/") || page.data.ogImage.startsWith("http"))
+      ? new URL(page.data.ogImage, page.url.origin).href
+      : ""
   );
 </script>
 
@@ -59,11 +45,11 @@
   {#if ogImage}
     <meta property="og:image" content={ogImage} />
   {/if}
-  {#if page.data.meta?.author}
-    <meta property="og:article:author" content={page.data.meta.author} />
+  {#if page.data.author}
+    <meta property="og:article:author" content={page.data.author} />
   {/if}
-  {#if page.data.meta?.date}
-    <meta property="og:article:published_time" content={page.data.meta.date} />
+  {#if page.data.publishedTime}
+    <meta property="og:article:published_time" content={page.data.publishedTime} />
   {/if}
   <link rel="canonical" href={page.url.href} />
   <link

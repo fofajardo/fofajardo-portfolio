@@ -13,10 +13,17 @@ export const entries: EntryGenerator = async () => {
 export const load: PageLoad = async ({ params }) => {
   try {
     const post = await import(`$lib/content/blog/${params.slug}.md`);
+    const meta = post.metadata as BlogPostMetadata;
 
     return {
       content: post.default,
-      meta: post.metadata as BlogPostMetadata
+      meta,
+      title: meta.title,
+      description: meta.description,
+      ogType: "article",
+      ogImage: meta.ogImage || meta.preview || "",
+      author: meta.author,
+      publishedTime: meta.date
     };
   } catch (e) {
     error(404, `Could not find ${params.slug}`);

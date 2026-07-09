@@ -8,19 +8,6 @@
   let { experiencesByTagMap, tagsByCategoryMap } = $derived(data);
 </script>
 
-<svelte:head>
-  <title>About Me - Francis Dominic Fajardo</title>
-  <meta
-    name="description"
-    content="A collection of my professional experience, volunteering, and invited talks."
-  />
-  <meta property="og:title" content="About Me - Francis Dominic Fajardo" />
-  <meta
-    property="og:description"
-    content="A collection of my professional experience, volunteering, and invited talks."
-  />
-</svelte:head>
-
 <div class="heading-container">
   <div class="heading-content">
     <h1>About Me</h1>
