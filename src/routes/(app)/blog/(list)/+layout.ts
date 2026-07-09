@@ -10,8 +10,14 @@ export const load: LayoutLoad = async () => {
       const resolved = (await resolver()) as { metadata: BlogPostMetadata };
       const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
 
+      const dateParts = resolved.metadata.date.split("-");
+      const year = dateParts[0];
+      const month = dateParts[1];
+
       return {
         slug,
+        year,
+        month,
         ...resolved.metadata
       } as BlogPost;
     })

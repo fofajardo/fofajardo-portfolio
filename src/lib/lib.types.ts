@@ -88,8 +88,11 @@ export type BlogPostMetadata = {
   ogImage?: string;
   author?: string;
   unlisted?: boolean;
+  legacy?: boolean;
 };
 
 export type BlogPost = BlogPostMetadata & {
   slug: string;
+  year: string;
+  month: string;
 };

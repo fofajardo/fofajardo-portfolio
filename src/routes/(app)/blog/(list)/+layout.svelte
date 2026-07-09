@@ -42,7 +42,7 @@
   {:else}
     <div class="cardset list">
       {#each posts as post (post.slug)}
-        <a class="card-anchor" href="/blog/{post.slug}">
+        <a class="card-anchor" href="/blog/{post.year}/{post.month}/{post.slug}">
           <div class="card">
             <div class="card-detail blog-card-detail">
               <div class="card-header blog-card-header">

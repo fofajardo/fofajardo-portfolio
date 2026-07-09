@@ -11,8 +11,13 @@ export async function GET() {
     iterablePostFiles.map(async ([path, resolver]) => {
       const resolved = (await resolver()) as { metadata: BlogPostMetadata };
       const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
+      const dateParts = resolved.metadata.date.split("-");
+      const year = dateParts[0];
+      const month = dateParts[1];
       return {
         slug,
+        year,
+        month,
         ...resolved.metadata
       };
     })
@@ -34,8 +39,8 @@ export async function GET() {
       (post) => `
   <item>
     <title>${escapeXml(post.title)}</title>
-    <link>${siteUrl}/blog/${post.slug}</link>
-    <guid>${siteUrl}/blog/${post.slug}</guid>
+    <link>${siteUrl}/blog/${post.year}/${post.month}/${post.slug}</link>
+    <guid>${siteUrl}/blog/${post.year}/${post.month}/${post.slug}</guid>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
     ${post.description ? `<description>${escapeXml(post.description)}</description>` : ""}
     ${post.author ? `<author>${escapeXml(post.author)}</author>` : ""}
