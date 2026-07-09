@@ -31,6 +31,7 @@
       ? new URL(page.data.ogImage, page.url.origin).href
       : ""
   );
+  const ogTitle = $derived(page.data.title ?? `${baseTitle} - Software Developer`);
 </script>
 
 <svelte:head>
@@ -39,7 +40,7 @@
   <meta property="og:site_name" content="Francis Dominic Fajardo" />
   <meta property="og:type" content={ogType} />
   <meta property="og:url" content={page.url.href} />
-  <meta property="og:title" content={title} />
+  <meta property="og:title" content={ogTitle} />
   <meta property="og:description" content={description} />
   <meta name="twitter:card" content="summary_large_image" />
   {#if ogImage}
