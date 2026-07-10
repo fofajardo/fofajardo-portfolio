@@ -1,29 +1,28 @@
 <script lang="ts">
-  import { CategoryType } from "$lib/lib.types";
   import ProjectCard from "./ProjectCard.svelte";
+  import { getGroupedProjects, getFilteredProjects, projects as allProjects } from "./dataService";
 
-  const { data, filter, viewMode = "grid" } = $props();
-  const { projects, projectsByTagMap, tagsByCategoryMap, showAll } = $derived(data);
+  const { data, filter, viewMode = "grid", group = false } = $props();
+  const showAll = $derived(data.showAll ?? false);
+  const projectsList = $derived(data.projects ?? allProjects);
+
+  const grouped = $derived(getGroupedProjects(projectsList, filter, showAll));
+  const flatProjects = $derived(getFilteredProjects(projectsList, filter, showAll));
 </script>
 
-{#if showAll}
+{#if group}
+  {#each grouped as g (g.heading)}
+    <h2 id={g.heading}>{g.heading}</h2>
+    <div class="cardset {viewMode}">
+      {#each g.items as project (project.id)}
+        <ProjectCard item={project} />
+      {/each}
+    </div>
+  {/each}
+{:else}
   <div class="cardset {viewMode}">
-    {#each projects as project (project.id)}
+    {#each flatProjects as project (project.id)}
       <ProjectCard item={project} />
     {/each}
   </div>
-{:else}
-  {#each tagsByCategoryMap.get(CategoryType.Project) ?? [] as tag (tag.id)}
-    {#if filter.includes(tag.id)}
-      {@const tagProjects = projectsByTagMap.get(tag.id) ?? []}
-      {#if tagProjects.length > 0}
-        <h2 id={tag.id}>{tag.name}</h2>
-        <div class="cardset {viewMode}">
-          {#each tagProjects as project (project.id)}
-            <ProjectCard item={project} />
-          {/each}
-        </div>
-      {/if}
-    {/if}
-  {/each}
 {/if}
