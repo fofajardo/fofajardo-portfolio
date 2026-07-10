@@ -19,6 +19,7 @@ export interface Tag {
   category: CategoryType;
   name: string;
   icon?: string;
+  hideSkill?: boolean;
 }
 
 export type Link = {

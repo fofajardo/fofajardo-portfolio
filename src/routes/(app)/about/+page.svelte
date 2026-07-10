@@ -51,7 +51,9 @@
   <h2 id="skills">Technical Skills</h2>
   <div class="tech-badge-container">
     {#each Object.keys(technologies) as tagId (tagId)}
-      <TagBadge {tagId} />
+      {#if !technologies[tagId].hideSkill}
+        <TagBadge {tagId} />
+      {/if}
     {/each}
   </div>
 </section>
