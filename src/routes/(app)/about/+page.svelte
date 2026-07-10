@@ -30,7 +30,7 @@
       {#each experiencesByTagMap.get(tag.id) ?? [] as exp, expIndex (expIndex)}
         <div class="card card-2col">
           <div class="card-icon">
-            <Icon class="icon" icon="tabler:arrow-badge-right"></Icon>
+            <Icon class="icon" icon={tag.icon || "tabler:arrow-badge-right"}></Icon>
           </div>
           <div class="card-detail" style="flex:1;">
             <div class="card-2col">
