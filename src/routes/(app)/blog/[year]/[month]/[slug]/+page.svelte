@@ -1,13 +1,16 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
   import Giscus from "@giscus/svelte";
+  import Icon from "@iconify/svelte";
+  import DropdownButton from "$lib/DropdownButton.svelte";
   import { resetFigureCounter } from "$lib/Figure.svelte";
   import { resetTableCounter } from "$lib/Table.svelte";
 
   import { page } from "$app/state";
 
   const { data } = $props();
-  const { meta, content: Content } = $derived(data);
+  const meta = $derived(data.meta);
+  const Content = $derived(data.content);
 
   // Reset counters synchronously before Svelte renders the children
   const _ = $derived.by(() => {
@@ -16,6 +19,61 @@
     resetTableCounter();
     return null;
   });
+
+  const discussOptions = $derived(
+    meta.discuss
+      ? ([
+          meta.discuss.reddit && {
+            label: "Reddit",
+            icon: "simple-icons:reddit",
+            url: meta.discuss.reddit
+          },
+          meta.discuss.twitter && {
+            label: "Twitter / X",
+            icon: "simple-icons:x",
+            url: meta.discuss.twitter
+          },
+          meta.discuss.facebook && {
+            label: "Facebook",
+            icon: "simple-icons:facebook",
+            url: meta.discuss.facebook
+          },
+          meta.discuss.mastodon && {
+            label: "Mastodon",
+            icon: "simple-icons:mastodon",
+            url: meta.discuss.mastodon
+          }
+        ].filter(Boolean) as Array<{ label: string; icon: string; url: string }>)
+      : []
+  );
+
+  const shareOptions = $derived([
+    {
+      label: "Twitter / X",
+      icon: "simple-icons:x",
+      url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(page.url.href)}&text=${encodeURIComponent(meta.title)}`
+    },
+    {
+      label: "Reddit",
+      icon: "simple-icons:reddit",
+      url: `https://www.reddit.com/submit?url=${encodeURIComponent(page.url.href)}&title=${encodeURIComponent(meta.title)}`
+    },
+    {
+      label: "Facebook",
+      icon: "simple-icons:facebook",
+      url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(page.url.href)}`
+    },
+    {
+      label: "Mastodon",
+      icon: "simple-icons:mastodon",
+      url: `https://share.joinmastodon.org/#text=${encodeURIComponent(meta.title + " " + page.url.href)}`
+    },
+    {
+      label: "Copy Link",
+      icon: "tabler:copy",
+      onClick: () => navigator.clipboard.writeText(page.url.href)
+    }
+  ]);
 </script>
 
 <svelte:head>
@@ -63,6 +121,13 @@
         {/each}
       </div>
     {/if}
+
+    <div class="blog-actions">
+      {#if discussOptions.length > 0}
+        <DropdownButton label="Discuss" icon="tabler:messages" options={discussOptions} />
+      {/if}
+      <DropdownButton label="Share" icon="tabler:share" options={shareOptions} />
+    </div>
   </article>
 
   <Giscus
@@ -288,5 +353,12 @@
   }
   .markdown-body :global(blockquote p) {
     margin: 0;
+  }
+  .blog-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
   }
 </style>

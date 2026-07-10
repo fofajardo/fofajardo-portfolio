@@ -89,6 +89,12 @@ export type BlogPostMetadata = {
   author?: string;
   unlisted?: boolean;
   legacy?: boolean;
+  discuss?: {
+    reddit?: string;
+    twitter?: string;
+    facebook?: string;
+    mastodon?: string;
+  };
 };
 
 export type BlogPost = BlogPostMetadata & {
