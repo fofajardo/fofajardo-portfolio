@@ -1,5 +1,5 @@
 <script lang="ts">
-  import DateRangeSpan from "$lib/DateRangeSpan.svelte";
+  import TagBadge from "$lib/TagBadge.svelte";
   import Icon from "@iconify/svelte";
   import type { ProjectEntry } from "./lib.types";
 
@@ -77,6 +77,12 @@
       </span>
       <span class="card-subtitle">{item.subtitle}</span>
     </div>
-    <DateRangeSpan entry={item} />
+    {#if item.technologies && item.technologies.length > 0}
+      <div class="card-tags">
+        {#each item.technologies.slice(0, 3) as tagId (tagId)}
+          <TagBadge {tagId} href="" inline />
+        {/each}
+      </div>
+    {/if}
   </div>
 </a>

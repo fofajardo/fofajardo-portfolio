@@ -382,8 +382,12 @@ td {
 }
 
 .cardset.grid .card > .card-detail {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   margin: 1em;
   width: calc(100% - (1em * 2));
+  justify-content: space-between;
 }
 
 .cardset.list .card {
@@ -419,17 +423,6 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.cardset.list .card > .card-detail {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-grow: 1;
-  margin: 0;
-  width: 100%;
-  gap: 1.5em;
 }
 
 .cardset.list .card > .card-detail > .card-header {
@@ -521,6 +514,14 @@ td {
   display: flex;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  margin-top: auto;
+  padding-top: 0.5em;
 }
 
 .card-project-metadata {
@@ -629,7 +630,6 @@ td {
 /* ::::: card anchor ::::: */
 
 .card-anchor {
-  display: block;
   background: var(--bg-surface);
   font-weight: inherit;
   transform: translateY(0);
