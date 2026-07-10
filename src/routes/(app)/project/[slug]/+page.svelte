@@ -15,7 +15,6 @@
   import ProjectCard from "$lib/ProjectCard.svelte";
   import TagBadge from "$lib/TagBadge.svelte";
 
-  
   let { data } = $props();
   let project = $derived(data.project);
   let techList = $derived(data.techList);
