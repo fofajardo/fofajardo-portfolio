@@ -14,6 +14,7 @@
   import Label from "$lib/Label.svelte";
 
   import ProjectCard from "$lib/ProjectCard.svelte";
+  import TagBadge from "$lib/TagBadge.svelte";
 
   import { page } from "$app/state";
 
@@ -161,10 +162,7 @@
         <Label icon="tabler:tools" as="h3">Technologies</Label>
         <div class="tech-badge-container">
           {#each techList as tech (tech.id)}
-            <span class="tech-badge">
-              <Icon icon={tech.icon} width="16" height="16" />
-              {tech.name}
-            </span>
+            <TagBadge tagId={tech.id} />
           {/each}
         </div>
       </div>
@@ -188,24 +186,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5em;
-    margin-top: 0.5em;
-  }
-
-  .tech-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35em;
-    background: var(--bg-surface);
-    color: var(--text-main);
-    padding: 0.4em 0.9em;
-    border-radius: 9999em;
-    font-size: 0.9em;
-    font-weight: 500;
-    border: 1px solid var(--bg-surface-hover);
   }
 
   .other-projects-section {
-    margin-top: 3em;
+    margin-top: 2em;
     border-top: 2px solid var(--bg-surface-hover);
     width: 100%;
   }
