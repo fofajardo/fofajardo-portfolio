@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
   import Icon from "@iconify/svelte";
 
@@ -16,8 +15,7 @@
   import ProjectCard from "$lib/ProjectCard.svelte";
   import TagBadge from "$lib/TagBadge.svelte";
 
-  import { page } from "$app/state";
-
+  
   let { data } = $props();
   let project = $derived(data.project);
   let techList = $derived(data.techList);
