@@ -1,6 +1,5 @@
 import navData from "$lib/content/nav.json";
 import tagsData from "$lib/content/tags.json";
-import technologiesData from "$lib/content/technologies.json";
 import experiencesData from "$lib/content/experiences.json";
 import projectsData from "$lib/content/projects.json";
 
@@ -12,13 +11,23 @@ import type {
   NavData,
   ProjectEntry,
   ProjectsData,
-  TechnologiesData,
   Tag
 } from "./lib.types";
 
 export const { nav } = navData as NavData;
 export const { tags } = tagsData as TagsData;
-export const { technologies } = technologiesData as TechnologiesData;
+
+// Dynamically build technologies map from tags where category is technology
+export const technologies = tags
+  .filter((t) => t.category === "technology")
+  .reduce(
+    (acc, t) => {
+      acc[t.id] = t;
+      return acc;
+    },
+    {} as Record<string, Tag>
+  );
+
 export const { experiences } = experiencesData as ExperiencesData;
 export const { projects } = projectsData as ProjectsData;
 
@@ -31,6 +40,16 @@ function groupByTag(items: Entry[]) {
         acc.set(tag, []);
       }
       acc.get(tag)!.push(item);
+    }
+    // Also index by technologies if it's a project
+    const project = item as ProjectEntry;
+    if (project.technologies) {
+      for (const tech of project.technologies) {
+        if (!acc.has(tech)) {
+          acc.set(tech, []);
+        }
+        acc.get(tech)!.push(item);
+      }
     }
     return acc;
   }, new Map<string, Entry[]>());

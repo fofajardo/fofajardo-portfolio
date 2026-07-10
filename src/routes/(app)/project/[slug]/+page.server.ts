@@ -15,7 +15,7 @@ export function load({ params }) {
     let icon = "tabler:code";
     if (techName in technologies) {
       techFriendlyName = technologies[techName].name;
-      icon = technologies[techName].icon;
+      icon = technologies[techName].icon ?? "";
     }
     return {
       id: techName,

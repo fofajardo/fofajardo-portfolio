@@ -10,13 +10,15 @@ export type NavItem = {
 
 export enum CategoryType {
   Project = "project",
-  Experience = "experience"
+  Experience = "experience",
+  Technology = "technology"
 }
 
 export interface Tag {
   id: string;
   category: CategoryType;
   name: string;
+  icon?: string;
 }
 
 export type Link = {
@@ -50,13 +52,8 @@ export type ExperienceEntry = Entry & {
   description?: string;
 };
 
-export interface TechnologyInfo {
-  name: string;
-  icon: string;
-}
-
 export type Technologies = {
-  [key: string]: TechnologyInfo;
+  [key: string]: Tag;
 };
 
 export type NavData = {
@@ -73,10 +70,6 @@ export type ExperiencesData = {
 
 export type ProjectsData = {
   projects: ProjectEntry[];
-};
-
-export type TechnologiesData = {
-  technologies: Technologies;
 };
 
 export type BlogPostMetadata = {
