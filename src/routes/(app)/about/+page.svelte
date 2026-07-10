@@ -4,7 +4,19 @@
   import LinkAnchor from "$lib/LinkAnchor.svelte";
   import Icon from "@iconify/svelte";
   import TagBadge from "$lib/TagBadge.svelte";
-  import { experiencesByTagMap, tagsByCategoryMap, technologies } from "$lib/dataService";
+  import { experiencesByTagMap, tagsByCategoryMap, tags } from "$lib/dataService";
+
+  const langIds = tags
+    .filter((t) => t.category === CategoryType.Technology && !t.hideSkill)
+    .map((t) => t.id);
+
+  const ideIds = tags.filter((t) => t.category === CategoryType.IDE).map((t) => t.id);
+
+  const toolIds = tags.filter((t) => t.category === CategoryType.Tool).map((t) => t.id);
+
+  const designVideoIds = tags
+    .filter((t) => t.category === CategoryType.GraphicDesign)
+    .map((t) => t.id);
 </script>
 
 <div class="heading-container">
@@ -59,11 +71,40 @@
   {/each}
 
   <h2 id="skills">Technical Skills</h2>
+
+  <h3 style="margin-top: 1.5em; font-size: 1.15em; font-weight: 600; color: var(--text-muted);">
+    Languages & Frameworks
+  </h3>
   <div class="tech-badge-container">
-    {#each Object.keys(technologies) as tagId (tagId)}
-      {#if !technologies[tagId].hideSkill}
-        <TagBadge {tagId} />
-      {/if}
+    {#each langIds as tagId (tagId)}
+      <TagBadge {tagId} />
+    {/each}
+  </div>
+
+  <h3 style="margin-top: 1.5em; font-size: 1.15em; font-weight: 600; color: var(--text-muted);">
+    IDEs
+  </h3>
+  <div class="tech-badge-container">
+    {#each ideIds as tagId (tagId)}
+      <TagBadge {tagId} />
+    {/each}
+  </div>
+
+  <h3 style="margin-top: 1.5em; font-size: 1.15em; font-weight: 600; color: var(--text-muted);">
+    Tools
+  </h3>
+  <div class="tech-badge-container">
+    {#each toolIds as tagId (tagId)}
+      <TagBadge {tagId} />
+    {/each}
+  </div>
+
+  <h3 style="margin-top: 1.5em; font-size: 1.15em; font-weight: 600; color: var(--text-muted);">
+    Graphic Design & Video Production
+  </h3>
+  <div class="tech-badge-container">
+    {#each designVideoIds as tagId (tagId)}
+      <TagBadge {tagId} />
     {/each}
   </div>
 </section>
@@ -73,6 +114,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5em;
-    margin-top: 1.5em;
+    margin-top: 0.75em;
   }
 </style>

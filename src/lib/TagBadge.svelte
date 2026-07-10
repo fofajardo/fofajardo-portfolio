@@ -6,14 +6,15 @@
     tagId,
     href = `/projects/${tagId}`,
     inline = false
-  }: { tagId: string; href?: string; inline?: boolean } = $props();
+  }: { tagId: string; href?: string | null; inline?: boolean } = $props();
 
   const tag = $derived(tags.find((t) => t.id === tagId));
+  const resolvedHref = $derived(tag?.hideLink ? null : href);
 </script>
 
 {#if tag}
-  {#if href}
-    <a {href} class="tag-badge">
+  {#if resolvedHref}
+    <a href={resolvedHref} class="tag-badge">
       {#if tag.icon}
         <Icon icon={tag.icon} width="16" height="16" />
       {/if}

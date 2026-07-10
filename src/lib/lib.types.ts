@@ -11,7 +11,10 @@ export type NavItem = {
 export enum CategoryType {
   Project = "project",
   Experience = "experience",
-  Technology = "technology"
+  Technology = "technology",
+  IDE = "ide",
+  Tool = "tool",
+  GraphicDesign = "graphic-design"
 }
 
 export interface Tag {
@@ -20,6 +23,7 @@ export interface Tag {
   name: string;
   icon?: string;
   hideSkill?: boolean;
+  hideLink?: boolean;
 }
 
 export type Link = {

@@ -17,9 +17,9 @@ import type {
 export const { nav } = navData as NavData;
 export const { tags } = tagsData as TagsData;
 
-// Dynamically build technologies map from tags where category is technology
+// Dynamically build technologies map from tags where category is technology or custom skill group
 export const technologies = tags
-  .filter((t) => t.category === "technology")
+  .filter((t) => ["technology", "ide", "tool", "graphic-design"].includes(t.category))
   .reduce(
     (acc, t) => {
       acc[t.id] = t;
