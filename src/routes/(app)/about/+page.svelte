@@ -3,9 +3,8 @@
   import { CategoryType } from "$lib/lib.types.js";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
   import Icon from "@iconify/svelte";
-
-  let { data } = $props();
-  let { experiencesByTagMap, tagsByCategoryMap } = $derived(data);
+  import TagBadge from "$lib/TagBadge.svelte";
+  import { experiencesByTagMap, tagsByCategoryMap, technologies } from "$lib/dataService";
 </script>
 
 <div class="heading-container">
@@ -48,4 +47,20 @@
       {/each}
     </div>
   {/each}
+
+  <h2 id="skills">Technical Skills</h2>
+  <div class="tech-badge-container">
+    {#each Object.keys(technologies) as tagId (tagId)}
+      <TagBadge {tagId} />
+    {/each}
+  </div>
 </section>
+
+<style>
+  .tech-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 1.5em;
+  }
+</style>
