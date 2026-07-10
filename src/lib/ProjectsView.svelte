@@ -15,12 +15,15 @@
 {:else}
   {#each tagsByCategoryMap.get(CategoryType.Project) ?? [] as tag (tag.id)}
     {#if filter.includes(tag.id)}
-      <h2 id={tag.id}>{tag.name}</h2>
-      <div class="cardset {viewMode}">
-        {#each projectsByTagMap.get(tag.id) ?? [] as project (project.id)}
-          <ProjectCard item={project} />
-        {/each}
-      </div>
+      {@const tagProjects = projectsByTagMap.get(tag.id) ?? []}
+      {#if tagProjects.length > 0}
+        <h2 id={tag.id}>{tag.name}</h2>
+        <div class="cardset {viewMode}">
+          {#each tagProjects as project (project.id)}
+            <ProjectCard item={project} />
+          {/each}
+        </div>
+      {/if}
     {/if}
   {/each}
 {/if}

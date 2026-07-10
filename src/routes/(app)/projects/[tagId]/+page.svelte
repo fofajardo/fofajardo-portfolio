@@ -4,11 +4,19 @@
   import { viewModeStore } from "$lib/viewModeStore";
 
   let { data } = $props();
+
+  const pageTitle = $derived(
+    data.tag.id === "all"
+      ? "Projects"
+      : data.tag.category === "technology"
+        ? `Projects using ${data.tag.name}`
+        : data.tag.name
+  );
 </script>
 
 <div class="heading-container">
   <div class="heading-content">
-    <h1>Projects</h1>
+    <h1>{pageTitle}</h1>
     <div class="view-switcher" role="group" aria-label="View switcher">
       <button
         class="view-switcher-button {$viewModeStore === 'grid' ? 'active' : ''}"
