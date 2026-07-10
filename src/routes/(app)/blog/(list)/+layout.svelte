@@ -1,20 +1,11 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
   import { page } from "$app/state";
-  import { goto } from "$app/navigation";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
 
   const { children } = $props();
   const posts = $derived(page.data.posts ?? []);
   const tag = $derived(page.data.tag);
-
-  function handleTagClick(e: MouseEvent, t: string) {
-    e.stopPropagation();
-    e.preventDefault();
-    if (t !== tag) {
-      goto(`/blog/tag/${t}`);
-    }
-  }
 </script>
 
 <svelte:head>
