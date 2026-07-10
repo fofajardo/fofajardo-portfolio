@@ -24,24 +24,26 @@
 </script>
 
 <script lang="ts">
-  const props = $props<{
+  const { src, alt, caption, id } = $props<{
     src: string;
     alt: string;
     caption?: string;
     id: string;
   }>();
 
-  const num = registerFigure(props.id);
+  // `id` is presumed to be immutable.
+  // svelte-ignore state_referenced_locally
+  const num = registerFigure(id);
 </script>
 
-<figure id={props.id} class="blog-figure">
+<figure {id} class="blog-figure">
   <div class="blog-figure-img-wrapper">
-    <img src={props.src} alt={props.alt} />
+    <img {src} {alt} />
   </div>
-  {#if props.caption}
+  {#if caption}
     <figcaption class="blog-figcaption">
       <strong>Figure {num}:</strong>
-      {props.caption}
+      {caption}
     </figcaption>
   {/if}
 </figure>

@@ -24,23 +24,25 @@
 </script>
 
 <script lang="ts">
-  const props = $props<{
+  const { caption, id, children } = $props<{
     caption?: string;
     id: string;
     children?: import("svelte").Snippet;
   }>();
 
-  const num = registerTable(props.id);
+  // `id` is presumed to be immutable.
+  // svelte-ignore state_referenced_locally
+  const num = registerTable(id);
 </script>
 
-<div id={props.id} class="blog-table-wrapper">
-  {#if props.children}
-    {@render props.children()}
+<div {id} class="blog-table-wrapper">
+  {#if children}
+    {@render children()}
   {/if}
-  {#if props.caption}
+  {#if caption}
     <div class="blog-table-caption">
       <strong>Table {num}.</strong>
-      {props.caption}
+      {caption}
     </div>
   {/if}
 </div>
