@@ -10,6 +10,16 @@
 <div class="heading-container">
   <div class="heading-content">
     <h1>About Me</h1>
+    <LinkAnchor
+      link={{
+        type: "custom",
+        url: "/resume",
+        label: "View Résumé",
+        icon: "tabler:file-text"
+      }}
+      isButton
+      isInternal
+    />
   </div>
 </div>
 
