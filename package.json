@@ -18,7 +18,7 @@
   "devDependencies": {
     "@eslint/compat": "^2.1.0",
     "@eslint/js": "^10.0.1",
-    "@iconify/svelte": "^5.2.2",
+    "@iconify/json": "^2.2.499",
     "@sveltejs/adapter-vercel": "^6.3.4",
     "@sveltejs/enhanced-img": "^0.11.0",
     "@sveltejs/kit": "^2.68.0",
@@ -37,6 +37,7 @@
     "svelte-sitemap": "^4.0.3",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.62.0",
+    "unplugin-icons": "^23.0.1",
     "vite": "^8.1.0"
   },
   "dependencies": {
