@@ -1,7 +1,6 @@
 import navData from "$lib/content/nav.json";
 import tagsData from "$lib/content/tags.json";
 import experiencesData from "$lib/content/experiences.json";
-import projectsData from "$lib/content/projects.json";
 
 import type {
   TagsData,
@@ -10,7 +9,6 @@ import type {
   ExperiencesData,
   NavData,
   ProjectEntry,
-  ProjectsData,
   Tag
 } from "./lib.types";
 
@@ -29,13 +27,47 @@ export const technologies = tags
   );
 
 export const { experiences } = experiencesData as ExperiencesData;
-export const { projects } = projectsData as ProjectsData;
+
+const markdownProjects = import.meta.glob("$lib/content/projects/*.md", { eager: true });
+
+export function sortProjectsByDate(a: ProjectEntry, b: ProjectEntry): number {
+  if (a.dateEnd === undefined && b.dateEnd === undefined) {
+    return (b.dateStart || "").localeCompare(a.dateStart || "");
+  }
+  if (a.dateEnd === undefined) {
+    return -1;
+  }
+  if (b.dateEnd === undefined) {
+    return 1;
+  }
+
+  const dateA = a.dateEnd || a.dateStart || "";
+  const dateB = b.dateEnd || b.dateStart || "";
+  return dateB.localeCompare(dateA);
+}
+
+export const projects: ProjectEntry[] = Object.entries(markdownProjects)
+  .map(([path, resolver]) => {
+    const module = resolver as { metadata: Omit<ProjectEntry, "id"> };
+    const id = path.split("/").pop()?.replace(/\.md$/, "") || "";
+    const metadata = module.metadata || {};
+    return {
+      ...metadata,
+      tags: metadata.tags || [],
+      technologies: metadata.technologies || [],
+      points: metadata.points || [],
+      links: metadata.links || [],
+      id
+    } as ProjectEntry;
+  })
+  .sort(sortProjectsByDate);
 
 export const projectsMap = new Map(projects.map((project) => [project.id, project]));
 
 function groupByTag(items: Entry[]) {
   return items.reduce((acc, item) => {
-    for (const tag of item.tags) {
+    const itemTags = item.tags || [];
+    for (const tag of itemTags) {
       if (!acc.has(tag)) {
         acc.set(tag, []);
       }
@@ -106,18 +138,14 @@ export function getGroupedProjects(
 
   const result: GroupedProjects[] = [];
   if (ongoingList.length > 0) {
-    ongoingList.sort((a, b) => (b.dateStart || "").localeCompare(a.dateStart || ""));
+    ongoingList.sort(sortProjectsByDate);
     result.push({ heading: "Ongoing", items: ongoingList });
   }
 
   const sortedYears = Array.from(groupsMap.keys()).sort((a, b) => b.localeCompare(a));
   for (const year of sortedYears) {
     const list = groupsMap.get(year)!;
-    list.sort((a, b) => {
-      const dateA = a.dateEnd || a.dateStart || "";
-      const dateB = b.dateEnd || b.dateStart || "";
-      return dateB.localeCompare(dateA);
-    });
+    list.sort(sortProjectsByDate);
     result.push({ heading: year, items: list });
   }
 

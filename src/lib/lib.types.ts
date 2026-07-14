@@ -49,7 +49,7 @@ export type ProjectEntry = Entry & {
   technologies?: string[];
   preview: string;
   previewset?: boolean;
-  content?: string;
+  hasBody?: boolean;
 };
 
 export type ExperienceEntry = Entry & {
@@ -71,10 +71,6 @@ export type TagsData = {
 
 export type ExperiencesData = {
   experiences: ExperienceEntry[];
-};
-
-export type ProjectsData = {
-  projects: ProjectEntry[];
 };
 
 export type BlogPostMetadata = {

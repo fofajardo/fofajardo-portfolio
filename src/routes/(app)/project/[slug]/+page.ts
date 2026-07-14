@@ -1,13 +1,20 @@
 import { projectsMap, technologies, projects } from "$lib/dataService";
-
 import { error } from "@sveltejs/kit";
+import type { PageLoad } from "./$types";
 
-export function load({ params }) {
+export const load: PageLoad = async ({ params }) => {
   const { slug } = params;
 
   const project = projectsMap.get(slug);
   if (!project) {
-    error(404);
+    error(404, `Project not found: ${slug}`);
+  }
+
+  let post;
+  try {
+    post = await import(`$lib/content/projects/${slug}.md`);
+  } catch (e) {
+    error(404, `Could not load project content for ${slug}`);
   }
 
   const techList = (project.technologies || []).map((techName) => {
@@ -35,6 +42,7 @@ export function load({ params }) {
 
   return {
     project,
+    content: post.default,
     techList,
     otherProjects,
     title: `${project.title} - Projects`,
@@ -42,4 +50,4 @@ export function load({ params }) {
     ogType: "website",
     ogImage: project.preview || ""
   };
-}
+};

@@ -19,6 +19,7 @@
   let project = $derived(data.project);
   let techList = $derived(data.techList);
   let otherProjects = $derived(data.otherProjects);
+  let Content = $derived(data.content);
 
   const allImageModules = import.meta.glob(
     `$lib/content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
@@ -136,10 +137,10 @@
       </nav>
     </div>
 
-    {#if project.content}
+    {#if project.hasBody && Content}
       <div class="card card-content">
         <Label icon="tabler:article" as="h3">Overview</Label>
-        <SvelteMarkdown source={project.content} />
+        <Content />
       </div>
     {/if}
 
