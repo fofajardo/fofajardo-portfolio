@@ -93,8 +93,7 @@
 <section class="content-layout">
   <div class="cardset">
     <div class="card card-project-metadata">
-      <Label icon="tabler:info-circle">{project.subtitle}</Label>
-      <Label icon="tabler:calendar"><DateRangeSpan entry={project} /></Label>
+      {project.subtitle}
     </div>
 
     {#if project.previewset}
@@ -154,6 +153,11 @@
         </ul>
       </div>
     {/if}
+
+    <div class="card card-content">
+      <Label icon="tabler:calendar" as="h3">Timeline</Label>
+      <DateRangeSpan entry={project} />
+    </div>
 
     {#if project.technologies && techList.length > 0}
       <div class="card card-content">

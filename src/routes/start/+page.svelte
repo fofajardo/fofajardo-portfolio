@@ -13,6 +13,5 @@
   :root {
     --bg-canvas: #000000;
     --text-main: #33ff33;
-    --hero-background: #000000;
   }
 </style>

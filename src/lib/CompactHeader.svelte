@@ -99,7 +99,6 @@
   /* Compact Header Styles */
   .compact-header {
     width: 100%;
-    margin-top: 10px;
   }
   .compact-header-content {
     max-width: var(--layout-max-width);
