@@ -5,6 +5,7 @@
   import type { NavItem } from "./lib.types";
   import type { Pathname } from "$app/types";
   import { goto } from "$app/navigation";
+  import { themeStore } from "$lib/themeStore";
 
   let { logoHref, nav }: { logoHref: string; nav: NavItem[] } = $props();
 
@@ -60,6 +61,43 @@
 <!-- Sidebar Drawer -->
 <aside class="sidebar-drawer" class:open={sidebarOpen}>
   <div class="sidebar-header">
+    <div class="theme-switcher">
+      <button
+        onclick={() => themeStore.set("device")}
+        class="theme-btn theme-btn-device"
+        class:active={$themeStore === "device"}
+        title="Device night/day"
+        aria-label="Device theme"
+      ></button>
+      <button
+        onclick={() => themeStore.set("light")}
+        class="theme-btn theme-btn-light"
+        class:active={$themeStore === "light"}
+        title="Light"
+        aria-label="Light theme"
+      ></button>
+      <button
+        onclick={() => themeStore.set("dark")}
+        class="theme-btn theme-btn-dark"
+        class:active={$themeStore === "dark"}
+        title="Dark"
+        aria-label="Dark theme"
+      ></button>
+      <button
+        onclick={() => themeStore.set("green")}
+        class="theme-btn theme-btn-green"
+        class:active={$themeStore === "green"}
+        title="Green"
+        aria-label="Green theme"
+      ></button>
+      <button
+        onclick={() => themeStore.set("amber")}
+        class="theme-btn theme-btn-amber"
+        class:active={$themeStore === "amber"}
+        title="Amber"
+        aria-label="Amber theme"
+      ></button>
+    </div>
     <button onclick={toggleSidebar} class="close-btn" aria-label="Close menu">
       <Icon icon="line-md:close" width="28" height="28" />
     </button>
@@ -167,7 +205,8 @@
     width: 380px;
     max-width: 80dvw;
     height: 100dvh;
-    background-color: var(--palette-black);
+    background-color: var(--bg-canvas);
+    border-left: 1px solid var(--bg-surface-hover);
     z-index: 1000;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
@@ -179,16 +218,48 @@
   }
   .sidebar-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     padding: 1em;
+    border-bottom: 1px solid var(--bg-surface-hover);
+  }
+  .theme-switcher {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .theme-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid var(--text-link);
+    transition: border-color 0.2s;
+    padding: 0;
+  }
+  .theme-btn:hover {
+    border-color: var(--text-link-hover);
+  }
+  .theme-btn.active {
+    border-color: var(--text-main);
+  }
+  .theme-btn-device {
+    background: linear-gradient(to right, #ffffff 50%, #0f1115 50%);
+  }
+  .theme-btn-light {
+    background: #ffffff;
+  }
+  .theme-btn-dark {
+    background: #0f1115;
+  }
+  .theme-btn-green {
+    background: #052e16;
+  }
+  .theme-btn-amber {
+    background: #451a03;
   }
   .close-btn {
-    color: var(--palette-white);
-  }
-  @media (prefers-color-scheme: dark) {
-    .close-btn {
-      color: var(--palette-green);
-    }
+    color: var(--text-main);
   }
   .sidebar-nav {
     flex: 1;
@@ -205,32 +276,17 @@
     align-items: center;
     gap: 0.85em;
     padding: 1em 2em;
-    color: var(--palette-white);
+    color: var(--text-main);
     font-size: 1.5em;
     text-decoration: none;
     transition: background-color 0.2s;
   }
-  @media (prefers-color-scheme: dark) {
-    .sidebar-link {
-      color: var(--palette-green);
-    }
-  }
   .sidebar-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  @media (prefers-color-scheme: dark) {
-    .sidebar-link:hover {
-      background-color: var(--bg-surface-hover);
-    }
+    background-color: var(--bg-surface-hover);
   }
   .sidebar-link.active {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--bg-surface);
     font-weight: bold;
-  }
-  @media (prefers-color-scheme: dark) {
-    .sidebar-link.active {
-      background-color: var(--bg-surface);
-    }
   }
   :global(.sidebar-icon) {
     width: 30px;

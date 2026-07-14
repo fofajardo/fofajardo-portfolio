@@ -283,18 +283,13 @@
     border-bottom: none;
   }
   .markdown-body :global(tr:nth-child(even)) {
-    background-color: rgba(0, 0, 0, 0.02);
-  }
-  @media (prefers-color-scheme: dark) {
-    .markdown-body :global(tr:nth-child(even)) {
-      background-color: rgba(255, 255, 255, 0.02);
-    }
+    background-color: var(--bg-table-even);
   }
   .markdown-body :global(tr:hover) {
     background-color: var(--bg-surface-hover);
   }
   .markdown-body :global(:not(pre) > code) {
-    background-color: rgba(175, 184, 193, 0.2);
+    background-color: var(--bg-code-inline);
     padding: 0.2em 0.4em;
     border-radius: 6px;
     font-family:
@@ -311,23 +306,13 @@
     word-break: break-all;
     white-space: pre-wrap;
   }
-  @media (prefers-color-scheme: dark) {
-    .markdown-body :global(:not(pre) > code) {
-      background-color: rgba(110, 118, 129, 0.4);
-    }
-  }
   .markdown-body :global(pre) {
-    background-color: #f6f8fa;
+    background-color: var(--bg-code-block);
     padding: 16px;
     border-radius: 8px;
     overflow-x: auto;
     margin: 1.5em 0;
     border: 1px solid var(--bg-surface-hover);
-  }
-  @media (prefers-color-scheme: dark) {
-    .markdown-body :global(pre) {
-      background-color: #161b22;
-    }
   }
   .markdown-body :global(pre code) {
     font-family:

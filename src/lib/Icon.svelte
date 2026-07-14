@@ -100,6 +100,8 @@
   import TablerArrowRight from "~icons/tabler/arrow-right";
   import TablerSun from "~icons/tabler/sun";
   import TablerMoon from "~icons/tabler/moon";
+  import TablerTerminal from "~icons/tabler/terminal";
+  import TablerDeviceLaptop from "~icons/tabler/device-laptop";
   import TablerExternalLink from "~icons/tabler/external-link";
   import TablerMenu from "~icons/tabler/menu";
   import TablerX from "~icons/tabler/x";
@@ -220,6 +222,8 @@
     "tabler:arrow-right": TablerArrowRight,
     "tabler:sun": TablerSun,
     "tabler:moon": TablerMoon,
+    "tabler:terminal": TablerTerminal,
+    "tabler:device-laptop": TablerDeviceLaptop,
     "tabler:external-link": TablerExternalLink,
     "tabler:menu": TablerMenu,
     "tabler:x": TablerX,

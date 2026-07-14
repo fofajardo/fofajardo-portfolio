@@ -90,19 +90,11 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, var(--artwork-grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--artwork-grid-color) 1px, transparent 1px);
     background-size: 20px 20px;
     mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .blueprint-grid {
-      background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.065) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.065) 1px, transparent 1px);
-    }
   }
 
   /* Glow Orbs */
@@ -110,13 +102,7 @@
     position: absolute;
     border-radius: 50%;
     filter: blur(60px);
-    opacity: 0.06;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .glow-orb {
-      opacity: 0.16;
-    }
+    opacity: var(--artwork-orb-opacity);
   }
 
   .orb-1 {
@@ -177,15 +163,9 @@
   .floating-icon {
     position: absolute;
     color: var(--text-main);
-    opacity: 0.08;
+    opacity: var(--artwork-icon-opacity);
     font-size: 3rem;
     transform-origin: center;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .floating-icon {
-      opacity: 0.13;
-    }
   }
 
   .icon-1 {

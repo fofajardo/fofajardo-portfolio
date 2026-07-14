@@ -62,18 +62,19 @@
     initColumns();
 
     const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    let isDark = darkModeQuery.matches;
 
-    const handleModeChange = (e: MediaQueryListEvent) => {
-      isDark = e.matches;
-      if (!isDark) {
-        context.clearRect(0, 0, width, height);
-      }
+    const handleModeChange = () => {
+      context.clearRect(0, 0, width, height);
     };
     darkModeQuery.addEventListener("change", handleModeChange);
 
     function step() {
-      if (!isDark) {
+      const html = document.documentElement;
+      const isAmber = html.classList.contains("theme-amber");
+      const shouldRun = html.classList.contains("theme-green") || isAmber;
+
+      if (!shouldRun) {
+        context.clearRect(0, 0, width, height);
         animationFrameId = requestAnimationFrame(step);
         return;
       }
@@ -131,15 +132,26 @@
         col.trail.forEach((tc) => {
           const yPos = tc.row * col.fontSize;
           if (yPos > -col.fontSize && yPos < height + col.fontSize) {
-            if (tc.isHead) {
-              // Glowing head character (bright green/white mix)
-              context.fillStyle = `rgba(220, 255, 220, ${col.z})`;
-            } else if (tc.opacity > 0.8) {
-              context.fillStyle = `rgba(100, 255, 100, ${tc.opacity * col.z})`;
-            } else if (tc.opacity > 0.4) {
-              context.fillStyle = `rgba(51, 255, 51, ${tc.opacity * col.z})`;
+            if (isAmber) {
+              if (tc.isHead) {
+                context.fillStyle = `rgba(255, 240, 220, ${col.z})`;
+              } else if (tc.opacity > 0.8) {
+                context.fillStyle = `rgba(255, 210, 100, ${tc.opacity * col.z})`;
+              } else if (tc.opacity > 0.4) {
+                context.fillStyle = `rgba(255, 176, 0, ${tc.opacity * col.z})`;
+              } else {
+                context.fillStyle = `rgba(150, 80, 0, ${tc.opacity * col.z})`;
+              }
             } else {
-              context.fillStyle = `rgba(0, 150, 30, ${tc.opacity * col.z})`;
+              if (tc.isHead) {
+                context.fillStyle = `rgba(220, 255, 220, ${col.z})`;
+              } else if (tc.opacity > 0.8) {
+                context.fillStyle = `rgba(100, 255, 100, ${tc.opacity * col.z})`;
+              } else if (tc.opacity > 0.4) {
+                context.fillStyle = `rgba(51, 255, 51, ${tc.opacity * col.z})`;
+              } else {
+                context.fillStyle = `rgba(0, 150, 30, ${tc.opacity * col.z})`;
+              }
             }
 
             context.font = `${col.fontSize}px monospace`;
@@ -202,9 +214,13 @@
     transition: opacity 0.5s ease;
   }
 
-  /* Only visible in prefers-color-scheme dark */
+  :global(html.theme-green) .matrix-canvas,
+  :global(html.theme-amber) .matrix-canvas {
+    opacity: 0.28;
+  }
+
   @media (prefers-color-scheme: dark) {
-    .matrix-canvas {
+    :global(html.theme-device) .matrix-canvas {
       opacity: 0.28;
     }
   }
