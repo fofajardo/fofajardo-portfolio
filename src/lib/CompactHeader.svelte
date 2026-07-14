@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Icon from "@iconify/svelte";
+  import Icon from "$lib/Icon.svelte";
   import { page } from "$app/state";
   import { resolve } from "$app/paths";
   import type { NavItem } from "./lib.types";

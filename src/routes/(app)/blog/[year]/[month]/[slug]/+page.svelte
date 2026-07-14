@@ -1,7 +1,7 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
   import Giscus from "@giscus/svelte";
-  import Icon from "@iconify/svelte";
+  import Icon from "$lib/Icon.svelte";
   import DropdownButton from "$lib/DropdownButton.svelte";
   import { resetFigureCounter } from "$lib/Figure.svelte";
   import { resetTableCounter } from "$lib/Table.svelte";

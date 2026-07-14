@@ -16,7 +16,7 @@
     researchPaperPdf: "tabler:file-type-pdf",
     gameDemo: "tabler:device-gamepad",
     gdrive: "tabler:brand-google-drive",
-    npm: "simple-icons:npm"
+    npm: "tabler:brand-npm"
   };
 
   let linkLabelMap: Record<string, string> = {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Icon from "@iconify/svelte";
+  import Icon from "$lib/Icon.svelte";
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
 

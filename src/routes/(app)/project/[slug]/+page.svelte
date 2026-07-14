@@ -1,6 +1,6 @@
 <script lang="ts">
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
-  import Icon from "@iconify/svelte";
+  import Icon from "$lib/Icon.svelte";
 
   import Glide from "@glidejs/glide";
   import "@glidejs/glide/dist/css/glide.core.min.css";

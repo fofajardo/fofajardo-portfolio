@@ -1,6 +1,6 @@
 <script lang="ts">
   import TagBadge from "$lib/TagBadge.svelte";
-  import Icon from "@iconify/svelte";
+  import Icon from "$lib/Icon.svelte";
   import type { ProjectEntry } from "./lib.types";
 
   const { item } = $props();

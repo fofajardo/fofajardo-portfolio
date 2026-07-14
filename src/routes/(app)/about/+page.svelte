@@ -2,7 +2,7 @@
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
   import { CategoryType } from "$lib/lib.types.js";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import Icon from "@iconify/svelte";
+  import Icon from "$lib/Icon.svelte";
   import TagBadge from "$lib/TagBadge.svelte";
   import { experiencesByTagMap, tagsByCategoryMap, tags } from "$lib/dataService";
 

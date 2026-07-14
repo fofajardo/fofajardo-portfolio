@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import Icon from "@iconify/svelte";
+  import Icon from "$lib/Icon.svelte";
 </script>
 
 <div class="full center-v">

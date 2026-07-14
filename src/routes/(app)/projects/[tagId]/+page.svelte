@@ -1,6 +1,6 @@
 <script lang="ts">
   import ProjectsView from "$lib/ProjectsView.svelte";
-  import Icon from "@iconify/svelte";
+  import Icon from "$lib/Icon.svelte";
   import { viewModeStore } from "$lib/viewModeStore";
 
   let { data } = $props();
