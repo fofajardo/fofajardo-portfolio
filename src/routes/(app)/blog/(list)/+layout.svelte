@@ -2,6 +2,7 @@
   import { formatDate } from "$lib/utils";
   import { page } from "$app/state";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
+  import HeadingBgArt from "$lib/HeadingBgArt.svelte";
 
   const { children } = $props();
   const posts = $derived(page.data.posts ?? []);
@@ -13,6 +14,7 @@
 </svelte:head>
 
 <div class="heading-container">
+  <HeadingBgArt type="blog" />
   <div class="heading-content">
     <h1>{tag ? `Posts tagged #${tag}` : "Blog"}</h1>
     <LinkAnchor

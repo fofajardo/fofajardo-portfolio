@@ -11,6 +11,7 @@
   import DateRangeSpan from "$lib/DateRangeSpan.svelte";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
   import Label from "$lib/Label.svelte";
+  import HeadingBgArt from "$lib/HeadingBgArt.svelte";
 
   import ProjectCard from "$lib/ProjectCard.svelte";
   import TagBadge from "$lib/TagBadge.svelte";
@@ -75,6 +76,7 @@
 </script>
 
 <div class="heading-container">
+  <HeadingBgArt type="projects" />
   <div class="heading-content">
     <h1>
       {project.title}

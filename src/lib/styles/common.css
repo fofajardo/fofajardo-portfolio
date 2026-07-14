@@ -703,6 +703,8 @@ td {
   border-radius: 24px;
   padding: 1em;
   view-transition-name: primary-header;
+  position: relative;
+  overflow: hidden;
 }
 
 .primary-header.term {

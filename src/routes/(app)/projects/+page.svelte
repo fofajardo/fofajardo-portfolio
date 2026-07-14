@@ -1,12 +1,14 @@
 <script lang="ts">
   import ProjectsView from "$lib/ProjectsView.svelte";
   import Icon from "$lib/Icon.svelte";
+  import HeadingBgArt from "$lib/HeadingBgArt.svelte";
   import { viewModeStore } from "$lib/viewModeStore";
 
   let { data } = $props();
 </script>
 
 <div class="heading-container">
+  <HeadingBgArt />
   <div class="heading-content">
     <h1>Projects</h1>
     <div class="view-switcher" role="group" aria-label="View switcher">
