@@ -143,8 +143,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
     background-color: rgba(0, 0, 0, 0);
     backdrop-filter: blur(0px);
     z-index: 999;
@@ -166,8 +166,8 @@
     top: 0;
     right: 0;
     width: 380px;
-    max-width: 80vw;
-    height: 100vh;
+    max-width: 80dvw;
+    height: 100dvh;
     background-color: var(--palette-black);
     z-index: 1000;
     transform: translateX(100%);
