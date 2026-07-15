@@ -1,17 +1,27 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
   import Giscus from "@giscus/svelte";
-  import Icon from "$lib/Icon.svelte";
   import DropdownButton from "$lib/DropdownButton.svelte";
   import { resetFigureCounter } from "$lib/Figure.svelte";
   import { resetTableCounter } from "$lib/Table.svelte";
   import HeadingBgArt from "$lib/HeadingBgArt.svelte";
+  import { themeStore } from "$lib/themeStore";
 
   import { page } from "$app/state";
 
   const { data } = $props();
   const meta = $derived(data.meta);
   const Content = $derived(data.content);
+
+  const giscusTheme = $derived.by(() => {
+    if ($themeStore === "device") {
+      return "preferred_color_scheme";
+    }
+    if ($themeStore === "light") {
+      return "light";
+    }
+    return "transparent_dark";
+  });
 
   // Reset counters synchronously before Svelte renders the children
   const _ = $derived.by(() => {
@@ -143,7 +153,7 @@
     reactionsEnabled="1"
     emitMetadata="0"
     inputPosition="top"
-    theme="preferred_color_scheme"
+    theme={giscusTheme}
     lang="en"
     term=""
     loading="lazy"
