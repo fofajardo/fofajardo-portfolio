@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<section class="content-layout resume-layout">
+<section class="content-layout">
   <div class="card resume-card">
     <iframe
       src="https://drive.google.com/file/d/1FkoQdk_GV_Ad2Lb7VSxhBX6uddumziwo/preview"
@@ -30,11 +30,9 @@
 </section>
 
 <style>
-  .resume-layout {
+  .resume-card {
     margin-top: 1em;
     margin-bottom: 1em;
-  }
-  .resume-card {
     padding: 0;
     overflow: hidden;
     background: #000;
