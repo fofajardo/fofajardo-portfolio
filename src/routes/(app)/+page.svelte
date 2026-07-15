@@ -1,7 +1,7 @@
 <script lang="ts">
   import Header from "$lib/Header.svelte";
   import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import HeadingBgArt from "$lib/HeadingBgArt.svelte";
+  import HeroArt from "$lib/HeroArt.svelte";
 
   const { data } = $props();
   const { nav } = $derived(data);
@@ -14,7 +14,7 @@
 </svelte:head>
 
 <div class="full center-v" style="position: relative; overflow: hidden; width: 100%;">
-  <HeadingBgArt type="home" />
+  <HeroArt type="home" />
 
   <div
     style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%;"

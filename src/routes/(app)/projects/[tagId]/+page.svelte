@@ -1,7 +1,7 @@
 <script lang="ts">
   import ProjectsView from "$lib/ProjectsView.svelte";
   import Icon from "$lib/Icon.svelte";
-  import HeadingBgArt from "$lib/HeadingBgArt.svelte";
+  import HeroArt from "$lib/HeroArt.svelte";
   import { viewModeStore } from "$lib/viewModeStore";
 
   let { data } = $props();
@@ -16,7 +16,7 @@
 </script>
 
 <div class="heading-container">
-  <HeadingBgArt />
+  <HeroArt />
   <div class="heading-content">
     <h1>{pageTitle}</h1>
     <div class="view-switcher" role="group" aria-label="View switcher">

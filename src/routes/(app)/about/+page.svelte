@@ -4,7 +4,7 @@
   import LinkAnchor from "$lib/LinkAnchor.svelte";
   import Icon from "$lib/Icon.svelte";
   import TagBadge from "$lib/TagBadge.svelte";
-  import HeadingBgArt from "$lib/HeadingBgArt.svelte";
+  import HeroArt from "$lib/HeroArt.svelte";
   import { experiencesByTagMap, tagsByCategoryMap, tags } from "$lib/dataService";
 
   const langIds = tags
@@ -21,7 +21,7 @@
 </script>
 
 <div class="heading-container">
-  <HeadingBgArt type="about" />
+  <HeroArt type="about" />
   <div class="heading-content">
     <h1>About Me</h1>
     <LinkAnchor

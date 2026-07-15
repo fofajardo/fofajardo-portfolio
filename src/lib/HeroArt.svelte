@@ -35,7 +35,7 @@
     $props();
 </script>
 
-<div class="heading-bg-artwork type-{type}">
+<div class="hero-art type-{type}">
   <div class="blueprint-grid"></div>
 
   <div class="glow-orb orb-1"></div>
@@ -78,7 +78,7 @@
 </div>
 
 <style>
-  .heading-bg-artwork {
+  .hero-art {
     position: absolute;
     inset: 0;
     overflow: hidden;

@@ -1,10 +1,10 @@
 <script lang="ts">
   import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import HeadingBgArt from "$lib/HeadingBgArt.svelte";
+  import HeroArt from "$lib/HeroArt.svelte";
 </script>
 
 <div class="heading-container">
-  <HeadingBgArt type="resume" />
+  <HeroArt type="resume" />
   <div class="heading-content">
     <h1>Résumé</h1>
     <LinkAnchor

@@ -4,7 +4,7 @@
   import DropdownButton from "$lib/DropdownButton.svelte";
   import { resetFigureCounter } from "$lib/Figure.svelte";
   import { resetTableCounter } from "$lib/Table.svelte";
-  import HeadingBgArt from "$lib/HeadingBgArt.svelte";
+  import HeroArt from "$lib/HeroArt.svelte";
   import { themeStore } from "$lib/themeStore";
 
   import { page } from "$app/state";
@@ -97,7 +97,7 @@
 </svelte:head>
 
 <div class="heading-container">
-  <HeadingBgArt type="blog" />
+  <HeroArt type="blog" />
   <div class="heading-content">
     <div class="compact-header-wrapper">
       <h1>{meta.title}</h1>
