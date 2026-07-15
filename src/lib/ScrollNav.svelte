@@ -178,6 +178,7 @@
     padding: 0.4rem 0.8rem;
     border-radius: 9999px;
     font-size: 0.85rem;
+    white-space: nowrap;
     pointer-events: none;
     transition: opacity 0.3s ease;
     animation: bounce-horizontal 2s infinite;
