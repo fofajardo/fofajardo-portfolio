@@ -74,6 +74,9 @@
   import LineMdMenu from "~icons/line-md/menu";
   import LineMdClose from "~icons/line-md/close";
   import TablerChevronDown from "~icons/tabler/chevron-down";
+  import TablerArrowDown from "~icons/tabler/arrow-down";
+  import TablerArrowUp from "~icons/tabler/arrow-up";
+  import TablerArrowLeft from "~icons/tabler/arrow-left";
   import StreamlineFreehandAppWindowLayout from "~icons/streamline-freehand/app-window-layout";
   import LineMdExternalLink from "~icons/line-md/external-link";
   import TablerArrowBadgeRight from "~icons/tabler/arrow-badge-right";
@@ -196,6 +199,9 @@
     "line-md:menu": LineMdMenu,
     "line-md:close": LineMdClose,
     "tabler:chevron-down": TablerChevronDown,
+    "tabler:arrow-down": TablerArrowDown,
+    "tabler:arrow-up": TablerArrowUp,
+    "tabler:arrow-left": TablerArrowLeft,
     "streamline-freehand:app-window-layout": StreamlineFreehandAppWindowLayout,
     "line-md:external-link": LineMdExternalLink,
     "tabler:arrow-badge-right": TablerArrowBadgeRight,
