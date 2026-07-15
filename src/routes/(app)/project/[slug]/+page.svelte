@@ -22,9 +22,7 @@
   let otherProjects = $derived(data.otherProjects);
   let Content = $derived(data.content);
 
-  const isLongWordTitle = $derived(
-    project.title.length > 10 && !project.title.includes(" ")
-  );
+  const isLongWordTitle = $derived(project.title.length > 10 && !project.title.includes(" "));
 
   const allImageModules = import.meta.glob(
     `$lib/content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
