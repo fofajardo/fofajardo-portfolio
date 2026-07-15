@@ -80,24 +80,19 @@
 <div class="heading-container">
   <HeroArt type="projects" />
   <div class="heading-content">
-    <h1 class:long-word-title={isLongWordTitle}>
-      {project.title}
-      {#if project.directUrl}
-        <Icon
-          icon="line-md:external-link"
-          width="24"
-          height="24"
-          style="margin-left: 6px; display: inline-block; vertical-align: middle;"
-        />
-      {/if}
-    </h1>
-  </div>
-</div>
-
-<section class="content-layout">
-  <div class="cardset">
     <div class="card card-project-metadata">
-      {project.subtitle}
+      <h1 class:long-word-title={isLongWordTitle}>
+        {project.title}
+        {#if project.directUrl}
+          <Icon
+            icon="line-md:external-link"
+            width="24"
+            height="24"
+            style="margin-left: 6px; display: inline-block; vertical-align: middle;"
+          />
+        {/if}
+      </h1>
+      <span class="project-subtitle">{project.subtitle}</span>
     </div>
 
     {#if project.previewset}
@@ -139,7 +134,11 @@
         {/each}
       </nav>
     </div>
+  </div>
+</div>
 
+<section class="content-layout">
+  <div class="cardset">
     {#if project.hasBody && Content}
       <div class="card card-content">
         <Label icon="tabler:article" as="h3">Overview</Label>
