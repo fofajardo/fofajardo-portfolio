@@ -1,13 +1,12 @@
 <script lang="ts">
   import ProjectCard from "./ProjectCard.svelte";
-  import { getGroupedProjects, getFilteredProjects, projects as allProjects } from "./dataService";
+  import { getGroupedProjects, projects as allProjects } from "./dataService";
 
-  const { data, filter, viewMode = "grid", group = false } = $props();
-  const showAll = $derived(data.showAll ?? false);
+  const { data, viewMode = "grid", group = false } = $props();
   const projectsList = $derived(data.projects ?? allProjects);
 
-  const grouped = $derived(getGroupedProjects(projectsList, filter, showAll));
-  const flatProjects = $derived(getFilteredProjects(projectsList, filter, showAll));
+  const grouped = $derived(getGroupedProjects(projectsList));
+  const flatProjects = $derived(projectsList);
 </script>
 
 {#if group}

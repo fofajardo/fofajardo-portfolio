@@ -111,14 +111,8 @@ export interface GroupedProjects {
   items: ProjectEntry[];
 }
 
-export function getGroupedProjects(
-  projectsList: ProjectEntry[],
-  filter: string[],
-  showAll: boolean
-): GroupedProjects[] {
-  const filtered = showAll
-    ? projectsList
-    : projectsList.filter((p: ProjectEntry) => p.tags.some((t: string) => filter.includes(t)));
+export function getGroupedProjects(projectsList: ProjectEntry[]): GroupedProjects[] {
+  const filtered = projectsList;
 
   const groupsMap = new Map<string, ProjectEntry[]>();
   const ongoingList: ProjectEntry[] = [];
@@ -150,14 +144,4 @@ export function getGroupedProjects(
   }
 
   return result;
-}
-
-export function getFilteredProjects(
-  projectsList: ProjectEntry[],
-  filter: string[],
-  showAll: boolean
-): ProjectEntry[] {
-  return showAll
-    ? projectsList
-    : projectsList.filter((p: ProjectEntry) => p.tags.some((t: string) => filter.includes(t)));
 }

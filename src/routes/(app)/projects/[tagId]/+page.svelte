@@ -39,5 +39,5 @@
 </div>
 
 <section class="content-layout">
-  <ProjectsView {data} filter={[data.tag.id]} viewMode={$viewModeStore} />
+  <ProjectsView {data} viewMode={$viewModeStore} />
 </section>

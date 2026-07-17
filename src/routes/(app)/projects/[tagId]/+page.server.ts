@@ -10,20 +10,13 @@ export function load({ params }) {
     error(404);
   }
 
-  const showAll = tagId === "all" || tag.category === "technology";
-
   const title =
     tag.category === "technology" ? `Projects using ${tag.name}` : `${tag.name} - Projects`;
 
-  const filteredProjects = showAll
-    ? tagId === "all"
-      ? projects
-      : (projectsByTagMap.get(tagId) ?? [])
-    : projects;
+  const filteredProjects = tagId === "all" ? projects : (projectsByTagMap.get(tagId) ?? []);
 
   return {
     tag,
-    showAll,
     projects: filteredProjects,
     tagsByCategoryMap,
     projectsByTagMap,
