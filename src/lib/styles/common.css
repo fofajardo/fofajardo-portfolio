@@ -623,38 +623,6 @@ td {
   line-height: 1em;
 }
 
-.view-switcher {
-  display: flex;
-  gap: 0.25em;
-  background: var(--bg-surface);
-  padding: 4px;
-  border-radius: 12px;
-}
-
-.view-switcher-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 8px;
-  color: var(--text-main);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background-color 0.2s,
-    color 0.2s;
-}
-
-.view-switcher-button:hover {
-  background: var(--bg-surface-hover);
-}
-
-.view-switcher-button.active {
-  background: var(--text-main);
-  color: var(--bg-canvas);
-}
-
 /* ::::: card anchor ::::: */
 
 .card-anchor {

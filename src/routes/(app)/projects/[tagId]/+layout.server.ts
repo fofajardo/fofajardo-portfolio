@@ -10,6 +10,13 @@ export function load({ params }) {
     error(404);
   }
 
+  const pageHeadingTitle =
+    tag.id === "all"
+      ? "Projects"
+      : tag.category === "technology"
+        ? `Projects using ${tag.name}`
+        : tag.name;
+
   const title =
     tag.category === "technology" ? `Projects using ${tag.name}` : `${tag.name} - Projects`;
 
@@ -18,9 +25,9 @@ export function load({ params }) {
   return {
     tag,
     projects: filteredProjects,
-    tagsByCategoryMap,
-    projectsByTagMap,
+    useGrouping: false,
     title,
+    pageHeadingTitle,
     description:
       "A collection of personal and academic projects showcasing my skills and experience."
   };
