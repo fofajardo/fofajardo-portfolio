@@ -101,7 +101,7 @@
       width: 100px;
       height: 125px;
     }
-    
+
     /* Hide the scroll hint for this page on tiny screens. */
     :global(.scroll-hint) {
       opacity: 0;

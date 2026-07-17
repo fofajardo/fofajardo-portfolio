@@ -118,7 +118,6 @@
     } else {
       visible = false;
     }
-
   }
 
   $effect(() => {
