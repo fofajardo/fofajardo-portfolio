@@ -169,7 +169,6 @@
     align-items: center;
     gap: 0.5rem;
     color: var(--text-main);
-    opacity: 0.65;
     background: rgba(128, 128, 128, 0.05);
     border: 1px solid rgba(128, 128, 128, 0.15);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
