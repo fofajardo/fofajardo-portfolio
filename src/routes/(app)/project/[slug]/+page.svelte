@@ -22,8 +22,6 @@
   let otherProjects = $derived(data.otherProjects);
   let Content = $derived(data.content);
 
-  const isLongWordTitle = $derived(project.title.length > 10 && !project.title.includes(" "));
-
   const allImageModules = import.meta.glob(
     `$lib/content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
     {
@@ -81,7 +79,7 @@
   <HeroArt type="projects" />
   <div class="heading-content">
     <div class="card card-project-metadata">
-      <h1 class:long-word-title={isLongWordTitle}>
+      <h1 class="long-word-title">
         {project.title}
         {#if project.directUrl}
           <Icon
@@ -207,7 +205,6 @@
   }
 
   :global(.heading-content) h1.long-word-title {
-    font-size: clamp(2em, 8vw, 3.2em);
-    word-break: break-all;
+    font-size: clamp(2.5em, 8vw, 4em);
   }
 </style>
