@@ -4,13 +4,13 @@
   import { page } from "$app/state";
   import { goto } from "$app/navigation";
   import Icon from "./Icon.svelte";
+  import { isSidebarOpen } from "./Sidebar.svelte";
 
   const routes = ["/", "/about", "/projects", "/blog"];
   let visible = $state(false);
   let isMobile = $state(false);
   let cooldown = false;
   let touchStartX = 0;
-  let lastScrollY = 0;
 
   const currentPath = $derived(page.url.pathname);
   const currentIndex = $derived(routes.indexOf(currentPath));
@@ -32,7 +32,7 @@
   });
 
   function handleNavigate(direction: "next" | "prev") {
-    if (cooldown) {
+    if (cooldown || isSidebarOpen()) {
       return;
     }
     const currentPath = page.url.pathname;
@@ -119,7 +119,6 @@
       visible = false;
     }
 
-    lastScrollY = currentScrollY;
   }
 
   $effect(() => {

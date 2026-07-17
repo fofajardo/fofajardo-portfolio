@@ -18,6 +18,10 @@
       goto(resolve(href as Pathname));
     }, 300);
   }
+
+  export function isSidebarOpen() {
+    return sidebarOpen;
+  }
 </script>
 
 <script lang="ts">
