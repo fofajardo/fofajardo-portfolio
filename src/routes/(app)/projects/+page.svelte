@@ -31,5 +31,5 @@
 </div>
 
 <section class="content-layout">
-  <ProjectsView {data} filter={["personal", "academic"]} viewMode={$viewModeStore} group={true} />
+  <ProjectsView {data} viewMode={$viewModeStore} group={true} />
 </section>
