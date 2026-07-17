@@ -4,6 +4,8 @@
   import HeroArt from "$lib/HeroArt.svelte";
   import { viewModeStore } from "$lib/viewModeStore";
   import { page } from "$app/state";
+
+  const { children } = $props();
 </script>
 
 <main>
@@ -32,6 +34,7 @@
 
   <section class="content-layout">
     <ProjectsView data={page.data} viewMode={$viewModeStore} group={page.data.useGrouping} />
+    {@render children()}
   </section>
 </main>
 
