@@ -291,35 +291,7 @@ main:not(.transparent) {
   box-shadow: 0 0 0 2px var(--text-link) inset;
 }
 
-/* ::::: new primary header ::::: */
-
-.primary-header {
-  width: 100%;
-}
-
-.primary-header-content {
-  max-width: var(--layout-max-width);
-  margin: 0 auto;
-  padding: 1em 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.blog-logo {
-  font-size: 2.25em;
-  font-weight: 900;
-  text-decoration: none;
-  color: var(--text-main);
-}
-
-@media screen and (max-width: 625px) {
-  .blog-logo {
-    font-size: 1.5em;
-  }
-}
-
-.hamburger-btn,
+.menu-btn,
 .close-btn {
   background: none;
   border: none;
@@ -333,7 +305,7 @@ main:not(.transparent) {
   transition: background-color 0.2s;
 }
 
-.hamburger-btn:hover,
+.menu-btn:hover,
 .close-btn:hover {
   background-color: var(--bg-surface-hover);
 }
