@@ -15,7 +15,11 @@
   <HeroArt type="home" />
   <main class="transparent full-nh center-v" style="width: 100%;">
     <section class="content-layout">
-      <enhanced:img src="$lib/content/profile.png" class="profile-img" />
+      <enhanced:img
+        src="$lib/content/profile.png"
+        class="profile-img"
+        alt="Francis Dominic Fajardo's profile image"
+      />
       <div>
         <h1 class="profile-heading">I'm Francis Dominic Fajardo.</h1>
         <p style="text-align: justify; margin: 0;">
