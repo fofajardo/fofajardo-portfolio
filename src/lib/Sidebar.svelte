@@ -1,23 +1,13 @@
-<script lang="ts">
-  import Icon from "$lib/Icon.svelte";
-  import { page } from "$app/state";
-  import { resolve } from "$app/paths";
-  import type { NavItem } from "./lib.types";
-  import type { Pathname } from "$app/types";
+<script lang="ts" module>
   import { goto } from "$app/navigation";
-  import { themeStore } from "$lib/themeStore";
-
-  let { logoHref, nav }: { logoHref: string; nav: NavItem[] } = $props();
 
   let sidebarOpen = $state(false);
 
-  const sidebarNavItems = $derived(nav.filter((item) => item.limitTo !== "launcher"));
-
-  function toggleSidebar() {
+  export function toggleSidebar() {
     sidebarOpen = !sidebarOpen;
   }
 
-  function handleLinkClick(e: MouseEvent, href: string, rel?: string) {
+  export function handleLinkClick(e: MouseEvent, href: string, rel?: string) {
     if (rel === "external") {
       sidebarOpen = false;
       return;
@@ -28,6 +18,19 @@
       goto(resolve(href as Pathname));
     }, 300);
   }
+</script>
+
+<script lang="ts">
+  import Icon from "$lib/Icon.svelte";
+  import { page } from "$app/state";
+  import { resolve } from "$app/paths";
+  import type { NavItem } from "./lib.types";
+  import type { Pathname } from "$app/types";
+  import { themeStore } from "$lib/themeStore";
+
+  let { nav }: { nav: NavItem[] } = $props();
+
+  const sidebarNavItems = $derived(nav.filter((item) => item.limitTo !== "launcher"));
 
   $effect(() => {
     if (sidebarOpen) {
@@ -40,15 +43,6 @@
     };
   });
 </script>
-
-<header class="compact-header" aria-label="Compact header">
-  <div class="compact-header-content">
-    <a href={logoHref} class="blog-logo">Francis Dominic Fajardo</a>
-    <button onclick={toggleSidebar} class="hamburger-btn" aria-label="Open menu">
-      <Icon icon="line-md:menu" width="24" height="24" />
-    </button>
-  </div>
-</header>
 
 <!-- Sidebar Overlay -->
 <div
@@ -134,47 +128,6 @@
 </aside>
 
 <style>
-  /* Compact Header Styles */
-  .compact-header {
-    width: 100%;
-  }
-  .compact-header-content {
-    max-width: var(--layout-max-width);
-    margin: 0 auto;
-    padding: 1em 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .blog-logo {
-    font-size: 2.25em;
-    font-weight: 900;
-    text-decoration: none;
-    color: var(--text-main);
-  }
-  @media screen and (max-width: 625px) {
-    .blog-logo {
-      font-size: 1.5em;
-    }
-  }
-  .hamburger-btn,
-  .close-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-main);
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    transition: background-color 0.2s;
-  }
-  .hamburger-btn:hover,
-  .close-btn:hover {
-    background-color: var(--bg-surface-hover);
-  }
-
   /* Sidebar Drawer Styles */
   .sidebar-overlay {
     position: fixed;
@@ -257,9 +210,6 @@
   }
   .theme-btn-amber {
     background: #451a03;
-  }
-  .close-btn {
-    color: var(--text-main);
   }
   .sidebar-nav {
     flex: 1;

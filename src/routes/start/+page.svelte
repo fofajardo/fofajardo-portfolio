@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Header from "$lib/Header.svelte";
+  import Launcher from "$lib/Launcher.svelte";
 
   const { data } = $props();
   const { nav } = $derived(data);
 </script>
 
 <div class="full center-v">
-  <Header {nav} launcher={true} />
+  <Launcher {nav} launcher={true} />
 </div>
 
 <style>

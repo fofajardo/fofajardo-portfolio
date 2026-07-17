@@ -99,7 +99,7 @@
 <div class="heading-container">
   <HeroArt type="blog" />
   <div class="heading-content">
-    <div class="compact-header-wrapper">
+    <div class="primary-header-wrapper">
       <h1>{meta.title}</h1>
       {#if meta.description}
         <p class="blog-subtitle">{meta.description}</p>
@@ -161,7 +161,7 @@
 </section>
 
 <style>
-  .compact-header-wrapper {
+  .primary-header-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,7 +170,7 @@
     margin-top: 1.5em;
     margin-bottom: 2em;
   }
-  .compact-header-wrapper h1 {
+  .primary-header-wrapper h1 {
     font-family: "Instrument Serif", Georgia, Garamond, serif;
     font-size: 5em;
     font-weight: 800;
@@ -190,7 +190,7 @@
     opacity: 0.9;
   }
   @media screen and (max-width: 625px) {
-    .compact-header-wrapper h1 {
+    .primary-header-wrapper h1 {
       font-size: 3em;
     }
     .blog-subtitle {
