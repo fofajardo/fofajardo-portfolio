@@ -12,13 +12,21 @@
       <div></div>
     {/if}
     <button onclick={toggleSidebar} class="menu-btn" aria-label="Open menu">
-      {#if page.url.pathname === "/"}
-        <div class="menu-btn-label">Menu</div>
-      {/if}
+      <div class="menu-btn-label">Menu</div>
       <Icon icon="line-md:menu" width="24" height="24" />
     </button>
   </div>
 </header>
+
+{#if page.url.pathname !== "/"}
+  <style>
+    @media screen and (max-width: 625px) {
+      .menu-btn-label {
+        display: none;
+      }
+    }
+  </style>
+{/if}
 
 <style>
   /* ::::: new primary header ::::: */
@@ -42,17 +50,17 @@
     color: var(--text-main);
   }
 
-  @media screen and (max-width: 625px) {
-    .site-logo {
-      font-size: 1.5em;
-    }
-  }
-
   .menu-btn-label {
     font-family: var(--font-body);
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.05em;
     margin: 0 0.5em;
+  }
+
+  @media screen and (max-width: 625px) {
+    .site-logo {
+      font-size: 1.5em;
+    }
   }
 </style>
