@@ -28,6 +28,7 @@ export interface Tag {
 
 export type Link = {
   label?: string;
+  lead?: string;
   type: string;
   url: Pathname | string;
   icon?: string;

@@ -33,19 +33,20 @@
 
   let icon = $derived(link.icon ?? linkTypeIconMap[link.type] ?? linkTypeIconMap["external"]);
   let label = $derived(link.label ?? linkLabelMap[link.type] ?? linkLabelMap["external"]);
+  let lead = $derived(link.lead ?? "");
   let anchorClass = $derived(isButton ? "button" : "");
 </script>
 
-{#snippet labelWithIcon(icon: string, label: string)}
-  <Label {icon}>{label}</Label>
+{#snippet labelWithIcon(icon: string, label: string, lead: string)}
+  <Label {icon} {lead}>{label}</Label>
 {/snippet}
 
 {#if isInternal}
   <a class={anchorClass} href={resolve(link.url as Pathname)}>
-    {@render labelWithIcon(icon, label)}
+    {@render labelWithIcon(icon, label, lead)}
   </a>
 {:else}
   <a class={anchorClass} href={link.url} target="_blank" rel="external">
-    {@render labelWithIcon(icon, label)}
+    {@render labelWithIcon(icon, label, lead)}
   </a>
 {/if}
