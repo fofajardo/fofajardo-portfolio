@@ -55,7 +55,20 @@ export type ProjectEntry = Entry & {
 
 export type ExperienceEntry = Entry & {
   organization: string;
+  group?: string;
+  employmentType?: string;
+  location?: string;
+  locationType?: string;
   description?: string;
+};
+
+export type ExperienceGroupItem = {
+  isGroup: boolean;
+  group?: string;
+  organization?: string;
+  locationType?: string;
+  location?: string;
+  items: ExperienceEntry[];
 };
 
 export type Technologies = {

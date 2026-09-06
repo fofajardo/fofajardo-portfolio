@@ -6,6 +6,7 @@ import type {
   TagsData,
   Entry,
   ExperienceEntry,
+  ExperienceGroupItem,
   ExperiencesData,
   NavData,
   ProjectEntry,
@@ -141,6 +142,37 @@ export function getGroupedProjects(projectsList: ProjectEntry[]): GroupedProject
     const list = groupsMap.get(year)!;
     list.sort(sortProjectsByDate);
     result.push({ heading: year, items: list });
+  }
+
+  return result;
+}
+
+export function getExperienceDisplayItems(list: ExperienceEntry[]): ExperienceGroupItem[] {
+  const result: ExperienceGroupItem[] = [];
+  const groupMap = new Map<string, ExperienceEntry[]>();
+
+  for (const exp of list) {
+    if (exp.group) {
+      if (!groupMap.has(exp.group)) {
+        const groupItems = [exp];
+        groupMap.set(exp.group, groupItems);
+        result.push({
+          isGroup: true,
+          group: exp.group,
+          organization: exp.organization,
+          locationType: exp.locationType,
+          location: exp.location,
+          items: groupItems
+        });
+      } else {
+        groupMap.get(exp.group)!.push(exp);
+      }
+    } else {
+      result.push({
+        isGroup: false,
+        items: [exp]
+      });
+    }
   }
 
   return result;
