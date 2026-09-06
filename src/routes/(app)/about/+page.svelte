@@ -113,36 +113,28 @@
 
   <h2 id="skills">Technical Skills</h2>
 
-  <h3 style="margin-top: 1.5em; font-size: 1.15em; font-weight: 600; color: var(--text-muted);">
-    Languages & Frameworks
-  </h3>
+  <h3>Languages & Frameworks</h3>
   <div class="tech-badge-container">
     {#each langIds as tagId (tagId)}
       <TagBadge {tagId} />
     {/each}
   </div>
 
-  <h3 style="margin-top: 1.5em; font-size: 1.15em; font-weight: 600; color: var(--text-muted);">
-    IDEs
-  </h3>
+  <h3>IDEs</h3>
   <div class="tech-badge-container">
     {#each ideIds as tagId (tagId)}
       <TagBadge {tagId} />
     {/each}
   </div>
 
-  <h3 style="margin-top: 1.5em; font-size: 1.15em; font-weight: 600; color: var(--text-muted);">
-    Tools
-  </h3>
+  <h3>Tools</h3>
   <div class="tech-badge-container">
     {#each toolIds as tagId (tagId)}
       <TagBadge {tagId} />
     {/each}
   </div>
 
-  <h3 style="margin-top: 1.5em; font-size: 1.15em; font-weight: 600; color: var(--text-muted);">
-    Graphic Design & Video Production
-  </h3>
+  <h3>Graphic Design & Video Production</h3>
   <div class="tech-badge-container">
     {#each designVideoIds as tagId (tagId)}
       <TagBadge {tagId} />
