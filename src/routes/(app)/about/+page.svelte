@@ -44,10 +44,10 @@
 </div>
 
 {#snippet experienceContent(exp: ExperienceEntry, isNested: boolean = false)}
-  <div class="card-2col">
-    <span style="font-size: {isNested ? '1.1em' : '1.25em'}; font-weight: bold; max-width: 30em;">
-      {exp.title}
-    </span>
+  <div style="font-size: {isNested ? '1.1em' : '1.25em'}; font-weight: bold; max-width: 30em;">
+    {exp.title}
+  </div>
+  <div>
     <DateRangeSpan entry={exp} />
   </div>
   {#if !isNested}
