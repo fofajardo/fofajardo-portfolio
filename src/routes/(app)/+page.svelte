@@ -23,7 +23,7 @@
     <Launcher {nav} target="home" />
   {/if}
   <HeroArt type="home" />
-  <main class="transparent full-nh center-v" style="width: 100%;">
+  <main class="transparent full-nh center-v">
     <section class="content-layout">
       <enhanced:img
         src="$lib/content/profile.png"
@@ -75,6 +75,14 @@
 </div>
 
 <style>
+  main {
+    width: 100%;
+  }
+
+  main > .content-layout {
+    padding: 20px;
+  }
+
   .profile-img {
     object-fit: cover;
     width: 160px;
