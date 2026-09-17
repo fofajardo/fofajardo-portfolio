@@ -131,8 +131,10 @@
   import DeviconPlainDocker from "~icons/devicon-plain/docker";
   import DeviconVercel from "~icons/devicon/vercel";
   import BxlVisualStudio from "~icons/bxl/visual-studio";
+  import PhFileCodeBold from "~icons/ph/file-code-bold";
 
   const iconMap: Record<string, any> = {
+    "ph:file-code-bold": PhFileCodeBold,
     "bxl:visual-studio": BxlVisualStudio,
     "devicon:vercel": DeviconVercel,
     "devicon-plain:docker": DeviconPlainDocker,
