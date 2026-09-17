@@ -129,14 +129,14 @@
   import PhBinaryBold from "~icons/ph/binary-bold";
   import PhWindowsLogoFill from "~icons/ph/windows-logo-fill";
   import DeviconPlainDocker from "~icons/devicon-plain/docker";
-  import DeviconVercel from "~icons/devicon/vercel";
+  import RadixIconsVercelLogo from "~icons/radix-icons/vercel-logo";
   import BxlVisualStudio from "~icons/bxl/visual-studio";
   import PhFileCodeBold from "~icons/ph/file-code-bold";
 
   const iconMap: Record<string, any> = {
     "ph:file-code-bold": PhFileCodeBold,
     "bxl:visual-studio": BxlVisualStudio,
-    "devicon:vercel": DeviconVercel,
+    "radix-icons:vercel-logo": RadixIconsVercelLogo,
     "devicon-plain:docker": DeviconPlainDocker,
     "line-md:home": LineMdHome,
     "line-md:briefcase": LineMdBriefcase,
