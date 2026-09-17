@@ -2,6 +2,12 @@
   import LinkAnchor from "$lib/LinkAnchor.svelte";
   import HeroArt from "$lib/HeroArt.svelte";
   import Header from "$lib/Header.svelte";
+  import Launcher from "$lib/Launcher.svelte";
+  import { IsMobile } from "$lib/hooks/is-mobile.js";
+  const { data } = $props();
+  const { nav } = $derived(data);
+
+  const isMobile = new IsMobile();
 </script>
 
 <svelte:head>
@@ -11,7 +17,11 @@
 </svelte:head>
 
 <div>
-  <Header />
+  {#if isMobile.current}
+    <Header />
+  {:else}
+    <Launcher {nav} target="home" />
+  {/if}
   <HeroArt type="home" />
   <main class="transparent full-nh center-v" style="width: 100%;">
     <section class="content-layout">
@@ -83,7 +93,7 @@
   }
 
   .full-nh {
-    height: calc(100vh - 168px);
+    height: calc(100vh - 136px);
   }
 
   @media screen and (max-width: 625px) {

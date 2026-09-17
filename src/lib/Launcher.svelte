@@ -6,24 +6,27 @@
   import type { Pathname } from "$app/types";
   import LambdaIcon from "~icons/arcticons/half-life";
 
-  let { nav, launcher }: { nav: NavItem[]; launcher: boolean } = $props();
+  let { nav, target }: { nav: NavItem[]; target: "start" | "home" } = $props();
 </script>
 
-<header class="launcher {launcher ? 'term' : ''}" aria-label="Launcher">
-  <div class="center">
-    {#if launcher}
+{#if target === "start"}
+  <header class="launcher-header" aria-label="Launcher intro">
+    <div class="center">
       <span class="title"><LambdaIcon /></span>
-    {:else}
-      <span class="title">Francis Dominic Fajardo</span>
-      <span class="subtitle">Software Developer</span>
-    {/if}
-  </div>
-</header>
+    </div>
+  </header>
+{/if}
 
-<nav class="launcher-nav" aria-label="Primary navigation">
+<nav class="launcher-nav {target}" aria-label="Primary navigation">
   <ul class="group-ab">
+    {#if target === "home"}
+      <li class="group-label">
+        Menu
+        <Icon class="icon" icon="ph:arrow-right-bold" />
+      </li>
+    {/if}
     {#each nav as { href, icon, label, limitTo, rel } (href)}
-      {#if page.url.pathname != href && (!limitTo || (limitTo === "launcher" && launcher))}
+      {#if page.url.pathname != href && (!limitTo || (limitTo === "launcher" && target === "start"))}
         <li>
           {#if rel === "external"}
             <a {href} class="action-button" rel="external">
@@ -34,7 +37,7 @@
             <a
               href={resolve(href as Pathname)}
               class="action-button"
-              data-sveltekit-reload={launcher}
+              data-sveltekit-reload={target === "start"}
             >
               <Icon class="icon" {icon} />
               <span class="text">{label}</span>
@@ -48,16 +51,10 @@
 
 <style>
   /* ::::: view transitions ::::: */
-  .launcher {
-    margin: 1em;
+  .launcher-header {
     border-radius: 24px;
-    padding: 1em;
-    view-transition-name: launcher;
     position: relative;
     overflow: hidden;
-  }
-
-  .launcher.term {
     color: var(--text-main);
     margin: 0.15em 0.3em;
     padding: 0.15em 0.3em;
@@ -69,7 +66,14 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    view-transition-name: launcher-nav;
+  }
+
+  .launcher-nav.home {
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: auto;
+    margin-top: 0.5em;
+    max-width: var(--layout-max-width);
   }
 
   /* ::::: action buttons ::::: */
@@ -165,7 +169,7 @@
     gap: 0.5em;
   }
 
-  .group-ab > li {
+  .group-ab > li:not(.group-label) {
     font-size: 19.2px;
   }
 
@@ -177,5 +181,16 @@
       margin: 0 1.5em;
       min-height: 80px;
     }
+  }
+
+  .group-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    gap: 5px;
+    user-select: none;
   }
 </style>

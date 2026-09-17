@@ -6,7 +6,7 @@
 </script>
 
 <div class="full center-v">
-  <Launcher {nav} launcher={true} />
+  <Launcher {nav} target="start" />
 </div>
 
 <style>
