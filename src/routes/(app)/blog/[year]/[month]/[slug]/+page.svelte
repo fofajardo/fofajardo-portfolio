@@ -136,7 +136,11 @@
 
     <div class="blog-actions">
       {#if discussOptions.length > 0}
-        <DropdownButton label="Discuss" icon="ph:chat-teardrop-dots-bold" options={discussOptions} />
+        <DropdownButton
+          label="Discuss"
+          icon="ph:chat-teardrop-dots-bold"
+          options={discussOptions}
+        />
       {/if}
       <DropdownButton label="Share" icon="ph:share-network-bold" options={shareOptions} />
     </div>
