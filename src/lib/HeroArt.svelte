@@ -63,9 +63,9 @@
     <div class="floating-icon icon-4"><PhMapPinBold /></div>
   {:else if type === "home"}
     <div class="floating-icon icon-1"><PhCodeBold /></div>
-    <div class="floating-icon icon-2"><StreamlineCyberStarWarsR2 /></div>
+    <div class="floating-icon icon-2"><StreamlineCyberStarWarsR2 stroke-width="2" /></div>
     <div class="floating-icon icon-3"><PhGameControllerBold /></div>
-    <div class="floating-icon icon-4"><StreamlineCyberStarWarsDarthVader /></div>
+    <div class="floating-icon icon-4"><StreamlineCyberStarWarsDarthVader stroke-width="2" /></div>
     <div class="floating-icon icon-5"><PhCpuBold /></div>
     <div class="floating-icon icon-6"><PhTerminalWindowBold /></div>
     <div class="floating-icon icon-7"><PhPlanetBold /></div>
