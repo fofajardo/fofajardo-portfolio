@@ -35,7 +35,7 @@
         type: "custom",
         url: "/resume",
         label: "View Résumé",
-        icon: "tabler:file-text"
+        icon: "ph:file-text-bold"
       }}
       isButton
       isInternal
@@ -81,7 +81,7 @@
       {#each getExperienceDisplayItems(experiencesByTagMap.get(tag.id) ?? []) as groupEntry, groupIndex (groupIndex)}
         <div class="card card-2col">
           <div class="card-icon">
-            <Icon class="icon" icon={tag.icon || "tabler:arrow-badge-right"}></Icon>
+            <Icon class="icon" icon={tag.icon || "ph:caret-right-bold"}></Icon>
           </div>
           <div class="card-detail" style="flex:1;">
             {#if groupEntry.isGroup}

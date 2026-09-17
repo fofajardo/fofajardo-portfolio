@@ -112,10 +112,10 @@
           </div>
           <div class="glide__arrows" data-glide-el="controls">
             <button class="glide__arrow glide__arrow--left" data-glide-dir="<"
-              ><Icon icon="tabler:chevron-left"></Icon></button
+              ><Icon icon="ph:caret-left-bold"></Icon></button
             >
             <button class="glide__arrow glide__arrow--right" data-glide-dir=">"
-              ><Icon icon="tabler:chevron-right"></Icon></button
+              ><Icon icon="ph:caret-right-bold"></Icon></button
             >
           </div>
         </div>
@@ -139,14 +139,14 @@
   <div class="cardset">
     {#if project.hasBody && Content}
       <div class="card card-content">
-        <Label icon="tabler:article" as="h3">Overview</Label>
+        <Label icon="ph:article-bold" as="h3">Overview</Label>
         <Content />
       </div>
     {/if}
 
     {#if project.points && project.points.length > 0}
       <div class="card card-content">
-        <Label icon="tabler:list-details" as="h3">Contributions</Label>
+        <Label icon="ph:list-dashes-bold" as="h3">Contributions</Label>
         <ul>
           {#each project.points as point, i (point + i)}
             <li><SvelteMarkdown source={point} isInline /></li>
@@ -156,13 +156,13 @@
     {/if}
 
     <div class="card card-content">
-      <Label icon="tabler:calendar" as="h3">Timeline</Label>
+      <Label icon="ph:calendar-bold" as="h3">Timeline</Label>
       <DateRangeSpan entry={project} />
     </div>
 
     {#if project.technologies && techList.length > 0}
       <div class="card card-content">
-        <Label icon="tabler:tools" as="h3">Technologies</Label>
+        <Label icon="ph:wrench-bold" as="h3">Technologies</Label>
         <div class="tech-badge-container">
           {#each techList as tech (tech.id)}
             <TagBadge tagId={tech.id} />

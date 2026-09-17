@@ -22,7 +22,7 @@
         type: "external",
         url: "/feed.xml",
         label: "RSS",
-        icon: "tabler:rss"
+        icon: "ph:rss-bold"
       }}
       isButton
     />

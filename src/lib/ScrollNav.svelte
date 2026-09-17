@@ -152,7 +152,7 @@
 {#if visible && !isLastPage}
   <div class="scroll-hint" transition:fade={{ duration: 300 }}>
     <span>{hintText}</span>
-    <Icon icon="tabler:arrow-right" width="16" height="16" />
+    <Icon icon="ph:arrow-right-bold" width="16" height="16" />
   </div>
 {/if}
 

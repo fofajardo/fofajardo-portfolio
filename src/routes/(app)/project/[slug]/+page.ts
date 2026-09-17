@@ -19,7 +19,7 @@ export const load: PageLoad = async ({ params }) => {
 
   const techList = (project.technologies || []).map((techName) => {
     let techFriendlyName = techName;
-    let icon = "tabler:code";
+    let icon = "ph:code-bold";
     if (techName in technologies) {
       techFriendlyName = technologies[techName].name;
       icon = technologies[techName].icon ?? "";

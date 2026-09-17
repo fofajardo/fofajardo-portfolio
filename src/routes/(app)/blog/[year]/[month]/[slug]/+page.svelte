@@ -81,7 +81,7 @@
     },
     {
       label: "Copy Link",
-      icon: "tabler:copy",
+      icon: "ph:copy-bold",
       onClick: () => navigator.clipboard.writeText(page.url.href)
     }
   ]);
@@ -136,9 +136,9 @@
 
     <div class="blog-actions">
       {#if discussOptions.length > 0}
-        <DropdownButton label="Discuss" icon="tabler:messages" options={discussOptions} />
+        <DropdownButton label="Discuss" icon="ph:chat-teardrop-dots-bold" options={discussOptions} />
       {/if}
-      <DropdownButton label="Share" icon="tabler:share" options={shareOptions} />
+      <DropdownButton label="Share" icon="ph:share-network-bold" options={shareOptions} />
     </div>
   </article>
 

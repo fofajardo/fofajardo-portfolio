@@ -64,7 +64,7 @@
   <button class="dropdown-button button" onclick={toggle} aria-expanded={isOpen}>
     <Icon {icon} />
     <span>{label}</span>
-    <Icon icon="tabler:chevron-down" class="caret {isOpen ? 'rotated' : ''}" />
+    <Icon icon="ph:caret-down-bold" class="caret {isOpen ? 'rotated' : ''}" />
   </button>
 
   {#if isOpen}

@@ -25,7 +25,7 @@
       {/if}
       <LinkAnchor
         link={{
-          icon: "tabler:arrow-back",
+          icon: "ph:arrow-left-bold",
           label: "Return to Base",
           url: "/",
           type: "custom"

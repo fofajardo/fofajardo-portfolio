@@ -8,15 +8,15 @@
     $props();
 
   let linkTypeIconMap: Record<string, string> = {
-    github: "tabler:brand-github",
-    figma: "tabler:brand-figma",
-    site: "tabler:world-www",
-    youtube: "tabler:brand-youtube",
-    external: "tabler:external-link",
-    researchPaperPdf: "tabler:file-type-pdf",
-    gameDemo: "tabler:device-gamepad",
-    gdrive: "tabler:brand-google-drive",
-    npm: "tabler:brand-npm"
+    github: "ph:github-logo-bold",
+    figma: "ph:figma-logo-bold",
+    site: "ph:globe-bold",
+    youtube: "ph:youtube-logo-bold",
+    external: "ph:arrow-square-out-bold",
+    researchPaperPdf: "ph:file-pdf-bold",
+    gameDemo: "ph:game-controller-bold",
+    gdrive: "ph:google-drive-logo-bold",
+    npm: "ph:package-bold"
   };
 
   let linkLabelMap: Record<string, string> = {

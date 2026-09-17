@@ -25,7 +25,7 @@
         <p style="text-align: justify; margin: 0;">
           I studied Computer Science at the <LinkAnchor
             link={{
-              icon: "tabler:school",
+              icon: "ph:graduation-cap-bold",
               lead: "University",
               label: " of the Philippines Los Baños",
               url: "https://uplb.edu.ph/",
@@ -33,7 +33,7 @@
             }}
           /> and was a member of the <LinkAnchor
             link={{
-              icon: "tabler:flask",
+              icon: "ph:flask-bold",
               lead: "Systems",
               label: " Research Group",
               url: "https://srg-ics-uplb.github.io",
@@ -49,7 +49,7 @@
           I'm open to work. Take a look at my
           <LinkAnchor
             link={{
-              icon: "tabler:file-type-pdf",
+              icon: "ph:file-pdf-bold",
               url: "/resume",
               lead: "résumé",
               label: "",

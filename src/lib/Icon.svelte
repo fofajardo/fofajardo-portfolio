@@ -21,13 +21,9 @@
   import PhGithubLogoBold from "~icons/ph/github-logo-bold";
   import PhGitlabLogoBold from "~icons/ph/gitlab-logo-bold";
   import PhSteamLogoBold from "~icons/ph/steam-logo-bold";
-  import TablerBrandGitlab from "~icons/tabler/brand-gitlab";
-  import TablerBrandSteam from "~icons/tabler/brand-steam";
-  import TablerSchool from "~icons/tabler/school";
-  import TablerBriefcase from "~icons/tabler/briefcase";
-  import TablerBox from "~icons/tabler/box";
-  import TablerMessage from "~icons/tabler/message";
-  import TablerBinary from "~icons/tabler/binary";
+  import PhGraduationCapBold from "~icons/ph/graduation-cap-bold";
+  import PhPackageBold from "~icons/ph/package-bold";
+  import PhChatDotsBold from "~icons/ph/chat-dots-bold";
   import DeviconPlainJava from "~icons/devicon-plain/java";
   import DeviconPlainPhp from "~icons/devicon-plain/php";
   import DeviconPlainHtml5 from "~icons/devicon-plain/html5";
@@ -42,7 +38,7 @@
   import SimpleIconsNpm from "~icons/simple-icons/npm";
   import DeviconPlainPython from "~icons/devicon-plain/python";
   import DeviconPlainCsharp from "~icons/devicon-plain/csharp";
-  import TablerBrandWindowsFilled from "~icons/tabler/brand-windows-filled";
+  import PhWindowsLogoBold from "~icons/ph/windows-logo-bold";
   import SimpleIconsMonogame from "~icons/simple-icons/monogame";
   import DeviconPlainFigma from "~icons/devicon-plain/figma";
   import DeviconPlainGit from "~icons/devicon-plain/git";
@@ -85,55 +81,53 @@
   import BxlShadcnUi from "~icons/bxl/shadcn-ui";
   import LineMdMenu from "~icons/line-md/menu";
   import LineMdClose from "~icons/line-md/close";
-  import TablerChevronDown from "~icons/tabler/chevron-down";
-  import TablerArrowDown from "~icons/tabler/arrow-down";
-  import TablerArrowUp from "~icons/tabler/arrow-up";
-  import TablerArrowLeft from "~icons/tabler/arrow-left";
+  import PhCaretDownBold from "~icons/ph/caret-down-bold";
+  import PhArrowDownBold from "~icons/ph/arrow-down-bold";
+  import PhArrowUpBold from "~icons/ph/arrow-up-bold";
+  import PhArrowLeftBold from "~icons/ph/arrow-left-bold";
   import StreamlineFreehandAppWindowLayout from "~icons/streamline-freehand/app-window-layout";
   import LineMdExternalLink from "~icons/line-md/external-link";
-  import TablerArrowBadgeRight from "~icons/tabler/arrow-badge-right";
-  import TablerMessages from "~icons/tabler/messages";
-  import TablerShare from "~icons/tabler/share";
-  import TablerInfoCircle from "~icons/tabler/info-circle";
-  import TablerCalendar from "~icons/tabler/calendar";
-  import TablerChevronLeft from "~icons/tabler/chevron-left";
-  import TablerChevronRight from "~icons/tabler/chevron-right";
-  import TablerArticle from "~icons/tabler/article";
-  import TablerListDetails from "~icons/tabler/list-details";
-  import TablerTools from "~icons/tabler/tools";
+  import PhCaretRightBold from "~icons/ph/caret-right-bold";
+  import PhChatTeardropDotsBold from "~icons/ph/chat-teardrop-dots-bold";
+  import PhShareNetworkBold from "~icons/ph/share-network-bold";
+  import PhInfoBold from "~icons/ph/info-bold";
+  import PhCalendarBold from "~icons/ph/calendar-bold";
+  import PhCaretLeftBold from "~icons/ph/caret-left-bold";
+  import PhArticleBold from "~icons/ph/article-bold";
+  import PhListDashesBold from "~icons/ph/list-dashes-bold";
+  import PhWrenchBold from "~icons/ph/wrench-bold";
   import LineMdGrid3Filled from "~icons/line-md/grid-3-filled";
   import LineMdList3Filled from "~icons/line-md/list-3-filled";
-  import TablerLayoutGrid from "~icons/tabler/layout-grid";
-  import TablerList from "~icons/tabler/list";
+  import PhSquaresFourBold from "~icons/ph/squares-four-bold";
+  import PhListBold from "~icons/ph/list-bold";
   import StreamlineCyberStarWarsR2 from "~icons/streamline-cyber/star-wars-r2";
   import StreamlineCyberStarWarsDarthVader from "~icons/streamline-cyber/star-wars-darth-vader";
-  import TablerCopy from "~icons/tabler/copy";
+  import PhCopyBold from "~icons/ph/copy-bold";
   import SimpleIconsReddit from "~icons/simple-icons/reddit";
   import SimpleIconsX from "~icons/simple-icons/x";
   import SimpleIconsFacebook from "~icons/simple-icons/facebook";
   import SimpleIconsMastodon from "~icons/simple-icons/mastodon";
-  import TablerArrowRight from "~icons/tabler/arrow-right";
-  import TablerSun from "~icons/tabler/sun";
-  import TablerMoon from "~icons/tabler/moon";
-  import TablerTerminal from "~icons/tabler/terminal";
-  import TablerDeviceLaptop from "~icons/tabler/device-laptop";
-  import TablerExternalLink from "~icons/tabler/external-link";
-  import TablerMenu from "~icons/tabler/menu";
-  import TablerX from "~icons/tabler/x";
-  import TablerBrandGithub from "~icons/tabler/brand-github";
-  import TablerBrandLinkedin from "~icons/tabler/brand-linkedin";
-  import TablerBrandFigma from "~icons/tabler/brand-figma";
-  import TablerBrandNpm from "~icons/tabler/brand-npm";
-  import TablerBrandYouTube from "~icons/tabler/brand-youtube";
-  import TablerBrandGoogleDrive from "~icons/tabler/brand-google-drive";
-  import TablerMail from "~icons/tabler/mail";
-  import TablerFileText from "~icons/tabler/file-text";
-  import TablerFlask from "~icons/tabler/flask";
-  import TablerFileTypePdf from "~icons/tabler/file-type-pdf";
-  import TablerWorldWww from "~icons/tabler/world-www";
-  import TablerDeviceGamepad from "~icons/tabler/device-gamepad";
-  import TablerCode from "~icons/tabler/code";
-  import TablerRss from "~icons/tabler/rss";
+  import PhArrowRightBold from "~icons/ph/arrow-right-bold";
+  import PhSunBold from "~icons/ph/sun-bold";
+  import PhMoonBold from "~icons/ph/moon-bold";
+  import PhTerminalWindowBold from "~icons/ph/terminal-window-bold";
+  import PhLaptopBold from "~icons/ph/laptop-bold";
+  import PhArrowSquareOutBold from "~icons/ph/arrow-square-out-bold";
+  import PhXBold from "~icons/ph/x-bold";
+  import PhFigmaLogoBold from "~icons/ph/figma-logo-bold";
+  import PhYoutubeLogoBold from "~icons/ph/youtube-logo-bold";
+  import PhGoogleDriveLogoBold from "~icons/ph/google-drive-logo-bold";
+  import PhFileTextBold from "~icons/ph/file-text-bold";
+  import PhFlaskBold from "~icons/ph/flask-bold";
+  import PhFilePdfBold from "~icons/ph/file-pdf-bold";
+  import PhGlobeBold from "~icons/ph/globe-bold";
+  import PhGameControllerBold from "~icons/ph/game-controller-bold";
+  import PhCodeBold from "~icons/ph/code-bold";
+  import PhRssBold from "~icons/ph/rss-bold";
+  import PhCubeBold from "~icons/ph/cube-bold";
+  import PhProjectorScreenBold from "~icons/ph/projector-screen-bold";
+  import PhBinaryBold from "~icons/ph/binary-bold";
+  import PhWindowsLogoFill from "~icons/ph/windows-logo-fill";
 
   const iconMap: Record<string, any> = {
     "line-md:home": LineMdHome,
@@ -158,13 +152,9 @@
     "ph:github-logo-bold": PhGithubLogoBold,
     "ph:gitlab-logo-bold": PhGitlabLogoBold,
     "ph:steam-logo-bold": PhSteamLogoBold,
-    "tabler:brand-gitlab": TablerBrandGitlab,
-    "tabler:brand-steam": TablerBrandSteam,
-    "tabler:school": TablerSchool,
-    "tabler:briefcase": TablerBriefcase,
-    "tabler:box": TablerBox,
-    "tabler:message": TablerMessage,
-    "tabler:binary": TablerBinary,
+    "ph:graduation-cap-bold": PhGraduationCapBold,
+    "ph:package-bold": PhPackageBold,
+    "ph:chat-dots-bold": PhChatDotsBold,
     "devicon-plain:java": DeviconPlainJava,
     "devicon-plain:php": DeviconPlainPhp,
     "devicon-plain:html5": DeviconPlainHtml5,
@@ -179,7 +169,7 @@
     "simple-icons:npm": SimpleIconsNpm,
     "devicon-plain:python": DeviconPlainPython,
     "devicon-plain:csharp": DeviconPlainCsharp,
-    "tabler:brand-windows-filled": TablerBrandWindowsFilled,
+    "ph:windows-logo-bold": PhWindowsLogoBold,
     "simple-icons:monogame": SimpleIconsMonogame,
     "devicon-plain:figma": DeviconPlainFigma,
     "devicon-plain:git": DeviconPlainGit,
@@ -222,55 +212,53 @@
     "bxl:shadcn-ui": BxlShadcnUi,
     "line-md:menu": LineMdMenu,
     "line-md:close": LineMdClose,
-    "tabler:chevron-down": TablerChevronDown,
-    "tabler:arrow-down": TablerArrowDown,
-    "tabler:arrow-up": TablerArrowUp,
-    "tabler:arrow-left": TablerArrowLeft,
+    "ph:caret-down-bold": PhCaretDownBold,
+    "ph:arrow-down-bold": PhArrowDownBold,
+    "ph:arrow-up-bold": PhArrowUpBold,
+    "ph:arrow-left-bold": PhArrowLeftBold,
     "streamline-freehand:app-window-layout": StreamlineFreehandAppWindowLayout,
     "line-md:external-link": LineMdExternalLink,
-    "tabler:arrow-badge-right": TablerArrowBadgeRight,
-    "tabler:messages": TablerMessages,
-    "tabler:share": TablerShare,
-    "tabler:info-circle": TablerInfoCircle,
-    "tabler:calendar": TablerCalendar,
-    "tabler:chevron-left": TablerChevronLeft,
-    "tabler:chevron-right": TablerChevronRight,
-    "tabler:article": TablerArticle,
-    "tabler:list-details": TablerListDetails,
-    "tabler:tools": TablerTools,
+    "ph:caret-right-bold": PhCaretRightBold,
+    "ph:chat-teardrop-dots-bold": PhChatTeardropDotsBold,
+    "ph:share-network-bold": PhShareNetworkBold,
+    "ph:info-bold": PhInfoBold,
+    "ph:calendar-bold": PhCalendarBold,
+    "ph:caret-left-bold": PhCaretLeftBold,
+    "ph:article-bold": PhArticleBold,
+    "ph:list-dashes-bold": PhListDashesBold,
+    "ph:wrench-bold": PhWrenchBold,
     "line-md:grid-3-filled": LineMdGrid3Filled,
     "line-md:list-3-filled": LineMdList3Filled,
-    "tabler:layout-grid": TablerLayoutGrid,
-    "tabler:list": TablerList,
+    "ph:squares-four-bold": PhSquaresFourBold,
+    "ph:list-bold": PhListBold,
     "streamline-cyber:star-wars-r2": StreamlineCyberStarWarsR2,
     "streamline-cyber:star-wars-darth-vader": StreamlineCyberStarWarsDarthVader,
-    "tabler:copy": TablerCopy,
+    "ph:copy-bold": PhCopyBold,
     "simple-icons:reddit": SimpleIconsReddit,
     "simple-icons:x": SimpleIconsX,
     "simple-icons:facebook": SimpleIconsFacebook,
     "simple-icons:mastodon": SimpleIconsMastodon,
-    "tabler:arrow-right": TablerArrowRight,
-    "tabler:sun": TablerSun,
-    "tabler:moon": TablerMoon,
-    "tabler:terminal": TablerTerminal,
-    "tabler:device-laptop": TablerDeviceLaptop,
-    "tabler:external-link": TablerExternalLink,
-    "tabler:menu": TablerMenu,
-    "tabler:x": TablerX,
-    "tabler:brand-github": TablerBrandGithub,
-    "tabler:brand-linkedin": TablerBrandLinkedin,
-    "tabler:brand-figma": TablerBrandFigma,
-    "tabler:brand-npm": TablerBrandNpm,
-    "tabler:brand-youtube": TablerBrandYouTube,
-    "tabler:brand-google-drive": TablerBrandGoogleDrive,
-    "tabler:mail": TablerMail,
-    "tabler:file-text": TablerFileText,
-    "tabler:flask": TablerFlask,
-    "tabler:file-type-pdf": TablerFileTypePdf,
-    "tabler:world-www": TablerWorldWww,
-    "tabler:device-gamepad": TablerDeviceGamepad,
-    "tabler:code": TablerCode,
-    "tabler:rss": TablerRss
+    "ph:arrow-right-bold": PhArrowRightBold,
+    "ph:sun-bold": PhSunBold,
+    "ph:moon-bold": PhMoonBold,
+    "ph:terminal-window-bold": PhTerminalWindowBold,
+    "ph:laptop-bold": PhLaptopBold,
+    "ph:arrow-square-out-bold": PhArrowSquareOutBold,
+    "ph:x-bold": PhXBold,
+    "ph:figma-logo-bold": PhFigmaLogoBold,
+    "ph:youtube-logo-bold": PhYoutubeLogoBold,
+    "ph:google-drive-logo-bold": PhGoogleDriveLogoBold,
+    "ph:file-text-bold": PhFileTextBold,
+    "ph:flask-bold": PhFlaskBold,
+    "ph:file-pdf-bold": PhFilePdfBold,
+    "ph:globe-bold": PhGlobeBold,
+    "ph:game-controller-bold": PhGameControllerBold,
+    "ph:code-bold": PhCodeBold,
+    "ph:rss-bold": PhRssBold,
+    "ph:cube-bold": PhCubeBold,
+    "ph:projector-screen-bold": PhProjectorScreenBold,
+    "ph:binary-bold": PhBinaryBold,
+    "ph:windows-logo-fill": PhWindowsLogoFill
   };
 
   let {
