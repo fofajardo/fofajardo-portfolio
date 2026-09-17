@@ -28,7 +28,7 @@
       <enhanced:img
         src="$lib/content/profile.png"
         class="profile-img"
-        alt="Francis Dominic Fajardo's profile image"
+        alt="Francis Dominic Fajardo's portrait"
       />
       <div>
         <h1 class="profile-heading">I'm Francis Dominic Fajardo.</h1>
