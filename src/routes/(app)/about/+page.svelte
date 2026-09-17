@@ -15,15 +15,23 @@
 
   const langIds = tags
     .filter((t) => t.category === CategoryType.Technology && !t.hideSkill)
-    .map((t) => t.id);
+    .map((t) => t.id)
+    .sort();
 
-  const ideIds = tags.filter((t) => t.category === CategoryType.IDE).map((t) => t.id);
+  const ideIds = tags
+    .filter((t) => t.category === CategoryType.IDE)
+    .map((t) => t.id)
+    .sort();
 
-  const toolIds = tags.filter((t) => t.category === CategoryType.Tool).map((t) => t.id);
+  const toolIds = tags
+    .filter((t) => t.category === CategoryType.Tool)
+    .map((t) => t.id)
+    .sort();
 
   const designVideoIds = tags
     .filter((t) => t.category === CategoryType.GraphicDesign)
-    .map((t) => t.id);
+    .map((t) => t.id)
+    .sort();
 </script>
 
 <div class="heading-container">
