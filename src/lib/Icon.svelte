@@ -9,6 +9,18 @@
   import LineMdMastodon from "~icons/line-md/mastodon";
   import LineMdLinkedin from "~icons/line-md/linkedin";
   import LineMdGithubLoop from "~icons/line-md/github-loop";
+  import PhHouseBold from "~icons/ph/house-bold";
+  import PhBriefcaseBold from "~icons/ph/briefcase-bold";
+  import PhTrafficConeBold from "~icons/ph/traffic-cone-bold";
+  import PhPencilBold from "~icons/ph/pencil-bold";
+  import PhEnvelopeBold from "~icons/ph/envelope-bold";
+  import PhFacebookLogoBold from "~icons/ph/facebook-logo-bold";
+  import PhTwitterLogoBold from "~icons/ph/twitter-logo-bold";
+  import PhMastodonLogoBold from "~icons/ph/mastodon-logo-bold";
+  import PhLinkedinLogoBold from "~icons/ph/linkedin-logo-bold";
+  import PhGithubLogoBold from "~icons/ph/github-logo-bold";
+  import PhGitlabLogoBold from "~icons/ph/gitlab-logo-bold";
+  import PhSteamLogoBold from "~icons/ph/steam-logo-bold";
   import TablerBrandGitlab from "~icons/tabler/brand-gitlab";
   import TablerBrandSteam from "~icons/tabler/brand-steam";
   import TablerSchool from "~icons/tabler/school";
@@ -134,6 +146,18 @@
     "line-md:mastodon": LineMdMastodon,
     "line-md:linkedin": LineMdLinkedin,
     "line-md:github-loop": LineMdGithubLoop,
+    "ph:house-bold": PhHouseBold,
+    "ph:briefcase-bold": PhBriefcaseBold,
+    "ph:traffic-cone-bold": PhTrafficConeBold,
+    "ph:pencil-bold": PhPencilBold,
+    "ph:envelope-bold": PhEnvelopeBold,
+    "ph:facebook-logo-bold": PhFacebookLogoBold,
+    "ph:twitter-logo-bold": PhTwitterLogoBold,
+    "ph:mastodon-logo-bold": PhMastodonLogoBold,
+    "ph:linkedin-logo-bold": PhLinkedinLogoBold,
+    "ph:github-logo-bold": PhGithubLogoBold,
+    "ph:gitlab-logo-bold": PhGitlabLogoBold,
+    "ph:steam-logo-bold": PhSteamLogoBold,
     "tabler:brand-gitlab": TablerBrandGitlab,
     "tabler:brand-steam": TablerBrandSteam,
     "tabler:school": TablerSchool,
