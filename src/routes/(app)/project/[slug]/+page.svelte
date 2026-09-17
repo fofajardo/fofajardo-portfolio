@@ -83,7 +83,7 @@
         {project.title}
         {#if project.directUrl}
           <Icon
-            icon="line-md:external-link"
+            icon="ph:arrow-square-out-bold"
             width="24"
             height="24"
             style="margin-left: 6px; display: inline-block; vertical-align: middle;"
