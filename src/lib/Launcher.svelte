@@ -4,6 +4,7 @@
   import { resolve } from "$app/paths";
   import type { NavItem } from "./lib.types";
   import type { Pathname } from "$app/types";
+  import LambdaIcon from "~icons/arcticons/half-life";
 
   let { nav, launcher }: { nav: NavItem[]; launcher: boolean } = $props();
 </script>
@@ -11,7 +12,7 @@
 <header class="launcher {launcher ? 'term' : ''}" aria-label="Launcher">
   <div class="center">
     {#if launcher}
-      <span class="title">λ</span>
+      <span class="title"><LambdaIcon /></span>
     {:else}
       <span class="title">Francis Dominic Fajardo</span>
       <span class="subtitle">Software Developer</span>
