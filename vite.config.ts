@@ -14,7 +14,7 @@ export default defineConfig({
       scale: 1
     }),
     svelteSitemap({
-      domain: "https://fofajardo.is-a.dev",
+      domain: "https://fofajardo.com",
       outDir: ".vercel/output/static"
     })
   ]
