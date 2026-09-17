@@ -1,35 +1,35 @@
 <script lang="ts">
   // Projects icons
-  import TablerCode from "~icons/tabler/code";
-  import TablerTools from "~icons/tabler/tools";
-  import TablerBinary from "~icons/tabler/binary";
-  import TablerBox from "~icons/tabler/box";
-  import TablerGitBranch from "~icons/tabler/git-branch";
-  import TablerTerminal from "~icons/tabler/terminal";
-  import TablerCpu from "~icons/tabler/cpu";
+  import PhCodeBold from "~icons/ph/code-bold";
+  import PhWrenchBold from "~icons/ph/wrench-bold";
+  import PhBinaryBold from "~icons/ph/binary-bold";
+  import PhPackageBold from "~icons/ph/package-bold";
+  import PhGitBranchBold from "~icons/ph/git-branch-bold";
+  import PhTerminalWindowBold from "~icons/ph/terminal-window-bold";
+  import PhCpuBold from "~icons/ph/cpu-bold";
   // About icons
-  import TablerSchool from "~icons/tabler/school";
-  import TablerBriefcase from "~icons/tabler/briefcase";
-  import TablerTrophy from "~icons/tabler/trophy";
-  import TablerUserCode from "~icons/tabler/user-code";
-  import TablerMapPin from "~icons/tabler/map-pin";
+  import PhGraduationCapBold from "~icons/ph/graduation-cap-bold";
+  import PhBriefcaseBold from "~icons/ph/briefcase-bold";
+  import PhTrophyBold from "~icons/ph/trophy-bold";
+  import PhUserGearBold from "~icons/ph/user-gear-bold";
+  import PhMapPinBold from "~icons/ph/map-pin-bold";
   // Blog icons
-  import TablerPencil from "~icons/tabler/pencil";
-  import TablerArticle from "~icons/tabler/article";
-  import TablerBook from "~icons/tabler/book";
-  import TablerMessage2 from "~icons/tabler/message-2";
-  import TablerMail from "~icons/tabler/mail";
+  import PhPencilBold from "~icons/ph/pencil-bold";
+  import PhArticleBold from "~icons/ph/article-bold";
+  import PhBookBold from "~icons/ph/book-bold";
+  import PhChatDotsBold from "~icons/ph/chat-dots-bold";
+  import PhEnvelopeBold from "~icons/ph/envelope-bold";
   // Resume icons
-  import TablerFileText from "~icons/tabler/file-text";
-  import TablerPhone from "~icons/tabler/phone";
+  import PhFileTextBold from "~icons/ph/file-text-bold";
+  import PhPhoneBold from "~icons/ph/phone-bold";
   // Home icons
   import StreamlineCyberStarWarsR2 from "~icons/streamline-cyber/star-wars-r2";
   import StreamlineCyberStarWarsDarthVader from "~icons/streamline-cyber/star-wars-darth-vader";
-  import TablerPlanet from "~icons/tabler/planet";
-  import TablerRocket from "~icons/tabler/rocket";
-  import TablerShield from "~icons/tabler/shield";
-  import TablerSword from "~icons/tabler/sword";
-  import TablerDeviceGamepad2 from "~icons/tabler/device-gamepad-2";
+  import PhPlanetBold from "~icons/ph/planet-bold";
+  import PhRocketLaunchBold from "~icons/ph/rocket-launch-bold";
+  import PhShieldBold from "~icons/ph/shield-bold";
+  import PhSwordBold from "~icons/ph/sword-bold";
+  import PhGameControllerBold from "~icons/ph/game-controller-bold";
 
   let { type = "projects" }: { type?: "projects" | "about" | "blog" | "resume" | "home" } =
     $props();
@@ -42,38 +42,38 @@
   <div class="glow-orb orb-2"></div>
 
   {#if type === "projects"}
-    <div class="floating-icon icon-1"><TablerCode /></div>
-    <div class="floating-icon icon-2"><TablerTools /></div>
-    <div class="floating-icon icon-3"><TablerBinary /></div>
-    <div class="floating-icon icon-4"><TablerBox /></div>
+    <div class="floating-icon icon-1"><PhCodeBold /></div>
+    <div class="floating-icon icon-2"><PhWrenchBold /></div>
+    <div class="floating-icon icon-3"><PhBinaryBold /></div>
+    <div class="floating-icon icon-4"><PhPackageBold /></div>
   {:else if type === "about"}
-    <div class="floating-icon icon-1"><TablerSchool /></div>
-    <div class="floating-icon icon-2"><TablerBriefcase /></div>
-    <div class="floating-icon icon-3"><TablerTrophy /></div>
-    <div class="floating-icon icon-4"><TablerUserCode /></div>
+    <div class="floating-icon icon-1"><PhGraduationCapBold /></div>
+    <div class="floating-icon icon-2"><PhBriefcaseBold /></div>
+    <div class="floating-icon icon-3"><PhTrophyBold /></div>
+    <div class="floating-icon icon-4"><PhUserGearBold /></div>
   {:else if type === "blog"}
-    <div class="floating-icon icon-1"><TablerPencil /></div>
-    <div class="floating-icon icon-2"><TablerArticle /></div>
-    <div class="floating-icon icon-3"><TablerBook /></div>
-    <div class="floating-icon icon-4"><TablerMessage2 /></div>
+    <div class="floating-icon icon-1"><PhPencilBold /></div>
+    <div class="floating-icon icon-2"><PhArticleBold /></div>
+    <div class="floating-icon icon-3"><PhBookBold /></div>
+    <div class="floating-icon icon-4"><PhChatDotsBold /></div>
   {:else if type === "resume"}
-    <div class="floating-icon icon-1"><TablerFileText /></div>
-    <div class="floating-icon icon-2"><TablerMail /></div>
-    <div class="floating-icon icon-3"><TablerPhone /></div>
-    <div class="floating-icon icon-4"><TablerMapPin /></div>
+    <div class="floating-icon icon-1"><PhFileTextBold /></div>
+    <div class="floating-icon icon-2"><PhEnvelopeBold /></div>
+    <div class="floating-icon icon-3"><PhPhoneBold /></div>
+    <div class="floating-icon icon-4"><PhMapPinBold /></div>
   {:else if type === "home"}
-    <div class="floating-icon icon-1"><TablerCode /></div>
+    <div class="floating-icon icon-1"><PhCodeBold /></div>
     <div class="floating-icon icon-2"><StreamlineCyberStarWarsR2 /></div>
-    <div class="floating-icon icon-3"><TablerDeviceGamepad2 /></div>
+    <div class="floating-icon icon-3"><PhGameControllerBold /></div>
     <div class="floating-icon icon-4"><StreamlineCyberStarWarsDarthVader /></div>
-    <div class="floating-icon icon-5"><TablerCpu /></div>
-    <div class="floating-icon icon-6"><TablerTerminal /></div>
-    <div class="floating-icon icon-7"><TablerPlanet /></div>
-    <div class="floating-icon icon-8"><TablerRocket /></div>
-    <div class="floating-icon icon-9"><TablerShield /></div>
-    <div class="floating-icon icon-10"><TablerSword /></div>
-    <div class="floating-icon icon-11"><TablerBinary /></div>
-    <div class="floating-icon icon-12"><TablerGitBranch /></div>
+    <div class="floating-icon icon-5"><PhCpuBold /></div>
+    <div class="floating-icon icon-6"><PhTerminalWindowBold /></div>
+    <div class="floating-icon icon-7"><PhPlanetBold /></div>
+    <div class="floating-icon icon-8"><PhRocketLaunchBold /></div>
+    <div class="floating-icon icon-9"><PhShieldBold /></div>
+    <div class="floating-icon icon-10"><PhSwordBold /></div>
+    <div class="floating-icon icon-11"><PhBinaryBold /></div>
+    <div class="floating-icon icon-12"><PhGitBranchBold /></div>
   {/if}
 </div>
 
