@@ -17,45 +17,80 @@
       class="profile-img"
       alt="Francis Dominic Fajardo's portrait"
     />
-    <div>
+    <div class="profile-container">
       <h1 class="profile-heading">I'm Francis Dominic Fajardo.</h1>
-      <p style="text-align: justify; margin: 0;">
-        I studied Computer Science at the <LinkAnchor
-          link={{
-            icon: "ph:graduation-cap-bold",
-            lead: "University",
-            label: " of the Philippines Los Baños",
-            url: "https://uplb.edu.ph/",
-            type: "custom"
-          }}
-        /> and was a member of the <LinkAnchor
-          link={{
-            icon: "ph:flask-bold",
-            lead: "Systems",
-            label: " Research Group",
-            url: "https://srg-ics-uplb.github.io/alumni.html",
-            type: "custom"
-          }}
-        />.
-
-        <br /><br />I've contributed to a number of free and open source software (FOSS) projects.
-        My research interests include web browser development, information security, reverse
-        engineering, and game development. Outside of code, I am also a fan of Filipino writing and
-        poetry, RPGs, strategy and simulation games, and retro gaming.
-        <br /><br />
-        I'm open to work. Take a look at my
-        <LinkAnchor
-          link={{
-            icon: "ph:file-pdf-bold",
-            url: "/resume",
-            lead: "résumé",
-            label: "",
-            type: "custom"
-          }}
-          isInternal
-        />
-        to explore my qualifications and experiences.
-      </p>
+      <div class="lead">
+        <p class="high">
+          I studied Computer Science at the <LinkAnchor
+            link={{
+              icon: "ph:graduation-cap-bold",
+              lead: "University",
+              label: " of the Philippines Los Baños",
+              url: "https://uplb.edu.ph/",
+              type: "custom"
+            }}
+          /> and was a member of the <LinkAnchor
+            link={{
+              icon: "ph:flask-bold",
+              lead: "Systems",
+              label: " Research Group",
+              url: "https://srg-ics-uplb.github.io/alumni.html",
+              type: "custom"
+            }}
+          />.
+        </p>
+        <p class="mid">
+          Take a look at my <LinkAnchor
+            link={{
+              icon: "ph:file-pdf-bold",
+              url: "/resume",
+              lead: "résumé",
+              label: "",
+              type: "custom"
+            }}
+            isInternal
+          /> to learn more about my experience. Got questions? <LinkAnchor
+            link={{
+              icon: "ph:mailbox-bold",
+              url: "/contact",
+              lead: "Reach",
+              label: " out",
+              type: "custom"
+            }}
+            isInternal
+          />.
+        </p>
+        <p>
+          I've contributed to a number of free and open-source software (FOSS) <LinkAnchor
+            link={{
+              icon: "ph:traffic-cone-bold",
+              url: "/projects",
+              lead: "projects",
+              label: "",
+              type: "custom"
+            }}
+            isInternal
+          />. My research interests include web browser development, information security, reverse
+          engineering, and game development. Outside of coding, I <LinkAnchor
+            link={{
+              icon: "ph:pencil-bold",
+              url: "/blog",
+              lead: "blog",
+              label: "",
+              type: "custom"
+            }}
+            isInternal
+          />, write <LinkAnchor
+            link={{
+              icon: "ph:pen-nib-bold",
+              url: "https://saligsig.wordpress.com/",
+              lead: "Filipino",
+              label: " poetry",
+              type: "custom"
+            }}
+          />, and enjoy RPG, strategy, simulation, and retro games.
+        </p>
+      </div>
     </div>
   </section>
 </main>
@@ -69,10 +104,26 @@
     padding: 20px;
   }
 
+  .profile-container {
+    text-align: justify;
+  }
+
+  .lead {
+    margin-top: 1em;
+  }
+
+  .lead > .high {
+    font-size: 1.5em;
+  }
+
+  .lead > .mid {
+    font-size: 1.3em;
+  }
+
   .profile-img {
     object-fit: cover;
-    width: 160px;
-    height: 200px;
+    width: 200px;
+    height: 280px;
     float: right;
     margin: 0 0.5em 1.5em 1.15em;
     border: 5px solid var(--bg-surface);
