@@ -9,7 +9,7 @@
   {#each contacts as contactLink}
     <a class="card card-anchor card-contact" href={contactLink.href}>
       <div class="card-icon">
-        <Icon icon={contactLink.icon} />
+        <Icon icon={contactLink.icon} class="icon-inner" />
       </div>
       <div class="card-detail">
         <div class="card-header">
@@ -41,5 +41,10 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
+  }
+
+  .card-contact > .card-icon > :global(.icon-inner) {
+    width: 64px;
+    height: 64px;
   }
 </style>
