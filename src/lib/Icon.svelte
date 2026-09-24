@@ -1,14 +1,4 @@
 <script lang="ts">
-  import LineMdHome from "~icons/line-md/home";
-  import LineMdBriefcase from "~icons/line-md/briefcase";
-  import LineMdConstruction from "~icons/line-md/construction";
-  import LineMdPencil from "~icons/line-md/pencil";
-  import LineMdEmail from "~icons/line-md/email";
-  import LineMdFacebook from "~icons/line-md/facebook";
-  import LineMdTwitter from "~icons/line-md/twitter";
-  import LineMdMastodon from "~icons/line-md/mastodon";
-  import LineMdLinkedin from "~icons/line-md/linkedin";
-  import LineMdGithubLoop from "~icons/line-md/github-loop";
   import PhHouseBold from "~icons/ph/house-bold";
   import PhBriefcaseBold from "~icons/ph/briefcase-bold";
   import PhTrafficConeBold from "~icons/ph/traffic-cone-bold";
@@ -79,14 +69,11 @@
   import SimpleIconsGooglesheets from "~icons/simple-icons/googlesheets";
   import DeviconPlainGooglecloud from "~icons/devicon-plain/googlecloud";
   import BxlShadcnUi from "~icons/bxl/shadcn-ui";
-  import LineMdMenu from "~icons/line-md/menu";
-  import LineMdClose from "~icons/line-md/close";
   import PhCaretDownBold from "~icons/ph/caret-down-bold";
   import PhArrowDownBold from "~icons/ph/arrow-down-bold";
   import PhArrowUpBold from "~icons/ph/arrow-up-bold";
   import PhArrowLeftBold from "~icons/ph/arrow-left-bold";
   import StreamlineFreehandAppWindowLayout from "~icons/streamline-freehand/app-window-layout";
-  import LineMdExternalLink from "~icons/line-md/external-link";
   import PhCaretRightBold from "~icons/ph/caret-right-bold";
   import PhChatTeardropDotsBold from "~icons/ph/chat-teardrop-dots-bold";
   import PhShareNetworkBold from "~icons/ph/share-network-bold";
@@ -96,8 +83,6 @@
   import PhArticleBold from "~icons/ph/article-bold";
   import PhListDashesBold from "~icons/ph/list-dashes-bold";
   import PhWrenchBold from "~icons/ph/wrench-bold";
-  import LineMdGrid3Filled from "~icons/line-md/grid-3-filled";
-  import LineMdList3Filled from "~icons/line-md/list-3-filled";
   import PhSquaresFourBold from "~icons/ph/squares-four-bold";
   import PhListBold from "~icons/ph/list-bold";
   import StreamlineCyberStarWarsR2 from "~icons/streamline-cyber/star-wars-r2";
@@ -144,8 +129,10 @@
   import TheSvgRetroAchievements from "~icons/thesvg/retro-achievements";
   import TheSvgArchLinux from "~icons/thesvg/arch-linux";
   import PhSwordBold from "~icons/ph/sword-bold";
+  import PhHamburgerBold from "~icons/ph/hamburger-bold";
 
   const iconMap: Record<string, any> = {
+    "ph:hamburger-bold": PhHamburgerBold,
     "ph:sword-bold": PhSwordBold,
     "thesvg:arch-linux": TheSvgArchLinux,
     "thesvg:retro-achievements": TheSvgRetroAchievements,
@@ -162,16 +149,6 @@
     "bxl:visual-studio": BxlVisualStudio,
     "radix-icons:vercel-logo": RadixIconsVercelLogo,
     "devicon-plain:docker": DeviconPlainDocker,
-    "line-md:home": LineMdHome,
-    "line-md:briefcase": LineMdBriefcase,
-    "line-md:construction": LineMdConstruction,
-    "line-md:pencil": LineMdPencil,
-    "line-md:email": LineMdEmail,
-    "line-md:facebook": LineMdFacebook,
-    "line-md:twitter": LineMdTwitter,
-    "line-md:mastodon": LineMdMastodon,
-    "line-md:linkedin": LineMdLinkedin,
-    "line-md:github-loop": LineMdGithubLoop,
     "ph:house-bold": PhHouseBold,
     "ph:briefcase-bold": PhBriefcaseBold,
     "ph:traffic-cone-bold": PhTrafficConeBold,
@@ -242,14 +219,11 @@
     "simple-icons:googlesheets": SimpleIconsGooglesheets,
     "devicon-plain:googlecloud": DeviconPlainGooglecloud,
     "bxl:shadcn-ui": BxlShadcnUi,
-    "line-md:menu": LineMdMenu,
-    "line-md:close": LineMdClose,
     "ph:caret-down-bold": PhCaretDownBold,
     "ph:arrow-down-bold": PhArrowDownBold,
     "ph:arrow-up-bold": PhArrowUpBold,
     "ph:arrow-left-bold": PhArrowLeftBold,
     "streamline-freehand:app-window-layout": StreamlineFreehandAppWindowLayout,
-    "line-md:external-link": LineMdExternalLink,
     "ph:caret-right-bold": PhCaretRightBold,
     "ph:chat-teardrop-dots-bold": PhChatTeardropDotsBold,
     "ph:share-network-bold": PhShareNetworkBold,
@@ -259,8 +233,6 @@
     "ph:article-bold": PhArticleBold,
     "ph:list-dashes-bold": PhListDashesBold,
     "ph:wrench-bold": PhWrenchBold,
-    "line-md:grid-3-filled": LineMdGrid3Filled,
-    "line-md:list-3-filled": LineMdList3Filled,
     "ph:squares-four-bold": PhSquaresFourBold,
     "ph:list-bold": PhListBold,
     "streamline-cyber:star-wars-r2": StreamlineCyberStarWarsR2,

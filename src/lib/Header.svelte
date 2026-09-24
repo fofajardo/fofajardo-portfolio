@@ -20,7 +20,7 @@
     {#if isMobile.current}
       <button onclick={toggleSidebar} class="menu-btn" aria-label="Open menu">
         <div class="menu-btn-label">Menu</div>
-        <Icon icon="line-md:menu" width="24" height="24" />
+        <Icon icon="ph:hamburger-bold" width="24" height="24" />
       </button>
     {:else}
       <Launcher {nav} target="home" />

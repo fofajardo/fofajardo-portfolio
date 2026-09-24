@@ -19,14 +19,14 @@
           onclick={() => ($viewModeStore = "grid")}
           aria-label="Grid view"
         >
-          <Icon icon="line-md:grid-3-filled" width="20" height="20" />
+          <Icon icon="ph:squares-four-bold" width="20" height="20" />
         </button>
         <button
           class="view-switcher-button {$viewModeStore === 'list' ? 'active' : ''}"
           onclick={() => ($viewModeStore = "list")}
           aria-label="List view"
         >
-          <Icon icon="line-md:list-3-filled" width="20" height="20" />
+          <Icon icon="ph:list-bold" width="20" height="20" />
         </button>
       </div>
     </div>

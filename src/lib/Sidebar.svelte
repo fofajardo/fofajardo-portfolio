@@ -97,7 +97,7 @@
       ></button>
     </div>
     <button onclick={toggleSidebar} class="close-btn" aria-label="Close menu">
-      <Icon icon="line-md:close" width="28" height="28" />
+      <Icon icon="ph:x-bold" width="28" height="28" />
     </button>
   </div>
   <nav class="sidebar-nav">
