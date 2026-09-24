@@ -30,9 +30,12 @@
   import PhShieldBold from "~icons/ph/shield-bold";
   import PhSwordBold from "~icons/ph/sword-bold";
   import PhGameControllerBold from "~icons/ph/game-controller-bold";
+  import PhMailboxBold from "~icons/ph/mailbox-bold";
+  import PhChatCircleTextBold from "~icons/ph/chat-circle-text-bold";
 
-  let { type = "projects" }: { type?: "projects" | "about" | "blog" | "resume" | "home" } =
-    $props();
+  let {
+    type = "projects"
+  }: { type?: "projects" | "about" | "blog" | "resume" | "home" | "contact" } = $props();
 </script>
 
 <div class="hero-art type-{type}">
@@ -61,6 +64,11 @@
     <div class="floating-icon icon-2"><PhEnvelopeBold /></div>
     <div class="floating-icon icon-3"><PhPhoneBold /></div>
     <div class="floating-icon icon-4"><PhMapPinBold /></div>
+  {:else if type === "contact"}
+    <div class="floating-icon icon-1"><PhMailboxBold /></div>
+    <div class="floating-icon icon-2"><PhPhoneBold /></div>
+    <div class="floating-icon icon-3"><PhEnvelopeBold /></div>
+    <div class="floating-icon icon-4"><PhChatCircleTextBold /></div>
   {:else if type === "home"}
     <div class="floating-icon icon-1"><PhCodeBold /></div>
     <div class="floating-icon icon-2"><StreamlineCyberStarWarsR2 stroke-width="2" /></div>

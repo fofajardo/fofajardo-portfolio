@@ -13,7 +13,7 @@ import type {
   Tag
 } from "./lib.types";
 
-export const { nav } = linkData as LinkData;
+export const { contacts, nav } = linkData as LinkData;
 export const { tags } = tagsData as TagsData;
 
 // Dynamically build technologies map from tags where category is technology or custom skill group

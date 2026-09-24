@@ -8,6 +8,11 @@ export type NavItem = {
   rel?: string;
 };
 
+export type ContactItem = NavItem & {
+  subtitle?: string;
+  showInNav?: boolean;
+};
+
 export enum CategoryType {
   Project = "project",
   Experience = "experience",
@@ -77,6 +82,7 @@ export type Technologies = {
 
 export type LinkData = {
   nav: NavItem[];
+  contacts: ContactItem[];
 };
 
 export type TagsData = {
