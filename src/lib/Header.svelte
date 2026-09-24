@@ -42,6 +42,7 @@
   /* ::::: new primary header ::::: */
   .primary-header {
     width: 100%;
+    view-transition-name: header;
   }
 
   .primary-header-content {
