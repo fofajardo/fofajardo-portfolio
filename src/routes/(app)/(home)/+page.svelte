@@ -46,7 +46,7 @@
               icon: "ph:flask-bold",
               lead: "Systems",
               label: " Research Group",
-              url: "https://srg-ics-uplb.github.io",
+              url: "https://srg-ics-uplb.github.io/alumni.html",
               type: "custom"
             }}
           />.
