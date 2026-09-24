@@ -26,7 +26,7 @@ export async function GET() {
   const visiblePosts = allPosts.filter((post) => !post.unlisted);
   visiblePosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  const siteUrl = "https://fofajardo.is-a.dev";
+  const siteUrl = "https://fofajardo.com";
   const feed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
