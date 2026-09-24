@@ -34,8 +34,6 @@
       : ""
   );
   const ogTitle = $derived(page.data.title ?? `${baseTitle} - Software Developer`);
-
-  import ScrollNav from "$lib/ScrollNav.svelte";
 </script>
 
 <svelte:head>
@@ -68,5 +66,3 @@
 
 <MatrixBackground />
 {@render children()}
-
-<ScrollNav />
