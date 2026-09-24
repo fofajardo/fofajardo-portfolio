@@ -132,8 +132,14 @@
   import RadixIconsVercelLogo from "~icons/radix-icons/vercel-logo";
   import BxlVisualStudio from "~icons/bxl/visual-studio";
   import PhFileCodeBold from "~icons/ph/file-code-bold";
+  import PhStackOverflowLogoBold from "~icons/ph/stack-overflow-logo-bold";
+  import PhInstagramLogoBold from "~icons/ph/instagram-logo-bold";
+  import PhRedditLogoBold from "~icons/ph/reddit-logo-bold";
 
   const iconMap: Record<string, any> = {
+    "ph:reddit-logo-bold": PhRedditLogoBold,
+    "ph:instagram-logo-bold": PhInstagramLogoBold,
+    "ph:stack-overflow-logo-bold": PhStackOverflowLogoBold,
     "ph:file-code-bold": PhFileCodeBold,
     "bxl:visual-studio": BxlVisualStudio,
     "radix-icons:vercel-logo": RadixIconsVercelLogo,
