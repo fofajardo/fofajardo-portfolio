@@ -1,4 +1,4 @@
-import navData from "$lib/content/nav.json";
+import linkData from "$lib/content/links.json";
 import tagsData from "$lib/content/tags.json";
 import experiencesData from "$lib/content/experiences.json";
 
@@ -8,12 +8,12 @@ import type {
   ExperienceEntry,
   ExperienceGroupItem,
   ExperiencesData,
-  NavData,
+  LinkData,
   ProjectEntry,
   Tag
 } from "./lib.types";
 
-export const { nav } = navData as NavData;
+export const { nav } = linkData as LinkData;
 export const { tags } = tagsData as TagsData;
 
 // Dynamically build technologies map from tags where category is technology or custom skill group

@@ -75,7 +75,7 @@ export type Technologies = {
   [key: string]: Tag;
 };
 
-export type NavData = {
+export type LinkData = {
   nav: NavItem[];
 };
 
