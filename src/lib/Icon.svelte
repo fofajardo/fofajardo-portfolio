@@ -135,8 +135,26 @@
   import PhStackOverflowLogoBold from "~icons/ph/stack-overflow-logo-bold";
   import PhInstagramLogoBold from "~icons/ph/instagram-logo-bold";
   import PhRedditLogoBold from "~icons/ph/reddit-logo-bold";
+  import PhChatCircleTextBold from "~icons/ph/chat-circle-text-bold";
+  import PhMailboxBold from "~icons/ph/mailbox-bold";
+  import PhPenNibBold from "~icons/ph/pen-nib-bold";
+  import PhGoodreadsLogoBold from "~icons/ph/goodreads-logo-bold";
+  import PhDiscordLogoBold from "~icons/ph/discord-logo-bold";
+  import PhLinuxLogoBold from "~icons/ph/linux-logo-bold";
+  import TheSvgRetroAchievements from "~icons/thesvg/retro-achievements";
+  import TheSvgArchLinux from "~icons/thesvg/arch-linux";
+  import PhSwordBold from "~icons/ph/sword-bold";
 
   const iconMap: Record<string, any> = {
+    "ph:sword-bold": PhSwordBold,
+    "thesvg:arch-linux": TheSvgArchLinux,
+    "thesvg:retro-achievements": TheSvgRetroAchievements,
+    "ph:linux-logo-bold": PhLinuxLogoBold,
+    "ph:discord-logo-bold": PhDiscordLogoBold,
+    "ph:goodreads-logo-bold": PhGoodreadsLogoBold,
+    "ph:pen-nib-bold": PhPenNibBold,
+    "ph:mailbox-bold": PhMailboxBold,
+    "ph:chat-circle-text-bold": PhChatCircleTextBold,
     "ph:reddit-logo-bold": PhRedditLogoBold,
     "ph:instagram-logo-bold": PhInstagramLogoBold,
     "ph:stack-overflow-logo-bold": PhStackOverflowLogoBold,
