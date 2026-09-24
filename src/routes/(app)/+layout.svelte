@@ -8,9 +8,7 @@
   const { nav } = $derived(data);
 </script>
 
-{#if page.url.pathname !== "/"}
-  <Header />
-{/if}
+<Header {nav} />
 
 <Sidebar {nav} />
 

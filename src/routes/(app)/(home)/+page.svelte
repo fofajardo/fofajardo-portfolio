@@ -1,13 +1,6 @@
 <script lang="ts">
   import LinkAnchor from "$lib/LinkAnchor.svelte";
   import HeroArt from "$lib/HeroArt.svelte";
-  import Header from "$lib/Header.svelte";
-  import Launcher from "$lib/Launcher.svelte";
-  import { IsMobile } from "$lib/hooks/is-mobile.js";
-  const { data } = $props();
-  const { nav } = $derived(data);
-
-  const isMobile = new IsMobile();
 </script>
 
 <svelte:head>
@@ -16,63 +9,56 @@
   <link rel="me" href="https://social.up.edu.ph/@fofajardo" />
 </svelte:head>
 
-<div>
-  {#if isMobile.current}
-    <Header />
-  {:else}
-    <Launcher {nav} target="home" />
-  {/if}
-  <HeroArt type="home" />
-  <main class="transparent full-nh center-v">
-    <section class="content-layout">
-      <enhanced:img
-        src="$lib/content/profile.png"
-        class="profile-img"
-        alt="Francis Dominic Fajardo's portrait"
-      />
-      <div>
-        <h1 class="profile-heading">I'm Francis Dominic Fajardo.</h1>
-        <p style="text-align: justify; margin: 0;">
-          I studied Computer Science at the <LinkAnchor
-            link={{
-              icon: "ph:graduation-cap-bold",
-              lead: "University",
-              label: " of the Philippines Los Baños",
-              url: "https://uplb.edu.ph/",
-              type: "custom"
-            }}
-          /> and was a member of the <LinkAnchor
-            link={{
-              icon: "ph:flask-bold",
-              lead: "Systems",
-              label: " Research Group",
-              url: "https://srg-ics-uplb.github.io/alumni.html",
-              type: "custom"
-            }}
-          />.
+<HeroArt type="home" />
+<main class="transparent full-nh center-v">
+  <section class="content-layout">
+    <enhanced:img
+      src="$lib/content/profile.png"
+      class="profile-img"
+      alt="Francis Dominic Fajardo's portrait"
+    />
+    <div>
+      <h1 class="profile-heading">I'm Francis Dominic Fajardo.</h1>
+      <p style="text-align: justify; margin: 0;">
+        I studied Computer Science at the <LinkAnchor
+          link={{
+            icon: "ph:graduation-cap-bold",
+            lead: "University",
+            label: " of the Philippines Los Baños",
+            url: "https://uplb.edu.ph/",
+            type: "custom"
+          }}
+        /> and was a member of the <LinkAnchor
+          link={{
+            icon: "ph:flask-bold",
+            lead: "Systems",
+            label: " Research Group",
+            url: "https://srg-ics-uplb.github.io/alumni.html",
+            type: "custom"
+          }}
+        />.
 
-          <br /><br />I've contributed to a number of free and open source software (FOSS) projects.
-          My research interests include web browser development, information security, reverse
-          engineering, and game development. Outside of code, I am also a fan of Filipino writing
-          and poetry, RPGs, strategy and simulation games, and retro gaming.
-          <br /><br />
-          I'm open to work. Take a look at my
-          <LinkAnchor
-            link={{
-              icon: "ph:file-pdf-bold",
-              url: "/resume",
-              lead: "résumé",
-              label: "",
-              type: "custom"
-            }}
-            isInternal
-          />
-          to explore my qualifications and experiences.
-        </p>
-      </div>
-    </section>
-  </main>
-</div>
+        <br /><br />I've contributed to a number of free and open source software (FOSS) projects.
+        My research interests include web browser development, information security, reverse
+        engineering, and game development. Outside of code, I am also a fan of Filipino writing and
+        poetry, RPGs, strategy and simulation games, and retro gaming.
+        <br /><br />
+        I'm open to work. Take a look at my
+        <LinkAnchor
+          link={{
+            icon: "ph:file-pdf-bold",
+            url: "/resume",
+            lead: "résumé",
+            label: "",
+            type: "custom"
+          }}
+          isInternal
+        />
+        to explore my qualifications and experiences.
+      </p>
+    </div>
+  </section>
+</main>
 
 <style>
   main {

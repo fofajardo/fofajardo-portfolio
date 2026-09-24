@@ -2,6 +2,12 @@
   import { page } from "$app/state";
   import { toggleSidebar } from "$lib/Sidebar.svelte";
   import Icon from "$lib/Icon.svelte";
+  import { IsMobile } from "$lib/hooks/is-mobile.js";
+  import Launcher from "./Launcher.svelte";
+  import type { NavItem } from "./lib.types";
+  let { nav }: { nav: NavItem[] } = $props();
+
+  const isMobile = new IsMobile();
 </script>
 
 <header class="primary-header" aria-label="Site header">
@@ -11,10 +17,14 @@
     {:else}
       <div></div>
     {/if}
-    <button onclick={toggleSidebar} class="menu-btn" aria-label="Open menu">
-      <div class="menu-btn-label">Menu</div>
-      <Icon icon="line-md:menu" width="24" height="24" />
-    </button>
+    {#if isMobile.current}
+      <button onclick={toggleSidebar} class="menu-btn" aria-label="Open menu">
+        <div class="menu-btn-label">Menu</div>
+        <Icon icon="line-md:menu" width="24" height="24" />
+      </button>
+    {:else}
+      <Launcher {nav} target="home" />
+    {/if}
   </div>
 </header>
 

@@ -71,7 +71,6 @@
   .launcher-nav.home {
     justify-content: flex-end;
     align-items: flex-end;
-    margin: auto;
     margin-top: 0.5em;
     max-width: var(--layout-max-width);
   }
