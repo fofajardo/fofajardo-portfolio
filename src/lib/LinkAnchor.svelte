@@ -34,7 +34,9 @@
   let icon = $derived(link.icon ?? linkTypeIconMap[link.type] ?? linkTypeIconMap["external"]);
   let label = $derived(link.label ?? linkLabelMap[link.type] ?? linkLabelMap["external"]);
   let lead = $derived(link.lead ?? "");
-  let anchorClass = $derived(isButton ? "button" : "");
+  let leadOnly = $derived(label === "" && lead !== "");
+  let buttonClass = $derived(isButton ? "button" : "link");
+  let anchorClass = $derived(leadOnly ? buttonClass + " leadOnly" : buttonClass);
 </script>
 
 {#snippet labelWithIcon(icon: string, label: string, lead: string)}
@@ -50,3 +52,9 @@
     {@render labelWithIcon(icon, label, lead)}
   </a>
 {/if}
+
+<style>
+  .leadOnly {
+    display: inline-block;
+  }
+</style>
