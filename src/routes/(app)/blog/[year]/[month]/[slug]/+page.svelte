@@ -87,15 +87,6 @@
   ]);
 </script>
 
-<svelte:head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
-    rel="stylesheet"
-  />
-</svelte:head>
-
 <div class="heading-container">
   <HeroArt type="blog" />
   <div class="heading-content">
@@ -175,8 +166,7 @@
     margin-bottom: 2em;
   }
   .primary-header-wrapper h1 {
-    font-family: "Instrument Serif", Georgia, Garamond, serif;
-    font-size: 5em;
+    font-size: 3.5em;
     font-weight: 800;
     line-height: 1;
     margin: 0.1em 0 0.25em 0;
@@ -185,7 +175,6 @@
     text-transform: none;
   }
   .blog-subtitle {
-    font-family: "Instrument Serif", Georgia, Garamond, serif;
     font-size: 1.55em;
     line-height: 1.35;
     margin: 0 0 1.25em 0;
