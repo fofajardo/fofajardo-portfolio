@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 
 import adapterVercel from "@sveltejs/adapter-vercel";
 import { enhancedImages } from "@sveltejs/enhanced-img";
@@ -8,30 +8,33 @@ import { mdsvex } from "mdsvex";
 import { svelteSitemap } from "svelte-sitemap/vite";
 import Icons from "unplugin-icons/vite";
 
-export default defineConfig({
-  plugins: [
-    enhancedImages(),
-    sveltekit({
-      adapter: adapterVercel(),
-      extensions: [".svelte", ".svx", ".md"],
-      preprocess: [
-        vitePreprocess(),
-        mdsvex({
-          extension: ".md"
-        })
-      ],
-      prerender: {
-        origin: "https://fofajardo.com",
-        handleUnseenRoutes: "ignore"
-      }
-    }),
-    Icons({
-      compiler: "svelte",
-      scale: 1
-    }),
-    svelteSitemap({
-      domain: "https://fofajardo.com",
-      outDir: ".vercel/output/static"
-    })
-  ]
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd());
+  return {
+    plugins: [
+      enhancedImages(),
+      sveltekit({
+        adapter: adapterVercel(),
+        extensions: [".svelte", ".svx", ".md"],
+        preprocess: [
+          vitePreprocess(),
+          mdsvex({
+            extension: ".md"
+          })
+        ],
+        prerender: {
+          origin: env.VITE_URL_ORIGIN,
+          handleUnseenRoutes: "ignore"
+        }
+      }),
+      Icons({
+        compiler: "svelte",
+        scale: 1
+      }),
+      svelteSitemap({
+        domain: env.VITE_URL_ORIGIN,
+        outDir: env.VITE_SITEMAP_OUT_DIR
+      })
+    ]
+  };
 });
