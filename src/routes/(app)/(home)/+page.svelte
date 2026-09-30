@@ -20,7 +20,7 @@
     <div class="profile-container">
       <h1 class="profile-heading">I'm Francis Dominic Fajardo.</h1>
       <div class="lead">
-        <p class="high">
+        <p>
           I studied Computer Science at the <LinkAnchor
             link={{
               icon: "ph:graduation-cap-bold",
@@ -39,8 +39,8 @@
             }}
           />.
         </p>
-        <p class="mid">
-          Take a look at my <LinkAnchor
+        <p>
+          Got questions? Take a look at my <LinkAnchor
             link={{
               icon: "ph:file-pdf-bold",
               url: "/resume",
@@ -49,11 +49,11 @@
               type: "custom"
             }}
             isInternal
-          /> to learn more about my experience. Got questions? <LinkAnchor
+          /> or <LinkAnchor
             link={{
               icon: "ph:mailbox-bold",
               url: "/contact",
-              lead: "Reach",
+              lead: "reach",
               label: " out",
               type: "custom"
             }}
@@ -108,22 +108,14 @@
     text-align: justify;
   }
 
-  .lead {
-    margin-top: 1em;
-  }
-
-  .lead > .high {
-    font-size: 1.5em;
-  }
-
-  .lead > .mid {
-    font-size: 1.3em;
+  .profile-container > .lead {
+    font-size: 1.2em;
   }
 
   .profile-img {
     object-fit: cover;
     width: 200px;
-    height: 280px;
+    height: 260px;
     float: right;
     margin: 0 0.5em 1.5em 1.15em;
     border: 5px solid var(--bg-surface);
@@ -131,6 +123,7 @@
   }
 
   .profile-heading {
+    text-align: left;
     border: none;
     margin-bottom: 18px;
     padding: 0;
@@ -144,6 +137,7 @@
   @media screen and (max-width: 625px) {
     .profile-heading {
       line-height: 1;
+      font-size: xx-large;
     }
 
     .profile-img {
@@ -153,17 +147,10 @@
       margin: 0 auto 1.5em auto;
       display: block;
     }
-  }
 
-  @media screen and (max-height: 700px) {
     .profile-img {
       width: 100px;
       height: 125px;
-    }
-
-    /* Hide the scroll hint for this page on tiny screens. */
-    :global(.scroll-hint) {
-      opacity: 0;
     }
 
     .full-nh {
