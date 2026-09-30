@@ -36,6 +36,14 @@
     padding-left: 1em;
   }
 
+  @media screen and (max-width: 768px) {
+    .card-contact > .card-icon {
+      margin-top: 8px;
+      padding-left: 0.5em;
+      margin-right: 0;
+    }
+  }
+
   .card-contact > .card-detail > .card-header {
     display: flex;
     flex-direction: column;

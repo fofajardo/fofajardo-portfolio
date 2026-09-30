@@ -335,13 +335,11 @@ td {
 .cardset.grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2em;
 }
 
 .cardset.list {
   display: flex;
   flex-direction: column;
-  gap: 1em;
 }
 
 .card {
@@ -486,8 +484,7 @@ td {
 
 @media screen and (max-width: 767px) {
   .cardset.grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
   }
 }
 
