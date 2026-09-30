@@ -16,9 +16,11 @@
   {/if}
 </svelte:head>
 
-<div class="redirect-container">
-  <p>Redirecting to <a href={data.redirectUrl}>{data.redirectUrl}</a>…</p>
-</div>
+{#if data.redirectUrl}
+  <div class="redirect-container">
+    <p>Redirecting to <a href={data.redirectUrl}>{data.redirectUrl}</a>…</p>
+  </div>
+{/if}
 
 <style>
   .redirect-container {
