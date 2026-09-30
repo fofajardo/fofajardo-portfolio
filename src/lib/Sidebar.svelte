@@ -140,7 +140,6 @@
     width: 100dvw;
     height: 100dvh;
     background-color: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(0px);
     z-index: 999;
     pointer-events: none;
     visibility: hidden;
@@ -151,7 +150,6 @@
   }
   .sidebar-overlay.open {
     background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
     pointer-events: auto;
     visibility: visible;
   }
