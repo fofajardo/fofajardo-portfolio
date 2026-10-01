@@ -187,8 +187,9 @@ h1 {
 }
 
 h2 {
-  border-left: 8px solid var(--text-main);
-  padding-left: 0.5em;
+  display: inline-block;
+  border-bottom: 8px double var(--text-main);
+  padding-bottom: 0.2em;
 }
 
 span.title {
