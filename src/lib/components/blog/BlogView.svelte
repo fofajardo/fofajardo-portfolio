@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { formatDate, getMonthName, getCalendarDate } from "$lib/utils";
   import type { BlogPost } from "$lib/lib.types";
+  import { getCalendarDate, getMonthName } from "$lib/utils";
 
-  const { data, tag } = $props();
+  const { data, tag }: { data: any; tag?: string } = $props();
   const posts = $derived(data.posts ?? []);
   const emptyMessage = $derived(data.emptyMessage);
   const isYear = $derived(Boolean(data.year));
