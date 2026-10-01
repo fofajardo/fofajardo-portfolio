@@ -3,13 +3,15 @@
   import { HeroArt } from "$comp/background";
   import { DropdownButton } from "$comp/ui";
   import { resetCounters } from "$lib/counterStore.js";
+  import type { BlogPostMetadata } from "$lib/lib.types.js";
   import { themeStore } from "$lib/themeStore";
   import { formatDate } from "$lib/utils";
   import Giscus from "@giscus/svelte";
+  import type { Component } from "svelte";
 
   const { data } = $props();
-  const meta = $derived(data.meta);
-  const Content = $derived(data.content);
+  const meta: BlogPostMetadata = $derived(data.meta);
+  const Content: Component = $derived(data.content);
 
   const giscusTheme = $derived.by(() => {
     if ($themeStore === "device") {
