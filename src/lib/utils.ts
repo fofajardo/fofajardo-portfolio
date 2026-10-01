@@ -1,3 +1,16 @@
+const monthFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  timeZone: "UTC"
+});
+
+export function getMonthName(monthStr: string): string {
+  const monthNum = Number(monthStr);
+  if (!Number.isInteger(monthNum) || monthNum < 1 || monthNum > 12) {
+    return monthStr;
+  }
+  return monthFormatter.format(new Date(Date.UTC(2000, monthNum - 1, 1)));
+}
+
 export function formatDate(dateStr: string): string {
   if (!dateStr) return "";
   const date = new Date(dateStr);
