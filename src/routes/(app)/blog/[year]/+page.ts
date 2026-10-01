@@ -1,6 +1,5 @@
-import { error } from "@sveltejs/kit";
-import type { PageLoad, EntryGenerator } from "./$types";
 import type { BlogPostMetadata } from "$lib/lib.types";
+import type { EntryGenerator, PageLoad } from "./$types";
 
 export const entries: EntryGenerator = async () => {
   const posts = import.meta.glob("$lib/content/blog/*.md");

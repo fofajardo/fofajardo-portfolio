@@ -1,6 +1,6 @@
 <script lang="ts">
   import "$lib/styles/common.css";
-  import MatrixBackground from "$lib/MatrixBackground.svelte";
+  import { MatrixBackground } from "$comp/background";
 
   let { children } = $props();
 

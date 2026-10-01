@@ -1,5 +1,5 @@
 <script>
-  import LinkAnchor from "$lib/LinkAnchor.svelte";
+  import { LinkAnchor } from "$comp/ui";
   let year = new Date().getFullYear();
 </script>
 

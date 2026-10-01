@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Launcher from "$lib/Launcher.svelte";
+  import { Launcher } from "$comp/nav";
 
   const { data } = $props();
   const { nav } = $derived(data);

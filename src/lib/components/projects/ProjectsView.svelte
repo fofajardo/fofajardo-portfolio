@@ -1,6 +1,6 @@
 <script lang="ts">
   import ProjectCard from "./ProjectCard.svelte";
-  import { getGroupedProjects, projects as allProjects } from "./dataService";
+  import { getGroupedProjects, projects as allProjects } from "../../dataService";
 
   const { data, viewMode = "grid", group = false } = $props();
   const projectsList = $derived(data.projects ?? allProjects);

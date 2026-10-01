@@ -1,17 +1,14 @@
 <script lang="ts">
-  import DateRangeSpan from "$lib/DateRangeSpan.svelte";
-  import type { ExperienceEntry } from "$lib/lib.types";
-  import { CategoryType } from "$lib/lib.types.js";
-  import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import Icon from "$lib/Icon.svelte";
-  import TagBadge from "$lib/TagBadge.svelte";
-  import HeroArt from "$lib/HeroArt.svelte";
+  import { HeroArt } from "$comp/background";
+  import { DateRangeSpan, Icon, LinkAnchor, TagBadge } from "$comp/ui";
   import {
     experiencesByTagMap,
-    tagsByCategoryMap,
+    getExperienceDisplayItems,
     tags,
-    getExperienceDisplayItems
+    tagsByCategoryMap
   } from "$lib/dataService";
+  import type { ExperienceEntry } from "$lib/lib.types";
+  import { CategoryType } from "$lib/lib.types.js";
 
   const langIds = tags
     .filter((t) => t.category === CategoryType.Technology && !t.hideSkill)

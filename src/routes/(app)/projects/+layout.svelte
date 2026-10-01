@@ -1,9 +1,9 @@
 <script lang="ts">
-  import ProjectsView from "$lib/ProjectsView.svelte";
-  import Icon from "$lib/Icon.svelte";
-  import HeroArt from "$lib/HeroArt.svelte";
-  import { viewModeStore } from "$lib/viewModeStore";
   import { page } from "$app/state";
+  import { HeroArt } from "$comp/background";
+  import { ProjectsView } from "$comp/projects";
+  import { Icon } from "$comp/ui";
+  import { viewModeStore } from "$lib/viewModeStore";
 
   const { children } = $props();
 </script>

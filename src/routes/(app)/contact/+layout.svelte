@@ -1,6 +1,6 @@
 <script lang="ts">
-  import HeroArt from "$lib/HeroArt.svelte";
   import { page } from "$app/state";
+  import { HeroArt } from "$comp/background";
 
   const { children } = $props();
 </script>

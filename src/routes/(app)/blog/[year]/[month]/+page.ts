@@ -1,5 +1,5 @@
-import type { PageLoad, EntryGenerator } from "./$types";
 import type { BlogPostMetadata } from "$lib/lib.types";
+import type { EntryGenerator, PageLoad } from "./$types";
 
 const MONTH_NAMES = [
   "January",

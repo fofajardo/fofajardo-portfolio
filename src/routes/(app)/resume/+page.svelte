@@ -1,6 +1,6 @@
 <script lang="ts">
-  import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import HeroArt from "$lib/HeroArt.svelte";
+  import { HeroArt } from "$comp/background";
+  import { LinkAnchor } from "$comp/ui";
 </script>
 
 <div class="heading-container">

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import Icon from "$lib/Icon.svelte";
+  import { Icon, LinkAnchor } from "$comp/ui";
 </script>
 
 <div class="full center-v">

@@ -1,10 +1,10 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { toggleSidebar } from "$lib/Sidebar.svelte";
-  import Icon from "$lib/Icon.svelte";
+  import { toggleSidebar } from "$lib/components/nav/Sidebar.svelte";
+  import { Icon } from "$comp/ui";
   import { IsMobile } from "$lib/hooks/is-mobile.js";
-  import Launcher from "./Launcher.svelte";
-  import type { NavItem } from "./lib.types";
+  import Launcher from "../nav/Launcher.svelte";
+  import type { NavItem } from "../../lib.types";
   let { nav }: { nav: NavItem[] } = $props();
 
   const isMobile = new IsMobile();

@@ -1,20 +1,13 @@
 <script lang="ts">
-  import SvelteMarkdown from "@humanspeak/svelte-markdown";
-  import Icon from "$lib/Icon.svelte";
-
+  import { HeroArt } from "$comp/background";
+  import { DateRangeSpan, Icon, Label, LinkAnchor, TagBadge } from "$comp/ui";
+  import ProjectCard from "$lib/components/projects/ProjectCard.svelte";
+  import "$lib/styles/common.glide.css";
   import Glide from "@glidejs/glide";
   import "@glidejs/glide/dist/css/glide.core.min.css";
-  import "$lib/styles/common.glide.css";
-
+  import SvelteMarkdown from "@humanspeak/svelte-markdown";
   import Viewer from "viewerjs";
   import "viewerjs/dist/viewer.css";
-  import DateRangeSpan from "$lib/DateRangeSpan.svelte";
-  import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import Label from "$lib/Label.svelte";
-  import HeroArt from "$lib/HeroArt.svelte";
-
-  import ProjectCard from "$lib/ProjectCard.svelte";
-  import TagBadge from "$lib/TagBadge.svelte";
 
   let { data } = $props();
   let project = $derived(data.project);

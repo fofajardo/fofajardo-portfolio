@@ -25,10 +25,10 @@
 </script>
 
 <script lang="ts">
-  import Icon from "$lib/Icon.svelte";
+  import { Icon } from "$comp/ui";
   import { page } from "$app/state";
   import { resolve } from "$app/paths";
-  import type { NavItem } from "./lib.types";
+  import type { NavItem } from "../../lib.types";
   import type { Pathname } from "$app/types";
   import { themeStore } from "$lib/themeStore";
 

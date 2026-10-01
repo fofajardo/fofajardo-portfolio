@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Icon from "$lib/Icon.svelte";
+  import { Icon } from "$comp/ui";
 
   const { data } = $props();
   const { contacts } = $derived(data);

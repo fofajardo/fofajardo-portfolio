@@ -15,6 +15,9 @@ export default defineConfig(({ mode }) => {
       enhancedImages(),
       sveltekit({
         adapter: adapterVercel(),
+        alias: {
+          $comp: "src/lib/components"
+        },
         extensions: [".svelte", ".svx", ".md"],
         preprocess: [
           vitePreprocess(),

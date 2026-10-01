@@ -1,13 +1,12 @@
 <script lang="ts">
+  import { page } from "$app/state";
+  import { HeroArt } from "$comp/background";
+  import { resetFigureCounter } from "$comp/blog/Figure.svelte";
+  import { resetTableCounter } from "$comp/blog/Table.svelte";
+  import { DropdownButton } from "$comp/ui";
+  import { themeStore } from "$lib/themeStore";
   import { formatDate } from "$lib/utils";
   import Giscus from "@giscus/svelte";
-  import DropdownButton from "$lib/DropdownButton.svelte";
-  import { resetFigureCounter } from "$lib/Figure.svelte";
-  import { resetTableCounter } from "$lib/Table.svelte";
-  import HeroArt from "$lib/HeroArt.svelte";
-  import { themeStore } from "$lib/themeStore";
-
-  import { page } from "$app/state";
 
   const { data } = $props();
   const meta = $derived(data.meta);

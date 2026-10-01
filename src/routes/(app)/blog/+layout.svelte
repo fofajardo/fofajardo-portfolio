@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { formatDate } from "$lib/utils";
   import { page } from "$app/state";
-  import LinkAnchor from "$lib/LinkAnchor.svelte";
-  import HeroArt from "$lib/HeroArt.svelte";
+  import { HeroArt } from "$comp/background";
+  import { LinkAnchor } from "$comp/ui";
+  import { formatDate } from "$lib/utils";
 
   const { children } = $props();
   const posts = $derived(page.data.posts ?? []);
