@@ -1,5 +1,7 @@
 <script>
   import { LinkAnchor } from "$comp/ui";
+  import { ThemeSwitcher } from ".";
+
   let year = new Date().getFullYear();
 </script>
 
@@ -23,6 +25,7 @@
       }}
     />
   </span>
+  <ThemeSwitcher variant="footer" />
 </footer>
 
 <style>
