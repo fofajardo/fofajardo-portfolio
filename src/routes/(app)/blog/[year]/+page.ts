@@ -21,20 +21,6 @@ export const entries: EntryGenerator = async () => {
     })
   );
 
-  const years = Array.from(
-    new Set(
-      postDetails
-        .filter((post) => {
-          return !post.unlisted;
-        })
-        .map((post) => {
-          return post.year;
-        })
-    )
-  ).map((year) => {
-    return { year };
-  });
-
   const legacySlugs = postDetails
     .filter((post) => {
       return post.legacy === true;
@@ -43,7 +29,7 @@ export const entries: EntryGenerator = async () => {
       return { year: post.slug };
     });
 
-  return [...years, ...legacySlugs];
+  return legacySlugs;
 };
 
 export const load: PageLoad = async ({ params, parent }) => {

@@ -1,5 +1,4 @@
-import type { BlogPostMetadata } from "$lib/lib.types";
-import type { EntryGenerator, PageLoad } from "./$types";
+import type { PageLoad } from "./$types";
 
 const MONTH_NAMES = [
   "January",
@@ -23,43 +22,6 @@ function getMonthName(monthStr: string): string {
   }
   return monthStr;
 }
-
-export const entries: EntryGenerator = async () => {
-  const posts = import.meta.glob("$content/blog/*.md");
-  const slugs = Object.keys(posts).map((path) => {
-    return path.split("/").pop()?.replace(/\.md$/, "") || "";
-  });
-
-  const entriesList = await Promise.all(
-    slugs.map(async (slug) => {
-      const post = (await import(`$content/blog/${slug}.md`)) as { metadata: BlogPostMetadata };
-      if (post.metadata.unlisted) {
-        return null;
-      }
-      const dateParts = post.metadata.date.split("-");
-      const year = dateParts[0];
-      const month = dateParts[1];
-      return { year, month };
-    })
-  );
-
-  const uniqueYearMonths = Array.from(
-    new Set(
-      entriesList
-        .filter((entry): entry is { year: string; month: string } => {
-          return entry !== null;
-        })
-        .map((entry) => {
-          return `${entry.year}/${entry.month}`;
-        })
-    )
-  ).map((item) => {
-    const [year, month] = item.split("/");
-    return { year, month };
-  });
-
-  return uniqueYearMonths;
-};
 
 export const load: PageLoad = async ({ params, parent }) => {
   const { allPosts } = await parent();
