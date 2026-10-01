@@ -6,7 +6,7 @@
   const { item } = $props();
 
   const imageModules = import.meta.glob(
-    "$lib/content/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
+    "$content/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
     {
       eager: true,
       query: {
@@ -19,8 +19,8 @@
     try {
       if (p.preview) {
         return (
-          imageModules[`/src/lib/content/previews/${p.preview}.jpg`]?.default ??
-          imageModules[`/src/lib/content/previews/${p.preview}.png`]?.default
+          imageModules[`/content/previews/${p.preview}.jpg`]?.default ??
+          imageModules[`/content/previews/${p.preview}.png`]?.default
         );
       }
     } catch (e) {

@@ -12,7 +12,7 @@ fi
  
 : "${GITHUB_REPO_CLONE_TOKEN:?GITHUB_REPO_CLONE_TOKEN is required}"
 
-SUBMODULE_NAME="src/lib/content"
+SUBMODULE_NAME="content"
 PUBLIC_URL="https://github.com/fofajardo/fofajardo-portfolio-content.git"
 AUTHENTICATED_URL="https://x-access-token:${GITHUB_REPO_CLONE_TOKEN}@github.com/fofajardo/fofajardo-portfolio-content.git"
 

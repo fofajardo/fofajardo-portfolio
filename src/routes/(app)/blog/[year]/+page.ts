@@ -2,14 +2,14 @@ import type { BlogPostMetadata } from "$lib/lib.types";
 import type { EntryGenerator, PageLoad } from "./$types";
 
 export const entries: EntryGenerator = async () => {
-  const posts = import.meta.glob("$lib/content/blog/*.md");
+  const posts = import.meta.glob("$content/blog/*.md");
   const slugs = Object.keys(posts).map((path) => {
     return path.split("/").pop()?.replace(/\.md$/, "") || "";
   });
 
   const postDetails = await Promise.all(
     slugs.map(async (slug) => {
-      const post = (await import(`$lib/content/blog/${slug}.md`)) as { metadata: BlogPostMetadata };
+      const post = (await import(`$content/blog/${slug}.md`)) as { metadata: BlogPostMetadata };
       const dateParts = post.metadata.date.split("-");
       const year = dateParts[0];
       return {
@@ -48,7 +48,7 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageLoad = async ({ params, parent }) => {
   try {
-    const post = await import(`$lib/content/blog/${params.year}.md`);
+    const post = await import(`$content/blog/${params.year}.md`);
     const meta = post.metadata as BlogPostMetadata;
 
     if (meta.legacy === true) {

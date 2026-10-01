@@ -16,7 +16,8 @@ export default defineConfig(({ mode }) => {
       sveltekit({
         adapter: adapterVercel(),
         alias: {
-          $comp: "src/lib/components"
+          $comp: "src/lib/components",
+          $content: "content"
         },
         extensions: [".svelte", ".svx", ".md"],
         preprocess: [
@@ -38,6 +39,11 @@ export default defineConfig(({ mode }) => {
         domain: env.VITE_URL_ORIGIN,
         outDir: env.VITE_SITEMAP_OUT_DIR
       })
-    ]
+    ],
+    server: {
+      fs: {
+        allow: ["content"]
+      }
+    }
   };
 });

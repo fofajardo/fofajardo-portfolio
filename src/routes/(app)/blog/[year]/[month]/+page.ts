@@ -25,14 +25,14 @@ function getMonthName(monthStr: string): string {
 }
 
 export const entries: EntryGenerator = async () => {
-  const posts = import.meta.glob("$lib/content/blog/*.md");
+  const posts = import.meta.glob("$content/blog/*.md");
   const slugs = Object.keys(posts).map((path) => {
     return path.split("/").pop()?.replace(/\.md$/, "") || "";
   });
 
   const entriesList = await Promise.all(
     slugs.map(async (slug) => {
-      const post = (await import(`$lib/content/blog/${slug}.md`)) as { metadata: BlogPostMetadata };
+      const post = (await import(`$content/blog/${slug}.md`)) as { metadata: BlogPostMetadata };
       if (post.metadata.unlisted) {
         return null;
       }

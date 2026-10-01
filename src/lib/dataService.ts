@@ -1,6 +1,6 @@
-import linkData from "$lib/content/links.json";
-import tagsData from "$lib/content/tags.json";
-import experiencesData from "$lib/content/experiences.json";
+import linkData from "$content/links.json";
+import tagsData from "$content/tags.json";
+import experiencesData from "$content/experiences.json";
 
 import type {
   TagsData,
@@ -29,7 +29,7 @@ export const technologies = tags
 
 export const { experiences } = experiencesData as ExperiencesData;
 
-const markdownProjects = import.meta.glob("$lib/content/projects/*.md", { eager: true });
+const markdownProjects = import.meta.glob("$content/projects/*.md", { eager: true });
 
 export function sortProjectsByDate(a: ProjectEntry, b: ProjectEntry): number {
   if (a.dateEnd === undefined && b.dateEnd === undefined) {

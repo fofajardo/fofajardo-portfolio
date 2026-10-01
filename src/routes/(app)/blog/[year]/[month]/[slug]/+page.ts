@@ -3,14 +3,14 @@ import { error } from "@sveltejs/kit";
 import type { EntryGenerator, PageLoad } from "./$types";
 
 export const entries: EntryGenerator = async () => {
-  const posts = import.meta.glob("$lib/content/blog/*.md");
+  const posts = import.meta.glob("$content/blog/*.md");
   const slugs = Object.keys(posts).map((path) => {
     return path.split("/").pop()?.replace(/\.md$/, "") || "";
   });
 
   const entriesList = await Promise.all(
     slugs.map(async (slug) => {
-      const post = (await import(`$lib/content/blog/${slug}.md`)) as { metadata: BlogPostMetadata };
+      const post = (await import(`$content/blog/${slug}.md`)) as { metadata: BlogPostMetadata };
       const dateParts = post.metadata.date.split("-");
       const year = dateParts[0];
       const month = dateParts[1];
@@ -23,7 +23,7 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageLoad = async ({ params }) => {
   try {
-    const post = await import(`$lib/content/blog/${params.slug}.md`);
+    const post = await import(`$content/blog/${params.slug}.md`);
     const meta = post.metadata as BlogPostMetadata;
 
     const dateParts = meta.date.split("-");

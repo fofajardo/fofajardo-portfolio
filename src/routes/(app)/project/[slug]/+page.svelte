@@ -16,7 +16,7 @@
   let Content = $derived(data.content);
 
   const allImageModules = import.meta.glob(
-    `$lib/content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
+    `$content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
     {
       eager: true,
       query: {
@@ -28,7 +28,7 @@
   const imageModules = $derived(() => {
     try {
       if (project.previewset) {
-        const projectPath = `/src/lib/content/previewset/${project.id}/`;
+        const projectPath = `/content/previewset/${project.id}/`;
         return Object.fromEntries(
           Object.entries(allImageModules).filter(([path]) => path.includes(projectPath))
         );

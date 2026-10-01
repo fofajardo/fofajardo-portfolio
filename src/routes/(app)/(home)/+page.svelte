@@ -13,7 +13,7 @@
 <main class="transparent full-nh center-v">
   <section class="content-layout">
     <enhanced:img
-      src="$lib/content/profile.png"
+      src="$content/profile.png"
       class="profile-img"
       alt="Francis Dominic Fajardo's portrait"
     />

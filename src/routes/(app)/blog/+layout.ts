@@ -2,7 +2,7 @@ import type { BlogPost, BlogPostMetadata } from "$lib/lib.types";
 import type { LayoutLoad } from "./$types";
 
 export const load: LayoutLoad = async () => {
-  const posts = import.meta.glob("$lib/content/blog/*.md");
+  const posts = import.meta.glob("$content/blog/*.md");
   const iterablePostFiles = Object.entries(posts);
 
   const allPosts = await Promise.all(

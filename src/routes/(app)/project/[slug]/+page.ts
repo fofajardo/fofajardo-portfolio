@@ -12,7 +12,7 @@ export const load: PageLoad = async ({ params }) => {
 
   let post;
   try {
-    post = await import(`$lib/content/projects/${slug}.md`);
+    post = await import(`$content/projects/${slug}.md`);
   } catch (e) {
     error(404, `Could not load project content for ${slug}`);
   }

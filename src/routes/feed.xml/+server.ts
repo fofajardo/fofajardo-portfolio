@@ -4,7 +4,7 @@ import { escapeXml } from "$lib/utils";
 export const prerender = true;
 
 export async function GET() {
-  const posts = import.meta.glob("$lib/content/blog/*.md");
+  const posts = import.meta.glob("$content/blog/*.md");
   const iterablePostFiles = Object.entries(posts);
 
   const allPosts = await Promise.all(
