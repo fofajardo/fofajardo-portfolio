@@ -10,7 +10,9 @@ import type {
   ExperiencesData,
   LinkData,
   ProjectEntry,
-  Tag
+  Tag,
+  BlogPostMetadata,
+  BlogPost
 } from "./lib.types";
 
 export const { contacts, nav } = linkData as LinkData;
@@ -177,3 +179,28 @@ export function getExperienceDisplayItems(list: ExperienceEntry[]): ExperienceGr
 
   return result;
 }
+
+const posts = import.meta.glob("$content/blog/*.md");
+const iterablePostFiles = Object.entries(posts);
+
+export const allPosts = await Promise.all(
+  iterablePostFiles.map(async ([path, resolver]) => {
+    const resolved = (await resolver()) as { metadata: BlogPostMetadata };
+    const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
+
+    const dateParts = resolved.metadata.date.split("-");
+    const year = dateParts[0];
+    const month = dateParts[1];
+
+    return {
+      slug,
+      year,
+      month,
+      ...resolved.metadata
+    } as BlogPost;
+  })
+);
+
+export const visiblePosts = allPosts
+  .filter((post) => !post.unlisted)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
