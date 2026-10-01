@@ -10,7 +10,7 @@
 </svelte:head>
 
 <HeroArt type="home" />
-<main class="transparent full-nh center-v">
+<main class="full-nh center-v">
   <section class="content-layout">
     <enhanced:img
       src="$content/profile.png"

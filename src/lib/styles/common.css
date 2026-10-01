@@ -203,10 +203,6 @@ span.subtitle {
   font-weight: 700;
 }
 
-main:not(.transparent) {
-  background: var(--bg-canvas);
-}
-
 .image {
   margin: 0.5em;
 }
