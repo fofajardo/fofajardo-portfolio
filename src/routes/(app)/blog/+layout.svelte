@@ -22,27 +22,25 @@
   <title>{pageTitle}</title>
 </svelte:head>
 
-{#if page.data.redirectUrl}
-  {@render children()}
-{:else}
-  <div class="heading-container">
-    <HeroArt type="blog" />
-    <div class="heading-content">
-      <h1>{heading}</h1>
-      <LinkAnchor
-        link={{
-          type: "external",
-          url: "/feed.xml",
-          label: "RSS",
-          icon: "ph:rss-bold"
-        }}
-        isButton
-      />
-    </div>
+<div class="heading-container">
+  <HeroArt type="blog" />
+  <div class="heading-content">
+    <h1>{heading}</h1>
+    <LinkAnchor
+      link={{
+        type: "external",
+        url: "/feed.xml",
+        label: "RSS",
+        icon: "ph:rss-bold"
+      }}
+      isButton
+    />
   </div>
+</div>
 
+<main>
   <section class="content-layout">
     <BlogView data={page.data} {tag} />
     {@render children()}
   </section>
-{/if}
+</main>
