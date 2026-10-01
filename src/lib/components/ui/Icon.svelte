@@ -130,8 +130,20 @@
   import TheSvgArchLinux from "~icons/thesvg/arch-linux";
   import PhSwordBold from "~icons/ph/sword-bold";
   import PhHamburgerBold from "~icons/ph/hamburger-bold";
+  import PhHouseDuotone from "~icons/ph/house-duotone";
+  import PhSealQuestionDuotone from "~icons/ph/seal-question-duotone";
+  import PhMailboxDuotone from "~icons/ph/mailbox-duotone";
+  import PhRocketLaunchDuotone from "~icons/ph/rocket-launch-duotone";
+  import PhNewspaperClippingDuotone from "~icons/ph/newspaper-clipping-duotone";
+  import PhHamburgerDuotone from "~icons/ph/hamburger-duotone";
 
   const iconMap: Record<string, any> = {
+    "ph:house-duotone": PhHouseDuotone,
+    "ph:seal-question-duotone": PhSealQuestionDuotone,
+    "ph:mailbox-duotone": PhMailboxDuotone,
+    "ph:rocket-launch-duotone": PhRocketLaunchDuotone,
+    "ph:newspaper-clipping-duotone": PhNewspaperClippingDuotone,
+    "ph:hamburger-duotone": PhHamburgerDuotone,
     "ph:hamburger-bold": PhHamburgerBold,
     "ph:sword-bold": PhSwordBold,
     "thesvg:arch-linux": TheSvgArchLinux,
