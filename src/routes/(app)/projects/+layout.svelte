@@ -3,6 +3,7 @@
   import { HeroArt } from "$comp/background";
   import { ProjectsView } from "$comp/projects";
   import { Icon } from "$comp/ui";
+  import { isBrowser } from "$lib/hooks/is-browser";
   import { viewModeStore } from "$lib/viewModeStore";
 
   const { children } = $props();
@@ -13,22 +14,24 @@
     <HeroArt />
     <div class="heading-content">
       <h1>{page.data.pageHeadingTitle}</h1>
-      <div class="view-switcher" role="group" aria-label="View switcher">
-        <button
-          class="view-switcher-button {$viewModeStore === 'grid' ? 'active' : ''}"
-          onclick={() => ($viewModeStore = "grid")}
-          aria-label="Grid view"
-        >
-          <Icon icon="ph:squares-four-bold" width="20" height="20" />
-        </button>
-        <button
-          class="view-switcher-button {$viewModeStore === 'list' ? 'active' : ''}"
-          onclick={() => ($viewModeStore = "list")}
-          aria-label="List view"
-        >
-          <Icon icon="ph:list-bold" width="20" height="20" />
-        </button>
-      </div>
+      {#if isBrowser}
+        <div class="view-switcher" role="group" aria-label="View switcher">
+          <button
+            class="view-switcher-button {$viewModeStore === 'grid' ? 'active' : ''}"
+            onclick={() => ($viewModeStore = "grid")}
+            aria-label="Grid view"
+          >
+            <Icon icon="ph:squares-four-bold" width="20" height="20" />
+          </button>
+          <button
+            class="view-switcher-button {$viewModeStore === 'list' ? 'active' : ''}"
+            onclick={() => ($viewModeStore = "list")}
+            aria-label="List view"
+          >
+            <Icon icon="ph:list-bold" width="20" height="20" />
+          </button>
+        </div>
+      {/if}
     </div>
   </div>
 
