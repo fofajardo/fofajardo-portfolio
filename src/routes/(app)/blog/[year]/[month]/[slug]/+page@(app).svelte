@@ -3,6 +3,7 @@
   import { HeroArt } from "$comp/background";
   import { DropdownButton } from "$comp/ui";
   import { resetCounters } from "$lib/counterStore.js";
+  import { isBrowser } from "$lib/hooks/is-browser.js";
   import type { BlogPostMetadata } from "$lib/lib.types.js";
   import { themeStore } from "$lib/themeStore";
   import { formatDate } from "$lib/utils";
@@ -124,16 +125,18 @@
       </div>
     {/if}
 
-    <div class="blog-actions">
-      {#if discussOptions.length > 0}
-        <DropdownButton
-          label="Discuss"
-          icon="ph:chat-teardrop-dots-bold"
-          options={discussOptions}
-        />
-      {/if}
-      <DropdownButton label="Share" icon="ph:share-network-bold" options={shareOptions} />
-    </div>
+    {#if isBrowser}
+      <div class="blog-actions">
+        {#if discussOptions.length > 0}
+          <DropdownButton
+            label="Discuss"
+            icon="ph:chat-teardrop-dots-bold"
+            options={discussOptions}
+          />
+        {/if}
+        <DropdownButton label="Share" icon="ph:share-network-bold" options={shareOptions} />
+      </div>
+    {/if}
   </article>
 
   <Giscus
