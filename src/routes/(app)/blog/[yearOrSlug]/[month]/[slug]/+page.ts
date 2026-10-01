@@ -14,7 +14,7 @@ export const entries: EntryGenerator = async () => {
       const dateParts = post.metadata.date.split("-");
       const year = dateParts[0];
       const month = dateParts[1];
-      return { year, month, slug };
+      return { yearOrSlug: year, month, slug };
     })
   );
 
@@ -30,8 +30,8 @@ export const load: PageLoad = async ({ params }) => {
     const postYear = dateParts[0];
     const postMonth = dateParts[1];
 
-    if (postYear !== params.year || postMonth !== params.month) {
-      error(404, `Could not find ${params.slug} at ${params.year}/${params.month}`);
+    if (postYear !== params.yearOrSlug || postMonth !== params.month) {
+      error(404, `Could not find ${params.slug} at ${params.yearOrSlug}/${params.month}`);
     }
 
     return {

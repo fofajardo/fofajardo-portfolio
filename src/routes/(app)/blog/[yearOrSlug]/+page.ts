@@ -26,7 +26,7 @@ export const entries: EntryGenerator = async () => {
       return post.legacy === true;
     })
     .map((post) => {
-      return { year: post.slug };
+      return { yearOrSlug: post.slug };
     });
 
   return legacySlugs;
@@ -34,7 +34,7 @@ export const entries: EntryGenerator = async () => {
 
 export const load: PageLoad = async ({ params, parent }) => {
   try {
-    const post = await import(`$content/blog/${params.year}.md`);
+    const post = await import(`$content/blog/${params.yearOrSlug}.md`);
     const meta = post.metadata as BlogPostMetadata;
 
     if (meta.legacy === true) {
@@ -42,7 +42,7 @@ export const load: PageLoad = async ({ params, parent }) => {
       const year = dateParts[0];
       const month = dateParts[1];
       return {
-        redirectUrl: `/blog/${year}/${month}/${params.year}`
+        redirectUrl: `/blog/${year}/${month}/${params.yearOrSlug}`
       };
     }
   } catch (e) {
@@ -53,16 +53,16 @@ export const load: PageLoad = async ({ params, parent }) => {
 
   const { allPosts } = await parent();
   const filteredPosts = allPosts.filter((post) => {
-    return post.year === params.year;
+    return post.year === params.yearOrSlug;
   });
 
   return {
     posts: filteredPosts,
-    year: params.year,
-    heading: `Posts from ${params.year}`,
-    title: `Posts from ${params.year} - Francis Dominic Fajardo`,
-    description: `A collection of blog posts from ${params.year}.`,
-    emptyMessage: `No blog posts found from ${params.year}.`,
+    year: params.yearOrSlug,
+    heading: `Posts from ${params.yearOrSlug}`,
+    title: `Posts from ${params.yearOrSlug} - Francis Dominic Fajardo`,
+    description: `A collection of blog posts from ${params.yearOrSlug}.`,
+    emptyMessage: `No blog posts found from ${params.yearOrSlug}.`,
     ogType: "website"
   };
 };
