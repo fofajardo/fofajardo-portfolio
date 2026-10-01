@@ -1,8 +1,7 @@
 import { writable } from "svelte/store";
+import { isBrowser } from "./hooks/is-browser";
 
 export type ThemeType = "device" | "light" | "dark" | "green" | "amber";
-
-const isBrowser = typeof window !== "undefined";
 
 const initialTheme = isBrowser
   ? (localStorage.getItem("theme") as ThemeType) || "device"

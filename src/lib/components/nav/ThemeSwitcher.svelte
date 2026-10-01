@@ -1,45 +1,48 @@
 <script lang="ts">
+  import { isBrowser } from "$lib/hooks/is-browser";
   import { themeStore } from "$lib/themeStore";
   let { variant }: { variant?: "footer" | null } = $props();
 </script>
 
-<div class="theme-switcher {variant}">
-  <button
-    onclick={() => themeStore.set("device")}
-    class="theme-btn theme-btn-device"
-    class:active={$themeStore === "device"}
-    title="Device night/day"
-    aria-label="Device theme"
-  ></button>
-  <button
-    onclick={() => themeStore.set("light")}
-    class="theme-btn theme-btn-light"
-    class:active={$themeStore === "light"}
-    title="Light"
-    aria-label="Light theme"
-  ></button>
-  <button
-    onclick={() => themeStore.set("dark")}
-    class="theme-btn theme-btn-dark"
-    class:active={$themeStore === "dark"}
-    title="Dark"
-    aria-label="Dark theme"
-  ></button>
-  <button
-    onclick={() => themeStore.set("green")}
-    class="theme-btn theme-btn-green"
-    class:active={$themeStore === "green"}
-    title="Green"
-    aria-label="Green theme"
-  ></button>
-  <button
-    onclick={() => themeStore.set("amber")}
-    class="theme-btn theme-btn-amber"
-    class:active={$themeStore === "amber"}
-    title="Amber"
-    aria-label="Amber theme"
-  ></button>
-</div>
+{#if isBrowser}
+  <div class="theme-switcher {variant}">
+    <button
+      onclick={() => themeStore.set("device")}
+      class="theme-btn theme-btn-device"
+      class:active={$themeStore === "device"}
+      title="Device night/day"
+      aria-label="Device theme"
+    ></button>
+    <button
+      onclick={() => themeStore.set("light")}
+      class="theme-btn theme-btn-light"
+      class:active={$themeStore === "light"}
+      title="Light"
+      aria-label="Light theme"
+    ></button>
+    <button
+      onclick={() => themeStore.set("dark")}
+      class="theme-btn theme-btn-dark"
+      class:active={$themeStore === "dark"}
+      title="Dark"
+      aria-label="Dark theme"
+    ></button>
+    <button
+      onclick={() => themeStore.set("green")}
+      class="theme-btn theme-btn-green"
+      class:active={$themeStore === "green"}
+      title="Green"
+      aria-label="Green theme"
+    ></button>
+    <button
+      onclick={() => themeStore.set("amber")}
+      class="theme-btn theme-btn-amber"
+      class:active={$themeStore === "amber"}
+      title="Amber"
+      aria-label="Amber theme"
+    ></button>
+  </div>
+{/if}
 
 <style>
   .theme-switcher {
