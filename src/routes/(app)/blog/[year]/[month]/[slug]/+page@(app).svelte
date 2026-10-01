@@ -1,9 +1,8 @@
 <script lang="ts">
   import { page } from "$app/state";
   import { HeroArt } from "$comp/background";
-  import { resetFigureCounter } from "$comp/blog/Figure.svelte";
-  import { resetTableCounter } from "$comp/blog/Table.svelte";
   import { DropdownButton } from "$comp/ui";
+  import { resetCounters } from "$lib/counterStore.js";
   import { themeStore } from "$lib/themeStore";
   import { formatDate } from "$lib/utils";
   import Giscus from "@giscus/svelte";
@@ -25,8 +24,7 @@
   // Reset counters synchronously before Svelte renders the children
   const _ = $derived.by(() => {
     meta;
-    resetFigureCounter();
-    resetTableCounter();
+    resetCounters();
     return null;
   });
 

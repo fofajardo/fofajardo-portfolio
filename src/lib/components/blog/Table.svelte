@@ -1,29 +1,6 @@
-<script lang="ts" module>
-  import { writable } from "svelte/store";
-
-  let nextNum = 1;
-  export const tablesStore = writable<Record<string, number>>({});
-
-  export function resetTableCounter() {
-    nextNum = 1;
-    tablesStore.set({});
-  }
-
-  function registerTable(id: string): number {
-    let currentNum = 0;
-    tablesStore.update((store) => {
-      if (id in store) {
-        currentNum = store[id];
-        return store;
-      }
-      currentNum = nextNum++;
-      return { ...store, [id]: currentNum };
-    });
-    return currentNum;
-  }
-</script>
-
 <script lang="ts">
+  import { registerTable } from "$lib/counterStore";
+
   const { caption, id, children } = $props<{
     caption?: string;
     id: string;

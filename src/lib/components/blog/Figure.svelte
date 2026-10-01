@@ -1,29 +1,6 @@
-<script lang="ts" module>
-  import { writable } from "svelte/store";
-
-  let nextNum = 1;
-  export const figures = writable<Record<string, number>>({});
-
-  export function resetFigureCounter() {
-    nextNum = 1;
-    figures.set({});
-  }
-
-  function registerFigure(id: string): number {
-    let currentNum = 0;
-    figures.update((store) => {
-      if (id in store) {
-        currentNum = store[id];
-        return store;
-      }
-      currentNum = nextNum++;
-      return { ...store, [id]: currentNum };
-    });
-    return currentNum;
-  }
-</script>
-
 <script lang="ts">
+  import { registerFigure } from "$lib/counterStore";
+
   const { src, alt, caption, id } = $props<{
     src: string;
     alt: string;

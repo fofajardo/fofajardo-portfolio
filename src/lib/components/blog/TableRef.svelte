@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { tablesStore } from "./Table.svelte";
+  import { tableRecords } from "$lib/counterStore";
 
   const { id } = $props<{ id: string }>();
-  let num = $derived($tablesStore[id] ?? "?");
+  let num = $derived($tableRecords[id] ?? "?");
 </script>
 
 <a href="#{id}">Table {num}</a>

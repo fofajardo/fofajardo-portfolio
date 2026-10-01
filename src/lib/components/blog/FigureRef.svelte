@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { figures } from "./Figure.svelte";
+  import { figureRecords } from "$lib/counterStore";
 
   const { id } = $props<{ id: string }>();
-  let num = $derived($figures[id] ?? "?");
+  let num = $derived($figureRecords[id] ?? "?");
 </script>
 
 <a href="#{id}">Figure {num}</a>
