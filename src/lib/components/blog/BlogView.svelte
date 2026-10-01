@@ -10,22 +10,30 @@
   const groupedPosts = $derived(data.groupedPosts ?? new Map());
 </script>
 
-{#snippet postCard(post: BlogPost, showDate = true)}
-  <a class="card-anchor" href="/blog/{post.year}/{post.month}/{post.slug}">
-    <div class="card">
-      <div class="card-detail blog-card-detail">
-        <div class="card-header blog-card-header">
-          <span class="card-title blog-card-title">{post.title}</span>
-          {#if post.description}
-            <p class="blog-card-desc">{post.description}</p>
-          {/if}
-          {#if showDate}
-            <span class="blog-card-date">{formatDate(post.date)}</span>
-          {/if}
-        </div>
+{#snippet postCardWithBadge(post: BlogPost)}
+  {@const cal = getCalendarDate(post.date)}
+  <div class="timeline-item">
+    <div class="timeline-side">
+      <div class="calendar-badge" aria-hidden="true">
+        <span class="calendar-header">{cal.weekday}</span>
+        <span class="calendar-day">{cal.day}</span>
       </div>
     </div>
-  </a>
+    <div class="timeline-content cardset list">
+      <a class="blog-card-anchor" href="/blog/{post.year}/{post.month}/{post.slug}">
+        <div class="card">
+          <div class="card-detail blog-card-detail">
+            <div class="card-header blog-card-header">
+              <span class="card-title blog-card-title">{post.title}</span>
+              {#if post.description}
+                <p class="blog-card-desc">{post.description}</p>
+              {/if}
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 {/snippet}
 
 {#if posts.length === 0}
@@ -35,7 +43,7 @@
 {:else if isYearMonth}
   <div class="cardset list">
     {#each posts as post (post.slug)}
-      {@render postCard(post, true)}
+      {@render postCardWithBadge(post)}
     {/each}
   </div>
 {:else}
@@ -51,18 +59,7 @@
       </h3>
       <div class="timeline-group">
         {#each monthPosts as post (post.slug)}
-          {@const cal = getCalendarDate(post.date)}
-          <div class="timeline-item">
-            <div class="timeline-side">
-              <div class="calendar-badge" aria-hidden="true">
-                <span class="calendar-header">{cal.weekday}</span>
-                <span class="calendar-day">{cal.day}</span>
-              </div>
-            </div>
-            <div class="timeline-content cardset list">
-              {@render postCard(post, false)}
-            </div>
-          </div>
+          {@render postCardWithBadge(post)}
         {/each}
       </div>
     {/each}
@@ -167,11 +164,15 @@
     }
   }
   .blog-card-detail {
-    padding: 1.5em;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5em;
+  }
+  .blog-card-detail:hover,
+  .blog-card-detail:active {
+    color: var(--text-link-hover);
   }
   .blog-card-header {
     width: 100%;
@@ -179,12 +180,12 @@
   .blog-card-title {
     margin: 0;
   }
-  .blog-card-date {
-    opacity: 0.85;
-  }
   .blog-card-desc {
     margin: 0;
     text-align: justify;
     color: inherit;
+  }
+  .blog-card-anchor > .card {
+    padding: 0;
   }
 </style>
