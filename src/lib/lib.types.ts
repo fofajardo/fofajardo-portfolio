@@ -102,7 +102,6 @@ export type BlogPostMetadata = {
   ogImage?: string;
   author?: string;
   unlisted?: boolean;
-  legacy?: boolean;
   discuss?: {
     reddit?: string;
     twitter?: string;

@@ -8,19 +8,18 @@ export const load: PageLoad = async ({ params, parent }) => {
 
   const filteredPosts = allPosts.filter((post) => {
     return (
-      post.year === params.yearOrSlug &&
-      (post.month === params.month || post.month === normalizedMonth)
+      post.year === params.year && (post.month === params.month || post.month === normalizedMonth)
     );
   });
 
   return {
     posts: filteredPosts,
-    year: params.yearOrSlug,
+    year: params.year,
     month: params.month,
-    heading: `Posts from ${monthName} ${params.yearOrSlug}`,
-    title: `Posts from ${monthName} ${params.yearOrSlug} - Francis Dominic Fajardo`,
-    description: `A collection of blog posts from ${monthName} ${params.yearOrSlug}.`,
-    emptyMessage: `No blog posts found from ${monthName} ${params.yearOrSlug}.`,
+    heading: `Posts from ${monthName} ${params.year}`,
+    title: `Posts from ${monthName} ${params.year} - Francis Dominic Fajardo`,
+    description: `A collection of blog posts from ${monthName} ${params.year}.`,
+    emptyMessage: `No blog posts found from ${monthName} ${params.year}.`,
     ogType: "website"
   };
 };
