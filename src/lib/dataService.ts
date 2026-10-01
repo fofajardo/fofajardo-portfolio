@@ -204,3 +204,32 @@ export const allPosts = await Promise.all(
 export const visiblePosts = allPosts
   .filter((post) => !post.unlisted)
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+export const postsByYearAndMonth: Map<string, Map<string, BlogPost[]>> = (() => {
+  const sortedPosts = [...visiblePosts].sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
+  const resultMap = new Map<string, Map<string, BlogPost[]>>();
+
+  for (const post of sortedPosts) {
+    const year = post.year;
+    const month = post.month;
+
+    let yearMap = resultMap.get(year);
+    if (!yearMap) {
+      yearMap = new Map<string, BlogPost[]>();
+      resultMap.set(year, yearMap);
+    }
+
+    let monthPosts = yearMap.get(month);
+    if (!monthPosts) {
+      monthPosts = [];
+      yearMap.set(month, monthPosts);
+    }
+
+    monthPosts.push(post);
+  }
+
+  return resultMap;
+})();
