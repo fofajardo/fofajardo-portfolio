@@ -67,6 +67,9 @@
 {/if}
 
 <style>
+  h3:first-of-type {
+    margin-top: 0;
+  }
   .heading-link {
     color: inherit;
     text-decoration: none;
@@ -113,7 +116,6 @@
   .calendar-header {
     width: 100%;
     background: var(--bg-surface-hover);
-    color: var(--text-link);
     font-size: 0.7em;
     font-weight: 800;
     letter-spacing: 0.08em;
