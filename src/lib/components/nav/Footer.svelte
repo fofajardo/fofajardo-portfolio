@@ -26,6 +26,15 @@
     />
   </span>
   <ThemeSwitcher variant="footer" />
+  <noscript>
+    Yeah, this site works without JavaScript!
+    <p>
+      "Simplicity is a great virtue but it requires hard work to achieve it and education to
+      appreciate it. And to make matters worse: complexity sells better." <a
+        href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD896.html">(Dijkstra, 1984)</a
+      >
+    </p>
+  </noscript>
 </footer>
 
 <style>
@@ -40,6 +49,7 @@
     letter-spacing: 0.02em;
   }
 
+  noscript,
   .built-with {
     font-size: 0.75rem;
     opacity: 0.4;
@@ -50,6 +60,16 @@
     gap: 0.25rem;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  noscript {
+    flex-direction: column;
+  }
+
+  noscript > p {
+    font-family: serif;
+    font-style: italic;
+    max-width: 300px;
   }
 
   .built-with :global(a) {
