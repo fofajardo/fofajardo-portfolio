@@ -1,4 +1,4 @@
-import { postsByYearAndMonth } from "$lib/dataService";
+import { getPostsByYearAndMonth } from "$lib/dataService";
 import type { BlogPost } from "$lib/lib.types";
 import type { PageLoad } from "./$types";
 
@@ -8,7 +8,7 @@ export const load: PageLoad = async ({ params, parent }) => {
     return post.year === params.year;
   });
 
-  const yearMonths = postsByYearAndMonth.get(params.year);
+  const yearMonths = (await getPostsByYearAndMonth()).get(params.year);
   const yearGrouped = new Map<string, Map<string, BlogPost[]>>();
   if (yearMonths) {
     yearGrouped.set(params.year, yearMonths);
