@@ -131,7 +131,7 @@
   }
 
   .full-nh {
-    height: calc(100vh - 136px);
+    min-height: calc(100vh - 76px);
   }
 
   @media screen and (max-width: 625px) {
@@ -146,15 +146,6 @@
       float: none;
       margin: 0 auto 1.5em auto;
       display: block;
-    }
-
-    .profile-img {
-      width: 100px;
-      height: 125px;
-    }
-
-    .full-nh {
-      height: auto;
     }
   }
 </style>
