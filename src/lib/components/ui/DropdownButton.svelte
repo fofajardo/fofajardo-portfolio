@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Icon } from "$comp/ui";
+  import { isBrowser } from "$lib/hooks/is-browser";
   import type { DropdownOption as DropdownOptions } from "$lib/lib.types";
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
@@ -56,42 +57,55 @@
   });
 </script>
 
-<div class="dropdown-container" bind:this={element}>
-  <button class="dropdown-button button" onclick={toggle} aria-expanded={isOpen}>
-    <Icon {icon} />
-    <span>{label}</span>
-    <Icon icon="ph:caret-down-bold" class="caret {isOpen ? 'rotated' : ''}" />
-  </button>
+{#snippet dropdownItems(options: DropdownOptions)}
+  {#each options as option (option.label)}
+    {#if option.url}
+      <a
+        href={option.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="dropdown-item"
+        onclick={() => (isOpen = false)}
+      >
+        <Icon icon={option.icon} />
+        <span>{option.label}</span>
+      </a>
+    {:else if isBrowser && option.onClick}
+      <button
+        onclick={() => {
+          option.onClick?.();
+          isOpen = false;
+        }}
+        class="dropdown-item"
+      >
+        <Icon icon={option.icon} />
+        <span>{option.label}</span>
+      </button>
+    {/if}
+  {/each}
+{/snippet}
 
-  {#if isOpen}
-    <div class="dropdown-menu" transition:scale={{ duration: 150, start: 0.95 }}>
-      {#each options as option (option.label)}
-        {#if option.url}
-          <a
-            href={option.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="dropdown-item"
-            onclick={() => (isOpen = false)}
-          >
-            <Icon icon={option.icon} />
-            <span>{option.label}</span>
-          </a>
-        {:else if option.onClick}
-          <button
-            onclick={() => {
-              option.onClick?.();
-              isOpen = false;
-            }}
-            class="dropdown-item"
-          >
-            <Icon icon={option.icon} />
-            <span>{option.label}</span>
-          </button>
-        {/if}
-      {/each}
-    </div>
+<div class="dropdown-container" bind:this={element}>
+  {#if isBrowser}
+    <button class="dropdown-button button" onclick={toggle} aria-expanded={isOpen}>
+      <Icon {icon} />
+      <span>{label}</span>
+      <Icon icon="ph:caret-down-bold" class="caret {isOpen ? 'rotated' : ''}" />
+    </button>
+
+    {#if isOpen}
+      <div class="dropdown-menu" transition:scale={{ duration: 150, start: 0.95 }}>
+        {@render dropdownItems(options)}
+      </div>
+    {/if}
   {/if}
+  <noscript>
+    <div class="dropdown-header">
+      <Icon {icon} />
+      <span>{label}</span>
+    </div>
+    {@render dropdownItems(options)}
+  </noscript>
 </div>
 
 <style>
@@ -103,7 +117,6 @@
     cursor: pointer;
   }
   .dropdown-button :global(.caret) {
-    font-size: 0.8em;
     opacity: 0.8;
     transition: transform 0.2s ease;
   }
@@ -135,7 +148,6 @@
     text-decoration: none !important;
     border-radius: 8px;
     transition: all 0.15s ease;
-    font-size: 0.85em;
     font-weight: 500;
     text-align: left;
   }
@@ -145,9 +157,19 @@
     cursor: pointer;
     width: 100%;
     font-family: inherit;
+    font-size: inherit;
   }
   .dropdown-item:hover {
     background-color: var(--bg-surface-hover);
     color: var(--text-link-hover);
+  }
+  .dropdown-header {
+    padding: 0.6em 1em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--text-main);
   }
 </style>
