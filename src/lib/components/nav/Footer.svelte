@@ -29,9 +29,10 @@
   <noscript>
     Yeah, this site works without JavaScript!
     <p>
-      "Simplicity is a great virtue but it requires hard work to achieve it and education to
-      appreciate it. And to make matters worse: complexity sells better." <a
-        href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD896.html">(Dijkstra, 1984)</a
+      "Software's girth has surpassed its functionality, largely because hardware advances make this
+      possible. The way to streamline software lies in disciplined methodologies and a return to the
+      essentials," <a href="https://dl.acm.org/doi/10.1109/2.348001" target="_blank"
+        >(Wirth, 1995)</a
       >
     </p>
   </noscript>
