@@ -115,3 +115,10 @@ export type BlogPost = BlogPostMetadata & {
   year: string;
   month: string;
 };
+
+export type DropdownOption = Array<{
+  label: string;
+  icon: string;
+  url?: string;
+  onClick?: () => void;
+}>;

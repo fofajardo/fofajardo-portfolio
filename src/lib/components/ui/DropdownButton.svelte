@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Icon } from "$comp/ui";
+  import type { DropdownOption as DropdownOptions } from "$lib/lib.types";
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
 
@@ -10,12 +11,7 @@
   }: {
     label: string;
     icon: string;
-    options: Array<{
-      label: string;
-      icon: string;
-      url?: string;
-      onClick?: () => void;
-    }>;
+    options: DropdownOptions;
   } = $props();
 
   let isOpen = $state(false);
