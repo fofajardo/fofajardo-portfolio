@@ -15,6 +15,7 @@ import type {
   BlogPost,
   PostsMap
 } from "./lib.types";
+import type { Component } from "svelte";
 
 export const { contacts, nav } = linkData as LinkData;
 export const { tags } = tagsData as TagsData;
@@ -192,7 +193,7 @@ export const fetchPosts = async function () {
   _posts = (
     await Promise.all(
       markdownPosts.map(async ([path, resolver]) => {
-        const module = resolver as { metadata: BlogPostMetadata };
+        const module = resolver as { metadata: BlogPostMetadata; default: Component };
         const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
 
         const dateParts = module.metadata.date.split("-");
@@ -203,6 +204,7 @@ export const fetchPosts = async function () {
           slug,
           year,
           month,
+          content: module.default,
           ...module.metadata
         } as BlogPost;
       })

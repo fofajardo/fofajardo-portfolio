@@ -1,4 +1,5 @@
 import type { Path } from "$app/types";
+import type { Component } from "svelte";
 
 export type NavItem = {
   href: Path | string;
@@ -101,6 +102,7 @@ export type BlogPost = BlogPostMetadata & {
   slug: string;
   year: string;
   month: string;
+  content: Component;
 };
 
 export type DropdownOption = Array<{
