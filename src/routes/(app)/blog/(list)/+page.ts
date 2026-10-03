@@ -1,8 +1,8 @@
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ parent }) => {
-  const { allPosts } = await parent();
+  const { posts } = await parent();
   return {
-    posts: allPosts
+    posts: posts
   };
 };

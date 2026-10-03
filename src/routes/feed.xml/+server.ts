@@ -1,30 +1,10 @@
-import type { BlogPostMetadata } from "#lib/lib.types.js";
+import { fetchPosts } from "#lib/dataService.js";
 import { escapeXml } from "#lib/utils.js";
 
 export const prerender = true;
 
 export async function GET() {
-  const posts = import.meta.glob("#content/blog/*.md");
-  const iterablePostFiles = Object.entries(posts);
-
-  const allPosts = await Promise.all(
-    iterablePostFiles.map(async ([path, resolver]) => {
-      const resolved = (await resolver()) as { metadata: BlogPostMetadata };
-      const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
-      const dateParts = resolved.metadata.date.split("-");
-      const year = dateParts[0];
-      const month = dateParts[1];
-      return {
-        slug,
-        year,
-        month,
-        ...resolved.metadata
-      };
-    })
-  );
-
-  const visiblePosts = allPosts.filter((post) => !post.unlisted);
-  visiblePosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const posts = await fetchPosts();
 
   const siteUrl = "https://fofajardo.com";
   const feed = `<?xml version="1.0" encoding="UTF-8" ?>
@@ -34,7 +14,7 @@ export async function GET() {
   <link>${siteUrl}/blog</link>
   <description>Francis Dominic Fajardo's Blog</description>
   <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
-  ${visiblePosts
+  ${posts
     .map(
       (post) => `
   <item>

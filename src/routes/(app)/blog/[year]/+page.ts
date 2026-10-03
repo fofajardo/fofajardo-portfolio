@@ -1,14 +1,14 @@
-import { getPostsByYearAndMonth } from "#lib/dataService.js";
+import { fetchPostsByYearAndMonth } from "#lib/dataService.js";
 import type { BlogPost } from "#lib/lib.types.js";
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ params, parent }) => {
-  const { allPosts } = await parent();
-  const filteredPosts = allPosts.filter((post) => {
+  const { posts } = await parent();
+  const filteredPosts = posts.filter((post) => {
     return post.year === params.year;
   });
 
-  const yearMonths = (await getPostsByYearAndMonth()).get(params.year);
+  const yearMonths = (await fetchPostsByYearAndMonth()).get(params.year);
   const yearGrouped = new Map<string, Map<string, BlogPost[]>>();
   if (yearMonths) {
     yearGrouped.set(params.year, yearMonths);

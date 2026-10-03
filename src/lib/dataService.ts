@@ -182,60 +182,51 @@ export function getExperienceDisplayItems(list: ExperienceEntry[]): ExperienceGr
 
 const markdownPosts = Object.entries(import.meta.glob("#content/blog/*.md", { eager: true }));
 
-let allPosts: BlogPost[] | null = null;
-const fetchAllPosts = async function () {
-  if (allPosts) {
-    return allPosts;
+let _posts: BlogPost[] | null = null;
+export const fetchPosts = async function () {
+  if (_posts) {
+    return _posts;
   }
 
-  allPosts = await Promise.all(
-    markdownPosts.map(async ([path, resolver]) => {
-      const module = resolver as { metadata: BlogPostMetadata };
-      const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
+  _posts = (
+    await Promise.all(
+      markdownPosts.map(async ([path, resolver]) => {
+        const module = resolver as { metadata: BlogPostMetadata };
+        const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
 
-      const dateParts = module.metadata.date.split("-");
-      const year = dateParts[0];
-      const month = dateParts[1];
+        const dateParts = module.metadata.date.split("-");
+        const year = dateParts[0];
+        const month = dateParts[1];
 
-      return {
-        slug,
-        year,
-        month,
-        ...module.metadata
-      } as BlogPost;
-    })
-  );
+        return {
+          slug,
+          year,
+          month,
+          ...module.metadata
+        } as BlogPost;
+      })
+    )
+  ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  return allPosts;
+  return _posts;
 };
 
-let visiblePosts: BlogPost[] | null = null;
-export const getVisiblePosts = async function () {
-  if (visiblePosts) {
-    return visiblePosts;
+let _postsByYearAndMonth: Map<string, Map<string, BlogPost[]>> | null = null;
+export const fetchPostsByYearAndMonth = async function () {
+  if (_postsByYearAndMonth) {
+    return _postsByYearAndMonth;
   }
-  visiblePosts = (await fetchAllPosts())
-    .filter((post) => !post.unlisted)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  return visiblePosts;
-};
+  const posts = await fetchPosts();
+  _postsByYearAndMonth = new Map<string, Map<string, BlogPost[]>>();
 
-let postsByYearAndMonth: Map<string, Map<string, BlogPost[]>> | null = null;
-export const getPostsByYearAndMonth = async function () {
-  if (postsByYearAndMonth) {
-    return postsByYearAndMonth;
-  }
-  const sortedPosts = await getVisiblePosts();
-  postsByYearAndMonth = new Map<string, Map<string, BlogPost[]>>();
-
-  for (const post of sortedPosts) {
+  for (const post of posts) {
     const year = post.year;
     const month = post.month;
 
-    let yearMap = postsByYearAndMonth.get(year);
+    let yearMap = _postsByYearAndMonth.get(year);
     if (!yearMap) {
       yearMap = new Map<string, BlogPost[]>();
-      postsByYearAndMonth.set(year, yearMap);
+      _postsByYearAndMonth.set(year, yearMap);
     }
 
     let monthPosts = yearMap.get(month);
@@ -247,5 +238,5 @@ export const getPostsByYearAndMonth = async function () {
     monthPosts.push(post);
   }
 
-  return postsByYearAndMonth;
+  return _postsByYearAndMonth;
 };
