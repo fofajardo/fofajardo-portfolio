@@ -113,3 +113,8 @@ export type DropdownOption = Array<{
 }>;
 
 export type PostsMap = Map<string, Map<string, Map<string, BlogPost>>>;
+
+export interface GroupedProjects {
+  heading: string;
+  items: ProjectEntry[];
+}

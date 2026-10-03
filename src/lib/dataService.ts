@@ -13,7 +13,8 @@ import type {
   Tag,
   BlogPostMetadata,
   BlogPost,
-  PostsMap
+  PostsMap,
+  GroupedProjects
 } from "./lib.types";
 import type { Component } from "svelte";
 
@@ -116,11 +117,6 @@ function groupByCategory(items: Tag[]) {
 }
 
 export const tagsByCategoryMap = new Map(groupByCategory(tags)) as Map<string, Tag[]>;
-
-export interface GroupedProjects {
-  heading: string;
-  items: ProjectEntry[];
-}
 
 export function getGroupedProjects(projectsList: ProjectEntry[]): GroupedProjects[] {
   const filtered = projectsList;
