@@ -109,3 +109,5 @@ export type DropdownOption = Array<{
   url?: string;
   onClick?: () => void;
 }>;
+
+export type PostsMap = Map<string, Map<string, Map<string, BlogPost>>>;

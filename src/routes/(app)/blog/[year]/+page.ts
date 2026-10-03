@@ -1,4 +1,4 @@
-import { fetchPostsByYearAndMonth } from "#lib/dataService.js";
+import { fetchPostsMap } from "#lib/dataService.js";
 import type { BlogPost } from "#lib/lib.types.js";
 import type { PageLoad } from "./$types";
 
@@ -8,15 +8,15 @@ export const load: PageLoad = async ({ params, parent }) => {
     return post.year === params.year;
   });
 
-  const yearMonths = (await fetchPostsByYearAndMonth()).get(params.year);
-  const yearGrouped = new Map<string, Map<string, BlogPost[]>>();
+  const yearMonths = (await fetchPostsMap()).get(params.year);
+  const yearGrouped = new Map<string, Map<string, Map<String, BlogPost>>>();
   if (yearMonths) {
     yearGrouped.set(params.year, yearMonths);
   }
 
   return {
     posts: filteredPosts,
-    groupedPosts: yearGrouped,
+    postsMap: yearGrouped,
     year: params.year,
     heading: `Posts from ${params.year}`,
     title: `Posts from ${params.year} - Francis Dominic Fajardo`,

@@ -1,13 +1,13 @@
 <script lang="ts">
-  import type { BlogPost } from "#lib/lib.types.js";
+  import type { BlogPost, PostsMap } from "#lib/lib.types.js";
   import { getCalendarDate, getMonthName } from "#lib/utils.js";
 
   const { data, tag }: { data: any; tag?: string } = $props();
   const posts = $derived(data.posts ?? []);
+  const postsMap: PostsMap = $derived(data.postsMap ?? new Map());
   const emptyMessage = $derived(data.emptyMessage);
   const isYear = $derived(Boolean(data.year));
   const isYearMonth = $derived(Boolean(data.year && data.month));
-  const groupedPosts = $derived(data.groupedPosts ?? new Map());
 </script>
 
 {#snippet postCardWithBadge(post: BlogPost)}
@@ -47,7 +47,7 @@
     {/each}
   </div>
 {:else}
-  {#each groupedPosts as [year, months] (year)}
+  {#each postsMap as [year, months] (year)}
     {#if !isYear}
       <h2 id={year}>
         <a href="/blog/{year}" class="heading-link">{year}</a>
@@ -58,7 +58,7 @@
         <a href="/blog/{year}/{month}" class="heading-link">{getMonthName(month)}</a>
       </h3>
       <div class="timeline-group">
-        {#each monthPosts as post (post.slug)}
+        {#each monthPosts.values() as post (post.slug)}
           {@render postCardWithBadge(post)}
         {/each}
       </div>

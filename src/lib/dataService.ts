@@ -12,7 +12,8 @@ import type {
   ProjectEntry,
   Tag,
   BlogPostMetadata,
-  BlogPost
+  BlogPost,
+  PostsMap
 } from "./lib.types";
 
 export const { contacts, nav } = linkData as LinkData;
@@ -211,32 +212,32 @@ export const fetchPosts = async function () {
   return _posts;
 };
 
-let _postsByYearAndMonth: Map<string, Map<string, BlogPost[]>> | null = null;
-export const fetchPostsByYearAndMonth = async function () {
-  if (_postsByYearAndMonth) {
-    return _postsByYearAndMonth;
+let _postsMap: PostsMap | null = null;
+export const fetchPostsMap = async function () {
+  if (_postsMap) {
+    return _postsMap;
   }
   const posts = await fetchPosts();
-  _postsByYearAndMonth = new Map<string, Map<string, BlogPost[]>>();
+  _postsMap = new Map<string, Map<string, Map<string, BlogPost>>>();
 
   for (const post of posts) {
     const year = post.year;
     const month = post.month;
 
-    let yearMap = _postsByYearAndMonth.get(year);
+    let yearMap = _postsMap.get(year);
     if (!yearMap) {
-      yearMap = new Map<string, BlogPost[]>();
-      _postsByYearAndMonth.set(year, yearMap);
+      yearMap = new Map<string, Map<string, BlogPost>>();
+      _postsMap.set(year, yearMap);
     }
 
     let monthPosts = yearMap.get(month);
     if (!monthPosts) {
-      monthPosts = [];
+      monthPosts = new Map<string, BlogPost>();
       yearMap.set(month, monthPosts);
     }
 
-    monthPosts.push(post);
+    monthPosts.set(post.slug, post);
   }
 
-  return _postsByYearAndMonth;
+  return _postsMap;
 };
