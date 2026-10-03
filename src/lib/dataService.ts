@@ -180,21 +180,20 @@ export function getExperienceDisplayItems(list: ExperienceEntry[]): ExperienceGr
   return result;
 }
 
+const markdownPosts = Object.entries(import.meta.glob("#content/blog/*.md", { eager: true }));
+
 let allPosts: BlogPost[] | null = null;
 const fetchAllPosts = async function () {
   if (allPosts) {
     return allPosts;
   }
 
-  const posts = import.meta.glob("#content/blog/*.md");
-  const iterablePostFiles = Object.entries(posts);
-
   allPosts = await Promise.all(
-    iterablePostFiles.map(async ([path, resolver]) => {
-      const resolved = (await resolver()) as { metadata: BlogPostMetadata };
+    markdownPosts.map(async ([path, resolver]) => {
+      const module = resolver as { metadata: BlogPostMetadata };
       const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
 
-      const dateParts = resolved.metadata.date.split("-");
+      const dateParts = module.metadata.date.split("-");
       const year = dateParts[0];
       const month = dateParts[1];
 
@@ -202,7 +201,7 @@ const fetchAllPosts = async function () {
         slug,
         year,
         month,
-        ...resolved.metadata
+        ...module.metadata
       } as BlogPost;
     })
   );
