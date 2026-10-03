@@ -186,12 +186,6 @@ h1 {
   margin: 0;
 }
 
-h2 {
-  display: inline-block;
-  border-bottom: 8px double var(--text-main);
-  padding-bottom: 0.2em;
-}
-
 span.title {
   font-size: 4em;
   font-weight: 900;
