@@ -56,7 +56,7 @@ export type ProjectEntry = Entry & {
   technologies?: string[];
   preview: string;
   previewset?: boolean;
-  hasBody?: boolean;
+  content: Component;
 };
 
 export type ExperienceEntry = Entry & {

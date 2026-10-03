@@ -60,8 +60,8 @@ export function sortProjectsByDate(a: ProjectEntry, b: ProjectEntry): number {
 
 export const projects: ProjectEntry[] = Object.entries(markdownProjects)
   .map(([path, resolver]) => {
-    const module = resolver as { metadata: Omit<ProjectEntry, "id"> };
-    const id = path.split("/").pop()?.replace(/\.md$/, "") || "";
+    const module = resolver as { metadata: ProjectEntry; default: Component };
+    const slug = path.split("/").pop()?.replace(/\.md$/, "") || "";
     const metadata = module.metadata || {};
     return {
       ...metadata,
@@ -69,7 +69,8 @@ export const projects: ProjectEntry[] = Object.entries(markdownProjects)
       technologies: metadata.technologies || [],
       points: metadata.points || [],
       links: metadata.links || [],
-      id
+      id: slug,
+      content: module.default
     } as ProjectEntry;
   })
   .sort(sortProjectsByDate);

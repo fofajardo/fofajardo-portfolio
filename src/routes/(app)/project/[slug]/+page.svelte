@@ -130,7 +130,7 @@
 
 <section class="content-layout">
   <div class="cardset">
-    {#if project.hasBody && Content}
+    {#if Content}
       <div class="card card-content">
         <Label icon="ph:article-bold" as="h3">Overview</Label>
         <Content />
