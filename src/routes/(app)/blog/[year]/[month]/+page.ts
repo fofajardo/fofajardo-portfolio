@@ -3,13 +3,10 @@ import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ params, parent }) => {
   const { posts } = await parent();
-  const normalizedMonth = params.month.padStart(2, "0");
   const monthName = getMonthName(params.month);
 
   const filteredPosts = posts.filter((post) => {
-    return (
-      post.year === params.year && (post.month === params.month || post.month === normalizedMonth)
-    );
+    return post.year === params.year && post.month === params.month;
   });
 
   return {
