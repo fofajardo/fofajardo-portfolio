@@ -26,15 +26,28 @@
   <HeroArt type="blog" />
   <div class="heading-content">
     <h1>{heading}</h1>
-    <LinkAnchor
-      link={{
-        type: "external",
-        url: "/feed.xml",
-        label: "RSS",
-        icon: "ph:rss-bold"
-      }}
-      isButton
-    />
+    <div class="card">
+      <nav class="card-actions">
+        <LinkAnchor
+          link={{
+            type: "external",
+            url: "/feed.xml",
+            label: "RSS 2.0",
+            icon: "ph:rss-bold"
+          }}
+          isButton
+        />
+        <LinkAnchor
+          link={{
+            type: "external",
+            url: "/feed.atom",
+            label: "Atom/RFC 4287",
+            icon: "ph:rss-bold"
+          }}
+          isButton
+        />
+      </nav>
+    </div>
   </div>
 </div>
 
