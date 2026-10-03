@@ -17,8 +17,16 @@ import type {
 } from "./lib.types";
 import type { Component } from "svelte";
 
+/******************************************************************************
+ * RE-EXPORTED DATA
+ */
 export const { contacts, nav } = linkData as LinkData;
 export const { tags } = tagsData as TagsData;
+export const { experiences } = experiencesData as ExperiencesData;
+
+/******************************************************************************
+ * PROJECTS AND EXPERIENCES
+ */
 
 // Dynamically build technologies map from tags where category is technology or custom skill group
 export const technologies = tags
@@ -30,8 +38,6 @@ export const technologies = tags
     },
     {} as Record<string, Tag>
   );
-
-export const { experiences } = experiencesData as ExperiencesData;
 
 const markdownProjects = import.meta.glob("#content/projects/*.md", { eager: true });
 
@@ -182,6 +188,9 @@ export function getExperienceDisplayItems(list: ExperienceEntry[]): ExperienceGr
   return result;
 }
 
+/******************************************************************************
+ * BLOG POSTS
+ */
 const markdownPosts = Object.entries(import.meta.glob("#content/blog/*.md", { eager: true }));
 
 let _posts: BlogPost[] | null = null;
