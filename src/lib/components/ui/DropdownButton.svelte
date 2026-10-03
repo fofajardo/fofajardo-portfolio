@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Icon } from "$comp/ui";
-  import { isBrowser } from "$lib/hooks/is-browser";
-  import type { DropdownOption as DropdownOptions } from "$lib/lib.types";
+  import { Icon } from "#comp/ui";
+  import { isBrowser } from "#lib/hooks/is-browser.js";
+  import type { DropdownOption as DropdownOptions } from "#lib/lib.types.js";
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
 

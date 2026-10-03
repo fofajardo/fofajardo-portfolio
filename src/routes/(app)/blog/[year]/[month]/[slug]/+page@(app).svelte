@@ -1,11 +1,11 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { HeroArt } from "$comp/background";
-  import { DropdownButton } from "$comp/ui";
-  import { resetCounters } from "$lib/counterStore.js";
-  import type { BlogPostMetadata } from "$lib/lib.types.js";
-  import { themeStore } from "$lib/themeStore";
-  import { formatDate } from "$lib/utils";
+  import { HeroArt } from "#comp/background";
+  import { DropdownButton } from "#comp/ui";
+  import { resetCounters } from "#lib/counterStore.js";
+  import type { BlogPostMetadata } from "#lib/lib.types.js";
+  import { themeStore } from "#lib/themeStore.js";
+  import { formatDate } from "#lib/utils.js";
   import Giscus from "@giscus/svelte";
   import type { Component } from "svelte";
 

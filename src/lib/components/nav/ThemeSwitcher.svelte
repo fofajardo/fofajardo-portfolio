@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { isBrowser } from "$lib/hooks/is-browser";
-  import { themeStore } from "$lib/themeStore";
+  import { isBrowser } from "#lib/hooks/is-browser.js";
+  import { themeStore } from "#lib/themeStore.js";
   let { variant }: { variant?: "footer" | null } = $props();
 </script>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { registerTable } from "$lib/counterStore";
+  import { registerTable } from "#lib/counterStore.js";
 
   const { caption, id, children } = $props<{
     caption?: string;

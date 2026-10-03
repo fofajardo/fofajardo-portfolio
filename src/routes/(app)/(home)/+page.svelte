@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { HeroArt } from "$comp/background";
-  import { LinkAnchor } from "$comp/ui";
+  import { HeroArt } from "#comp/background";
+  import { LinkAnchor } from "#comp/ui";
 </script>
 
 <svelte:head>
@@ -13,7 +13,7 @@
 <main class="full-nh center-v">
   <section class="content-layout">
     <enhanced:img
-      src="$content/profile.png"
+      src="#content/profile.png"
       class="profile-img"
       alt="Francis Dominic Fajardo's portrait"
     />

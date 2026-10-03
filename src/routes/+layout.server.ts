@@ -1,4 +1,4 @@
-import { contacts, nav } from "$lib/dataService";
+import { contacts, nav } from "#lib/dataService.js";
 
 export const prerender = true;
 

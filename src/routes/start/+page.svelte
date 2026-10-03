@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Launcher } from "$comp/nav";
+  import { Launcher } from "#comp/nav";
 
   const { data } = $props();
   const { nav } = $derived(data);

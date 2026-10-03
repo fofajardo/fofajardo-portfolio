@@ -1,4 +1,4 @@
-import { projects, projectsByTagMap, tags } from "$lib/dataService";
+import { projects, projectsByTagMap, tags } from "#lib/dataService.js";
 
 import { error } from "@sveltejs/kit";
 

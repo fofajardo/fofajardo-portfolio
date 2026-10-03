@@ -19,9 +19,9 @@
     "@eslint/compat": "^2.1.0",
     "@eslint/js": "^10.0.1",
     "@iconify/json": "^2.2.532",
-    "@sveltejs/adapter-vercel": "^6.3.4",
+    "@sveltejs/adapter-vercel": "^7.0.0",
     "@sveltejs/enhanced-img": "^0.11.0",
-    "@sveltejs/kit": "^2.68.0",
+    "@sveltejs/kit": "^3.0.0",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@types/glidejs__glide": "^3.6.6",
     "@types/node": "^26.0.1",
@@ -34,7 +34,7 @@
     "prettier": "^3.8.4",
     "prettier-plugin-svelte": "^4.1.1",
     "svelte": "^5.56.4",
-    "svelte-check": "^4.7.1",
+    "svelte-check": "^4.7.5",
     "svelte-sitemap": "^4.0.3",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.62.0",
@@ -46,5 +46,16 @@
     "@glidejs/glide": "^3.7.1",
     "@humanspeak/svelte-markdown": "^1.6.0",
     "viewerjs": "^1.11.7"
+  },
+  "imports": {
+    "#lib": "./src/lib/index.js",
+    "#lib/*": "./src/lib/*",
+    "#comp/*": "./src/lib/components/*",
+    "#comp/background": "./src/lib/components/background/index.js",
+    "#comp/blog": "./src/lib/components/blog/index.js",
+    "#comp/nav": "./src/lib/components/nav/index.js",
+    "#comp/projects": "./src/lib/components/projects/index.js",
+    "#comp/ui": "./src/lib/components/ui/index.js",
+    "#content/*": "./content/*"
   }
 }

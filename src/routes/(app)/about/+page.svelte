@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { HeroArt } from "$comp/background";
-  import { DateRangeSpan, Icon, LinkAnchor, TagBadge } from "$comp/ui";
+  import { HeroArt } from "#comp/background";
+  import { DateRangeSpan, Icon, LinkAnchor, TagBadge } from "#comp/ui";
   import {
     experiencesByTagMap,
     getExperienceDisplayItems,
     tags,
     tagsByCategoryMap
-  } from "$lib/dataService";
-  import type { ExperienceEntry } from "$lib/lib.types";
-  import { CategoryType } from "$lib/lib.types.js";
+  } from "#lib/dataService.js";
+  import type { ExperienceEntry } from "#lib/lib.types.js";
+  import { CategoryType } from "#lib/lib.types.js";
 
   const langIds = tags
     .filter((t) => t.category === CategoryType.Technology && !t.hideSkill)

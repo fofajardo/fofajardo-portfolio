@@ -1,10 +1,10 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { HeroArt } from "$comp/background";
-  import { ProjectsView } from "$comp/projects";
-  import { Icon } from "$comp/ui";
-  import { isBrowser } from "$lib/hooks/is-browser";
-  import { viewModeStore } from "$lib/viewModeStore";
+  import { HeroArt } from "#comp/background";
+  import { ProjectsView } from "#comp/projects";
+  import { Icon } from "#comp/ui";
+  import { isBrowser } from "#lib/hooks/is-browser.js";
+  import { viewModeStore } from "#lib/viewModeStore.js";
 
   const { children } = $props();
 </script>

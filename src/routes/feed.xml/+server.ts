@@ -1,10 +1,10 @@
-import type { BlogPostMetadata } from "$lib/lib.types";
-import { escapeXml } from "$lib/utils";
+import type { BlogPostMetadata } from "#lib/lib.types.js";
+import { escapeXml } from "#lib/utils.js";
 
 export const prerender = true;
 
 export async function GET() {
-  const posts = import.meta.glob("$content/blog/*.md");
+  const posts = import.meta.glob("#content/blog/*.md");
   const iterablePostFiles = Object.entries(posts);
 
   const allPosts = await Promise.all(

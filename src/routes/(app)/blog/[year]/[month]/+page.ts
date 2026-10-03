@@ -1,4 +1,4 @@
-import { getMonthName } from "$lib/utils";
+import { getMonthName } from "#lib/utils.js";
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ params, parent }) => {

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { Icon, LinkAnchor } from "$comp/ui";
+  import { Icon, LinkAnchor } from "#comp/ui";
 </script>
 
 <div class="full center-v">

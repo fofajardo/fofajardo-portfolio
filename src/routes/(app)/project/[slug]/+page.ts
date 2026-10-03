@@ -1,4 +1,4 @@
-import { projectsMap, technologies, projects } from "$lib/dataService";
+import { projectsMap, technologies, projects } from "#lib/dataService.js";
 import { error } from "@sveltejs/kit";
 import type { PageLoad } from "./$types";
 
@@ -12,7 +12,7 @@ export const load: PageLoad = async ({ params }) => {
 
   let post;
   try {
-    post = await import(`$content/projects/${slug}.md`);
+    post = await import(`#content/projects/${slug}.md`);
   } catch (e) {
     error(404, `Could not load project content for ${slug}`);
   }

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { HeroArt } from "$comp/background";
-  import { BlogView } from "$comp/blog";
-  import { LinkAnchor } from "$comp/ui";
+  import { HeroArt } from "#comp/background";
+  import { BlogView } from "#comp/blog";
+  import { LinkAnchor } from "#comp/ui";
 
   const { children } = $props();
   const tag = $derived(page.data.tag);

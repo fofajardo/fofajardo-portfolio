@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { TagBadge } from "$comp/ui";
-  import { Icon } from "$comp/ui";
+  import { TagBadge } from "#comp/ui";
+  import { Icon } from "#comp/ui";
   import type { ProjectEntry } from "../../lib.types";
 
   const { item } = $props();
 
   const imageModules = import.meta.glob(
-    "$content/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
+    "#content/previews/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}",
     {
       eager: true,
       query: {

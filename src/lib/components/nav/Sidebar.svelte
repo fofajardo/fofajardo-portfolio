@@ -14,8 +14,9 @@
     }
     e.preventDefault();
     sidebarOpen = false;
+
     setTimeout(() => {
-      goto(resolve(href as Pathname));
+      goto(resolve(href as Path));
     }, 300);
   }
 
@@ -27,8 +28,8 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import type { Pathname } from "$app/types";
-  import { Icon } from "$comp/ui";
+  import type { Path } from "$app/types";
+  import { Icon } from "#comp/ui";
   import { ThemeSwitcher } from ".";
   import type { NavItem } from "../../lib.types";
 
@@ -80,7 +81,7 @@
             </a>
           {:else}
             <a
-              href={resolve(href as Pathname)}
+              href={resolve(href as Path)}
               onclick={(e) => handleLinkClick(e, href)}
               class="sidebar-link"
               class:active={page.url.pathname === href}

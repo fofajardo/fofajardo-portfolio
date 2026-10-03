@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { HeroArt } from "$comp/background";
-  import { LinkAnchor } from "$comp/ui";
+  import { HeroArt } from "#comp/background";
+  import { LinkAnchor } from "#comp/ui";
 </script>
 
 <div class="heading-container">

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Entry } from "$lib/lib.types";
+  import type { Entry } from "#lib/lib.types.js";
 
   let { entry }: { entry: Entry } = $props();
 

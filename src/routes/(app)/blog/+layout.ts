@@ -1,4 +1,4 @@
-import { getPostsByYearAndMonth, getVisiblePosts } from "$lib/dataService";
+import { getPostsByYearAndMonth, getVisiblePosts } from "#lib/dataService.js";
 import type { LayoutLoad } from "./$types";
 
 export const load: LayoutLoad = async () => {

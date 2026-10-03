@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Icon } from "$comp/ui";
-  import { tags } from "$lib/dataService";
+  import { Icon } from "#comp/ui";
+  import { tags } from "#lib/dataService.js";
 
   let {
     tagId,

@@ -1,6 +1,6 @@
-import linkData from "$content/links.json";
-import tagsData from "$content/tags.json";
-import experiencesData from "$content/experiences.json";
+import linkData from "#content/links.json";
+import tagsData from "#content/tags.json";
+import experiencesData from "#content/experiences.json";
 
 import type {
   TagsData,
@@ -31,7 +31,7 @@ export const technologies = tags
 
 export const { experiences } = experiencesData as ExperiencesData;
 
-const markdownProjects = import.meta.glob("$content/projects/*.md", { eager: true });
+const markdownProjects = import.meta.glob("#content/projects/*.md", { eager: true });
 
 export function sortProjectsByDate(a: ProjectEntry, b: ProjectEntry): number {
   if (a.dateEnd === undefined && b.dateEnd === undefined) {
@@ -186,7 +186,7 @@ const fetchAllPosts = async function () {
     return allPosts;
   }
 
-  const posts = import.meta.glob("$content/blog/*.md");
+  const posts = import.meta.glob("#content/blog/*.md");
   const iterablePostFiles = Object.entries(posts);
 
   allPosts = await Promise.all(

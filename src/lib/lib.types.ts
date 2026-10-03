@@ -1,7 +1,7 @@
-import type { Pathname } from "$app/types";
+import type { Path } from "$app/types";
 
 export type NavItem = {
-  href: Pathname | string;
+  href: Path | string;
   icon: string;
   label: string;
   limitTo?: string;
@@ -35,7 +35,7 @@ export type Link = {
   label?: string;
   lead?: string;
   type: string;
-  url: Pathname | string;
+  url: Path | string;
   icon?: string;
 };
 
@@ -76,22 +76,10 @@ export type ExperienceGroupItem = {
   items: ExperienceEntry[];
 };
 
-export type Technologies = {
-  [key: string]: Tag;
-};
-
-export type LinkData = {
-  nav: NavItem[];
-  contacts: ContactItem[];
-};
-
-export type TagsData = {
-  tags: Tag[];
-};
-
-export type ExperiencesData = {
-  experiences: ExperienceEntry[];
-};
+export type Technologies = { [key: string]: Tag };
+export type LinkData = { nav: NavItem[]; contacts: ContactItem[] };
+export type TagsData = { tags: Tag[] };
+export type ExperiencesData = { experiences: ExperienceEntry[] };
 
 export type BlogPostMetadata = {
   title: string;

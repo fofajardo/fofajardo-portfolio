@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { BlogPost } from "$lib/lib.types";
-  import { getCalendarDate, getMonthName } from "$lib/utils";
+  import type { BlogPost } from "#lib/lib.types.js";
+  import { getCalendarDate, getMonthName } from "#lib/utils.js";
 
   const { data, tag }: { data: any; tag?: string } = $props();
   const posts = $derived(data.posts ?? []);

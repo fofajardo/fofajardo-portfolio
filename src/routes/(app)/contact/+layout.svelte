@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { HeroArt } from "$comp/background";
+  import { HeroArt } from "#comp/background";
 
   const { children } = $props();
 </script>

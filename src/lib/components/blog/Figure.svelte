@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { registerFigure } from "$lib/counterStore";
+  import { registerFigure } from "#lib/counterStore.js";
 
   const { src, alt, caption, id } = $props<{
     src: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon } from "$comp/ui";
+  import { Icon } from "#comp/ui";
 
   const { data } = $props();
   const { contacts } = $derived(data);

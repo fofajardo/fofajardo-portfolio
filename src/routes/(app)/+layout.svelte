@@ -1,6 +1,6 @@
 <script lang="ts">
   import { navigating, page } from "$app/state";
-  import { Footer, Header, Sidebar } from "$comp/nav";
+  import { Footer, Header, Sidebar } from "#comp/nav";
 
   const { data, children } = $props();
   const { nav } = $derived(data);

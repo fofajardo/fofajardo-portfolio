@@ -15,10 +15,6 @@ export default defineConfig(({ mode }) => {
       enhancedImages(),
       sveltekit({
         adapter: adapterVercel(),
-        alias: {
-          $comp: "src/lib/components",
-          $content: "content"
-        },
         extensions: [".svelte", ".svx", ".md"],
         preprocess: [
           vitePreprocess(),
@@ -26,8 +22,10 @@ export default defineConfig(({ mode }) => {
             extension: ".md"
           })
         ],
+        paths: {
+          origin: env.VITE_URL_ORIGIN
+        },
         prerender: {
-          origin: env.VITE_URL_ORIGIN,
           handleUnseenRoutes: "ignore"
         }
       }),

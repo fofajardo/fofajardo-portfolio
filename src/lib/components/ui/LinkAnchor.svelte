@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Link } from "$lib/lib.types";
+  import type { Link } from "#lib/lib.types.js";
   import Label from "./Label.svelte";
   import { resolve } from "$app/paths";
-  import type { Pathname } from "$app/types";
+  import type { Path } from "$app/types";
 
   let { link, isButton, isInternal }: { link: Link; isButton?: boolean; isInternal?: boolean } =
     $props();
@@ -44,9 +44,9 @@
 {/snippet}
 
 {#if isInternal}
-  <a class={anchorClass} href={resolve(link.url as Pathname)}>
-    {@render labelWithIcon(icon, label, lead)}
-  </a>
+  <a class={anchorClass} href={resolve(link.url as Path)}
+    >{@render labelWithIcon(icon, label, lead)}</a
+  >
 {:else}
   <a class={anchorClass} href={link.url} target="_blank" rel="external">
     {@render labelWithIcon(icon, label, lead)}

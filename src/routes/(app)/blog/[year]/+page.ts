@@ -1,5 +1,5 @@
-import { getPostsByYearAndMonth } from "$lib/dataService";
-import type { BlogPost } from "$lib/lib.types";
+import { getPostsByYearAndMonth } from "#lib/dataService.js";
+import type { BlogPost } from "#lib/lib.types.js";
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ params, parent }) => {

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { HeroArt } from "$comp/background";
-  import { DateRangeSpan, Icon, Label, LinkAnchor, TagBadge } from "$comp/ui";
-  import ProjectCard from "$lib/components/projects/ProjectCard.svelte";
-  import "$lib/styles/common.glide.css";
+  import { HeroArt } from "#comp/background";
+  import { DateRangeSpan, Icon, Label, LinkAnchor, TagBadge } from "#comp/ui";
+  import ProjectCard from "#lib/components/projects/ProjectCard.svelte";
+  import "#lib/styles/common.glide.css";
   import Glide from "@glidejs/glide";
   import "@glidejs/glide/dist/css/glide.core.min.css";
   import SvelteMarkdown from "@humanspeak/svelte-markdown";
@@ -16,7 +16,7 @@
   let Content = $derived(data.content);
 
   const allImageModules = import.meta.glob(
-    `$content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
+    `#content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,
     {
       eager: true,
       query: {

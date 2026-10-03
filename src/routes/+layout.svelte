@@ -1,12 +1,14 @@
 <script lang="ts">
-  import "$lib/styles/common.css";
-  import { MatrixBackground } from "$comp/background";
+  import "#lib/styles/common.css";
+  import { MatrixBackground } from "#comp/background";
 
   let { children } = $props();
 
   import { page } from "$app/state";
   import { onNavigate } from "$app/navigation";
   onNavigate((navigation) => {
+    if (navigation.shallow) return;
+
     if (!document.startViewTransition) {
       return;
     }

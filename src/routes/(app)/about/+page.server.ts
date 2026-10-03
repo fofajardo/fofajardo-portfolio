@@ -1,4 +1,4 @@
-import { experiencesByTagMap, tagsByCategoryMap } from "$lib/dataService";
+import { experiencesByTagMap, tagsByCategoryMap } from "#lib/dataService.js";
 
 export function load() {
   return {
