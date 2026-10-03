@@ -19,7 +19,11 @@ async function generateRssXml() {
     encoding: "UTF-8"
   })
     // rss
-    .ele("rss", { version: "2.0", "xmlns:atom": "http://www.w3.org/2005/Atom" })
+    .ele("rss", {
+      version: "2.0",
+      "xmlns:atom": "http://www.w3.org/2005/Atom",
+      "xmlns:creativeCommons": "http://backend.userland.com/creativeCommonsRssModule"
+    })
     .ele("channel")
     // title
     .ele("title")
@@ -47,7 +51,15 @@ async function generateRssXml() {
     // pubDate
     .ele("pubDate")
     .txt(pubDate)
-    .up();
+    .up()
+    // copyright
+    .ele("copyright")
+    .txt(`Copyright ${new Date().getFullYear()}, Francis Dominic Fajardo`)
+    .up()
+    // creativeCommons:license
+    .ele("creativeCommons:license")
+    .txt("https://creativecommons.org/licenses/by-nd/4.0")
+    .up()
 
   posts.forEach((post) => {
     const postUrl = fakeResolve(`blog/${post.year}/${post.month}/${post.slug}`);
