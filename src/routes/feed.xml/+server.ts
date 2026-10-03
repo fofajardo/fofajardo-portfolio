@@ -1,36 +1,108 @@
 import { fetchPosts } from "#lib/dataService.js";
 import { escapeXml } from "#lib/utils.js";
+import { create } from "xmlbuilder2";
 
 export const prerender = true;
 
-export async function GET() {
+function fakeResolve(path: string) {
+  if (path.startsWith("/")) {
+    return `${import.meta.env.VITE_URL_ORIGIN}${path}`;
+  }
+  return `${import.meta.env.VITE_URL_ORIGIN}/${path}`;
+}
+
+async function generateRssXml() {
   const posts = await fetchPosts();
+  const pubDate = new Date(posts[posts.length - 1].date).toUTCString();
 
-  const siteUrl = "https://fofajardo.com";
-  const feed = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-  <title>Francis Dominic Fajardo</title>
-  <link>${siteUrl}/blog</link>
-  <description>Francis Dominic Fajardo's Blog</description>
-  <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
-  ${posts
-    .map(
-      (post) => `
-  <item>
-    <title>${escapeXml(post.title)}</title>
-    <link>${siteUrl}/blog/${post.year}/${post.month}/${post.slug}</link>
-    <guid>${siteUrl}/blog/${post.year}/${post.month}/${post.slug}</guid>
-    <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-    ${post.description ? `<description>${escapeXml(post.description)}</description>` : ""}
-    ${post.author ? `<author>${escapeXml(post.author)}</author>` : ""}
-  </item>`
-    )
-    .join("")}
-</channel>
-</rss>`;
+  const builder = create({
+    encoding: "UTF-8"
+  })
+    // rss
+    .ele("rss", { version: "2.0", "xmlns:atom": "http://www.w3.org/2005/Atom" })
+    .ele("channel")
+    // title
+    .ele("title")
+    .txt("Francis Dominic Fajardo")
+    .up()
+    // description
+    .ele("description")
+    .txt("Francis Dominic Fajardo's Blog")
+    .up()
+    // link
+    .ele("link")
+    .txt(fakeResolve("blog"))
+    .up()
+    // atom:link
+    .ele("atom:link", {
+      href: fakeResolve("feed.xml"),
+      rel: "self",
+      type: "application/rss+xml"
+    })
+    .up()
+    // lastBuildDate
+    .ele("lastBuildDate")
+    .txt(new Date().toUTCString())
+    .up()
+    // pubDate
+    .ele("pubDate")
+    .txt(pubDate)
+    .up();
 
-  return new Response(feed, {
+  posts.forEach((post) => {
+    const postUrl = fakeResolve(`blog/${post.year}/${post.month}/${post.slug}`);
+    const commentsUrl = `${postUrl}#comments`;
+    const postBuilder = builder
+      .ele("item")
+      // title
+      .ele("title")
+      .txt(escapeXml(post.title))
+      .up()
+      // link
+      .ele("link")
+      .txt(postUrl)
+      .up()
+      // guid
+      .ele("guid")
+      .txt(postUrl)
+      .up()
+      // pubDate
+      .ele("pubDate")
+      .txt(new Date(post.date).toUTCString())
+      .up()
+      // comments
+      .ele("comments")
+      .txt(commentsUrl)
+      .up();
+    // description
+    if (post.description) {
+      postBuilder.ele("description").txt(escapeXml(post.description)).up();
+    }
+    // author
+    if (post.author) {
+      postBuilder.ele("author").txt(escapeXml(post.author)).up();
+    }
+    // tags
+    if (post.tags) {
+      post.tags.forEach((tag) => {
+        postBuilder.ele("category").txt(escapeXml(tag));
+      });
+    }
+    // enclosure
+    if (post.ogImage) {
+      postBuilder.ele("enclosure", {
+        length: 0,
+        type: "image/png",
+        url: fakeResolve(post.ogImage)
+      });
+    }
+  });
+
+  return builder.end({ prettyPrint: true });
+}
+
+export async function GET() {
+  return new Response(await generateRssXml(), {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
       "Cache-Control": "max-age=0, s-maxage=3600"
