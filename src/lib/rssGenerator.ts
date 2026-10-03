@@ -137,10 +137,17 @@ export async function generateAtomXml() {
     .ele("subtitle", { type: "text" })
     .txt(description)
     .up()
+    // link (html)
+    .ele("link", {
+      href: fakeResolve(),
+      rel: "alternate",
+      type: "text/html"
+    })
+    .up()
     // link (rss)
     .ele("link", {
       href: fakeResolve("feed.xml"),
-      rel: "self",
+      rel: "alternate",
       type: "application/rss+xml"
     })
     .up()
