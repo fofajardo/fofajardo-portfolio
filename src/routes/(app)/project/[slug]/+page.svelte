@@ -13,7 +13,7 @@
   let project = $derived(data.project);
   let techList = $derived(data.techList);
   let otherProjects = $derived(data.otherProjects);
-  let Content = $derived(data.content);
+  let Content = $derived(project.content);
 
   const allImageModules = import.meta.glob(
     `#content/previewset/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}`,

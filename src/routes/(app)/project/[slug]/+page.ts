@@ -10,13 +10,6 @@ export const load: PageLoad = async ({ params }) => {
     error(404, `Project not found: ${slug}`);
   }
 
-  let post;
-  try {
-    post = await import(`#content/projects/${slug}.md`);
-  } catch (e) {
-    error(404, `Could not load project content for ${slug}`);
-  }
-
   const techList = (project.technologies || []).map((techName) => {
     let techFriendlyName = techName;
     let icon = "ph:code-bold";
@@ -42,7 +35,6 @@ export const load: PageLoad = async ({ params }) => {
 
   return {
     project,
-    content: post.default,
     techList,
     otherProjects,
     title: `${project.title} - Projects`,
