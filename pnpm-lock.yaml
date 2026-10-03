@@ -20,6 +20,9 @@ importers:
       viewerjs:
         specifier: ^1.11.7
         version: 1.11.7
+      xmlbuilder2:
+        specifier: ^4.0.3
+        version: 4.0.3
     devDependencies:
       '@eslint/compat':
         specifier: ^2.1.0
