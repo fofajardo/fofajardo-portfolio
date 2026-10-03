@@ -1,6 +1,7 @@
 import { fetchPosts } from "#lib/dataService.js";
 import { escapeXml } from "#lib/utils.js";
 import { create } from "xmlbuilder2";
+import { EMAIL_WM } from "$app/env/public";
 
 export const prerender = true;
 
@@ -51,6 +52,10 @@ async function generateRssXml() {
     // pubDate
     .ele("pubDate")
     .txt(pubDate)
+    .up()
+    // webMaster
+    .ele("webMaster")
+    .txt(EMAIL_WM)
     .up()
     // copyright
     .ele("copyright")

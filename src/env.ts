@@ -8,5 +8,9 @@ export const variables = defineEnvVars({
   RESUME_URL: {
     public: true,
     static: true
+  },
+  EMAIL_WM: {
+    public: true,
+    static: true
   }
 });
