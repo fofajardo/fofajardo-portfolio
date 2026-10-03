@@ -1,6 +1,7 @@
 <script lang="ts">
   import { HeroArt } from "#comp/background";
   import { LinkAnchor } from "#comp/ui";
+  import { RESUME_URL } from "$app/env/public";
 </script>
 
 <div class="heading-container">
@@ -10,7 +11,7 @@
     <LinkAnchor
       link={{
         type: "gdrive",
-        url: "https://drive.google.com/file/d/1FkoQdk_GV_Ad2Lb7VSxhBX6uddumziwo/view?usp=drive_link"
+        url: RESUME_URL
       }}
       isButton
     />
@@ -20,7 +21,7 @@
 <section class="content-layout">
   <div class="card resume-card">
     <iframe
-      src="https://drive.google.com/file/d/1FkoQdk_GV_Ad2Lb7VSxhBX6uddumziwo/preview"
+      src={RESUME_URL}
       width="100%"
       height="800px"
       title="Francis Dominic Fajardo's Résumé"
