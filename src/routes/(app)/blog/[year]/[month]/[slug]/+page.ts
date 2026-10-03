@@ -1,29 +1,24 @@
-import type { BlogPostMetadata } from "#lib/lib.types.js";
+import { fetchPostsMap } from "#lib/dataService.js";
 import { error } from "@sveltejs/kit";
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ params }) => {
   try {
-    const post = await import(`#content/blog/${params.slug}.md`);
-    const meta = post.metadata as BlogPostMetadata;
-
-    const dateParts = meta.date.split("-");
-    const postYear = dateParts[0];
-    const postMonth = dateParts[1];
-
-    if (postYear !== params.year || postMonth !== params.month) {
+    const posts = await fetchPostsMap();
+    const post = posts.get(params.year)?.get(params.month)?.get(params.slug);
+    if (post === undefined) {
       error(404, `Could not find ${params.slug} at ${params.year}/${params.month}`);
     }
 
     return {
-      content: post.default,
-      meta,
-      title: meta.title,
-      description: meta.description,
+      content: post.content,
+      meta: post,
+      title: post.title,
+      description: post.description,
       ogType: "article",
-      ogImage: meta.ogImage || meta.preview || "",
-      author: meta.author,
-      publishedTime: meta.date
+      ogImage: post.ogImage || post.preview || "",
+      author: post.author,
+      publishedTime: post.date
     };
   } catch (e) {
     error(404, `Could not find ${params.slug}`);
