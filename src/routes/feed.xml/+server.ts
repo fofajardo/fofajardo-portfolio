@@ -5,7 +5,7 @@ import { EMAIL_WM } from "$app/env/public";
 
 export const prerender = true;
 
-function fakeResolve(path: string) {
+function fakeResolve(path: string = "") {
   if (path.startsWith("/")) {
     return `${import.meta.env.VITE_URL_ORIGIN}${path}`;
   }
@@ -14,7 +14,10 @@ function fakeResolve(path: string) {
 
 async function generateRssXml() {
   const posts = await fetchPosts();
-  const pubDate = new Date(posts[posts.length - 1].date).toUTCString();
+  const pubDate = new Date(posts[posts.length - 1].date);
+  const title = "Francis Dominic Fajardo";
+  const description = "Francis Dominic Fajardo's Blog";
+  const copyrightNotice = `Copyright ${new Date().getFullYear()}, Francis Dominic Fajardo`;
 
   const builder = create({
     encoding: "UTF-8"
@@ -28,22 +31,15 @@ async function generateRssXml() {
     .ele("channel")
     // title
     .ele("title")
-    .txt("Francis Dominic Fajardo")
+    .txt(title)
     .up()
     // description
     .ele("description")
-    .txt("Francis Dominic Fajardo's Blog")
+    .txt(description)
     .up()
     // link
     .ele("link")
     .txt(fakeResolve("blog"))
-    .up()
-    // atom:link
-    .ele("atom:link", {
-      href: fakeResolve("feed.xml"),
-      rel: "self",
-      type: "application/rss+xml"
-    })
     .up()
     // lastBuildDate
     .ele("lastBuildDate")
@@ -51,7 +47,7 @@ async function generateRssXml() {
     .up()
     // pubDate
     .ele("pubDate")
-    .txt(pubDate)
+    .txt(pubDate.toUTCString())
     .up()
     // webMaster
     .ele("webMaster")
@@ -59,16 +55,67 @@ async function generateRssXml() {
     .up()
     // copyright
     .ele("copyright")
-    .txt(`Copyright ${new Date().getFullYear()}, Francis Dominic Fajardo`)
+    .txt(copyrightNotice)
     .up()
     // creativeCommons:license
     .ele("creativeCommons:license")
     .txt("https://creativecommons.org/licenses/by-nd/4.0")
+    .up();
+
+  // Build Atom/RFC 4287 compatible format
+  const atomBuilder = builder
     .up()
+    // atom:title
+    .ele("atom:title", { type: "text" })
+    .txt(title)
+    .up()
+    // atom:subtitle
+    .ele("atom:subtitle", { type: "text" })
+    .txt(description)
+    .up()
+    // atom:link (rss)
+    .ele("atom:link", {
+      href: fakeResolve("feed.xml"),
+      rel: "self",
+      type: "application/rss+xml"
+    })
+    .up()
+    // atom:link (atom)
+    .ele("atom:link", {
+      href: fakeResolve("feed.xml"),
+      rel: "self",
+      type: "application/atom+xml"
+    })
+    .up()
+    // atom:updated
+    .ele("atom:updated")
+    .txt(pubDate.toISOString())
+    .up()
+    // atom:author
+    .ele("atom:author")
+    .ele("atom:name")
+    .txt(title)
+    .up()
+    .ele("atom:uri")
+    .txt(fakeResolve())
+    .up()
+    .ele("atom:email")
+    .txt(EMAIL_WM)
+    .up()
+    .up()
+    // atom:id
+    .ele("atom:id")
+    .txt(fakeResolve("blog"))
+    .up()
+    // atom:rights
+    .ele("atom:rights")
+    .txt(copyrightNotice)
+    .up();
 
   posts.forEach((post) => {
     const postUrl = fakeResolve(`blog/${post.year}/${post.month}/${post.slug}`);
     const commentsUrl = `${postUrl}#comments`;
+    const postDate = new Date(post.date);
     const postBuilder = builder
       .ele("item")
       // title
@@ -85,24 +132,46 @@ async function generateRssXml() {
       .up()
       // pubDate
       .ele("pubDate")
-      .txt(new Date(post.date).toUTCString())
+      .txt(postDate.toUTCString())
       .up()
       // comments
       .ele("comments")
       .txt(commentsUrl)
       .up();
+
+    const atomPostBuilder = atomBuilder
+      .ele("atom:entry")
+      // atom:title
+      .ele("atom:title")
+      .txt(escapeXml(post.title))
+      .up()
+      // atom:link (alternate)
+      .ele("atom:link", { rel: "alternate", type: "text/html", href: postUrl })
+      .up()
+      // atom:id
+      .ele("atom:id")
+      .txt(postUrl)
+      .up()
+      // atom:updated
+      .ele("atom:updated")
+      .txt(postDate.toISOString())
+      .up();
+
     // description
     if (post.description) {
-      postBuilder.ele("description").txt(escapeXml(post.description)).up();
+      postBuilder.ele("description").txt(escapeXml(post.description));
+      atomPostBuilder.ele("atom:summary").txt(escapeXml(post.description));
     }
     // author
     if (post.author) {
-      postBuilder.ele("author").txt(escapeXml(post.author)).up();
+      postBuilder.ele("author").txt(escapeXml(post.author));
+      atomPostBuilder.ele("atom:author").ele("atom:name").txt(escapeXml(post.author));
     }
     // tags
     if (post.tags) {
       post.tags.forEach((tag) => {
         postBuilder.ele("category").txt(escapeXml(tag));
+        atomPostBuilder.ele("atom:category", { term: escapeXml(tag), label: escapeXml(tag) });
       });
     }
     // enclosure
@@ -111,6 +180,12 @@ async function generateRssXml() {
         length: 0,
         type: "image/png",
         url: fakeResolve(post.ogImage)
+      });
+      atomPostBuilder.ele("atom:link", {
+        rel: "enclosure",
+        length: 0,
+        type: "image/png",
+        href: fakeResolve(post.ogImage)
       });
     }
   });
